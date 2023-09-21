@@ -1,0 +1,55 @@
+ody {
+    overflow: hidden;
+    margin: 0;
+}
+
+.btnList {
+    position: absolute;
+}
+
+.animate {
+    background-color: #4CAF55;
+    border: none;
+    color: white;
+    padding: 7px 10px;
+    text-align: center;
+    text-decoration: none;
+    /*   display: inline-block; */
+    display: flex;
+    flex-direction: column;
+    font-size: 14px;
+    margin: 7px;
+    cursor: pointer;
+}
+
+#camMove {
+    background-color: #0000ff;
+}
+
+#camMoveTwo {
+    background-color: #ff0000;
+}
+
+#camMoveThree {
+    background-color: #009900;
+}
+
+#camMoveFour {
+    background-color: #e67300;
+}
+
+#camMoveFive {
+    background-color: #9900cc;
+}
+
+#camMoveSix {
+    background-color: #ffcc00;
+}
+
+#camMoveSev {
+    background-color: #99ccff;
+}
+
+#camMoveEig {
+    background-color: #00ef2d;
+}
