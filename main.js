@@ -95,12 +95,6 @@ function set_up_sprite(sprite, x, y, z) {
 const sprite_nucleous = new THREE.Sprite(annotation_material);
 set_up_sprite(sprite_nucleous, -20, 21, -18)
 
-const sphere_geometry = new THREE.SphereGeometry(20, 20, 10);
-const invisible_material = new THREE.MeshBasicMaterial({ color: 0x0000ff, transparent: true, opacity: 0.2 });
-// const orb_of_interaction = new THREE.Mesh(sphere_geometry, invisible_material);
-// orb_of_interaction.position.set(-20, 21, -18)
-// scene.add(orb_of_interaction);
-
 const sprite_rough_ER = new THREE.Sprite(annotation_material);
 set_up_sprite(sprite_rough_ER, -55.5, 10, 57)
 
@@ -125,20 +119,14 @@ set_up_sprite(sprite_membrane, -150, 4, -50)
 const sprite_cytsol = new THREE.Sprite(annotation_material);
 set_up_sprite(sprite_cytsol, -100, 1, 80)
 
-const canvas = renderer.domElement; // `renderer` is a THREE.WebGLRenderer
 
 function update_annotation() {
-    var vector = sprite_nucleous.position.clone()
-    vector.project(camera); // `camera` is a THREE.PerspectiveCamera
+    const title = document.querySelector('#title');
 
-    vector.x = Math.round((0.55 + vector.x / 2) * (canvas.width / window.devicePixelRatio));
-    vector.y = Math.round((0.55 - vector.y / 2) * (canvas.height / window.devicePixelRatio));
+    console.log(title)
 
-    //The offset from the point should really be improved 
-    // cause it does not work with small screens
-    const annotation = document.querySelector('.annotation');
-    annotation.style.top = `${vector.y}px`;
-    annotation.style.left = `${vector.x}px`;
+    title.innerHTML = "<strong> Nucleous </strong>"
+
 }
 
 renderer.domElement.addEventListener('click', onClick, false);
@@ -152,9 +140,13 @@ function onClick() {
 
     raycaster.setFromCamera(mouse, camera);
 
-    var intersects = raycaster.intersectObject(orb_of_interaction, true);
+    var intersects = raycaster.intersectObject(sprite_nucleous, true);
+
+    console.log(intersects)
 
     if (intersects.length > 0) {
+
+        update_annotation()
 
         console.log("works")
 
@@ -202,7 +194,7 @@ function toDefault() {
     });
     console.log("Default");
     annotation_material.opacity = 1;
-    camera_focus = new Vector3(0, 0, 0);
+    camera_focus = cell_position;
     console.log(camera.position);
 }
 
@@ -247,13 +239,12 @@ function onWindowResize() {
     renderer.setSize(window.innerWidth, window.innerHeight);
 }
 
-
 function animate() {
     requestAnimationFrame(animate);
 
     controls.update();
     camera.lookAt(camera_focus);
-    update_annotation();
+    // update_annotation
 
     renderer.render(scene, camera);
 }
