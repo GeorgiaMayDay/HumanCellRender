@@ -4,12 +4,13 @@ import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
 import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
 
 const scene = new THREE.Scene();
+const raycaster = new THREE.Raycaster();
 const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
-
 
 const renderer = new THREE.WebGLRenderer();
 renderer.setSize(window.innerWidth, window.innerHeight);
 document.body.appendChild(renderer.domElement);
+var mouse = new THREE.Vector2()
 
 const controls = new OrbitControls(camera, renderer.domElement)
 
@@ -89,11 +90,16 @@ function set_up_sprite(sprite, x, y, z) {
     sprite.scale.set(10, 10, 1)
     sprite.position.set(x, y, z)
     scene.add(sprite)
-
 }
 
 const sprite_nucleous = new THREE.Sprite(annotation_material);
 set_up_sprite(sprite_nucleous, -20, 21, -18)
+
+const sphere_geometry = new THREE.SphereGeometry(20, 20, 10);
+const invisible_material = new THREE.MeshBasicMaterial({ color: 0x0000ff, transparent: true, opacity: 0.2 });
+// const orb_of_interaction = new THREE.Mesh(sphere_geometry, invisible_material);
+// orb_of_interaction.position.set(-20, 21, -18)
+// scene.add(orb_of_interaction);
 
 const sprite_rough_ER = new THREE.Sprite(annotation_material);
 set_up_sprite(sprite_rough_ER, -55.5, 10, 57)
@@ -121,15 +127,40 @@ set_up_sprite(sprite_cytsol, -100, 1, 80)
 
 const canvas = renderer.domElement; // `renderer` is a THREE.WebGLRenderer
 
-var vector = sprite_nucleous.position
-vector.project(camera); // `camera` is a THREE.PerspectiveCamera
+function update_annotation() {
+    var vector = sprite_nucleous.position.clone()
+    vector.project(camera); // `camera` is a THREE.PerspectiveCamera
 
-vector.x = Math.round((0.5 + vector.x / 2) * (canvas.width / window.devicePixelRatio));
-vector.y = Math.round((0.5 - vector.y / 2) * (canvas.height / window.devicePixelRatio));
+    vector.x = Math.round((0.55 + vector.x / 2) * (canvas.width / window.devicePixelRatio));
+    vector.y = Math.round((0.55 - vector.y / 2) * (canvas.height / window.devicePixelRatio));
 
-const annotation = document.querySelector('.annotation');
-annotation.style.top = `${vector.y}px`;
-annotation.style.left = `${vector.x}px`;
+    //The offset from the point should really be improved 
+    // cause it does not work with small screens
+    const annotation = document.querySelector('.annotation');
+    annotation.style.top = `${vector.y}px`;
+    annotation.style.left = `${vector.x}px`;
+}
+
+renderer.domElement.addEventListener('click', onClick, false);
+
+function onClick() {
+
+    event.preventDefault();
+
+    mouse.x = (event.clientX / window.innerWidth) * 2 - 1;
+    mouse.y = -(event.clientY / window.innerHeight) * 2 + 1;
+
+    raycaster.setFromCamera(mouse, camera);
+
+    var intersects = raycaster.intersectObject(orb_of_interaction, true);
+
+    if (intersects.length > 0) {
+
+        console.log("works")
+
+    }
+}
+
 
 // Camera moving functions
 
@@ -171,6 +202,7 @@ function toDefault() {
     });
     console.log("Default");
     annotation_material.opacity = 1;
+    camera_focus = new Vector3(0, 0, 0);
     console.log(camera.position);
 }
 
@@ -220,7 +252,8 @@ function animate() {
     requestAnimationFrame(animate);
 
     controls.update();
-    camera.lookAt(camera_focus)
+    camera.lookAt(camera_focus);
+    update_annotation();
 
     renderer.render(scene, camera);
 }
