@@ -15,10 +15,8 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.3.4/gsap.min.js"></script>
 
     <div class="btnList">
-        <button class="animate" id="camMove" onclick="moveCamera()">Nucleous</button>
-        <button class="animate" id="camMoveTwo">
-              WIP
-            </button>
+        <button class="animate" id="camOverview" onclick="toDefault()">Overview</button>
+        <button class="animate" id="camNucelous" onclick="camNucelous()">Nucleous</button>
         <button class="animate" id="camMoveThree">
               WIP
             </button>
@@ -34,10 +32,16 @@
         <button class="animate" id="camMoveSev">
               WIP
             </button>
-        <button class="animate" id="camMoveEig">
-              WIP
+        <button class="animate" id="printCameraPosition" onclick="printCameraPosition()">
+              Camera
             </button>
     </div>
 </body>
+
+<div class="annotation">
+    <p><strong>Cube</strong></p>
+    <p>In geometry, a cube is a three-dimensional solid object bounded by six square faces, facets or sides, with three meeting at each vertex.</p>
+</div>
+<canvas id="number" width="64" height="64"></canvas>
 
 </html>
