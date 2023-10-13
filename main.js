@@ -2,6 +2,7 @@ import * as THREE from 'three';
 import { comparePositions } from './helper_functions.js';
 import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
 import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
+import { Annotation_point, points_visible } from './annotation_points.js';
 
 const scene = new THREE.Scene();
 const raycaster = new THREE.Raycaster();
@@ -41,24 +42,6 @@ controls.addEventListener('change', light_update);
 function light_update() {
     cameralight.position.copy(camera.position);
 }
-
-//Notes
-
-const numberTexture = new THREE.CanvasTexture(
-    document.querySelector("#number")
-);
-
-const spriteMaterial = new THREE.SpriteMaterial({
-    map: numberTexture,
-    alphaTest: 0.5,
-    transparent: true,
-    depthTest: false,
-    depthWrite: false
-});
-
-
-
-
 // Objects in space
 const loader = new GLTFLoader();
 
@@ -83,49 +66,42 @@ loader.load('3D_models/full_cell_model.glb', function(full_cell_model) {
 });
 
 //Annotation 
-const map = new THREE.TextureLoader().load('annotation_point.png');
-const annotation_material = new THREE.SpriteMaterial({ map: map, color: 0xffffff });
+const sprite_nucleous = new Annotation_point([-20, 21, -18]);
+scene.add(sprite_nucleous.sprite)
 
-function set_up_sprite(sprite, x, y, z) {
-    sprite.scale.set(10, 10, 1)
-    sprite.position.set(x, y, z)
-    scene.add(sprite)
-}
+const sprite_rough_ER = new Annotation_point([-55.5, 10, 57]);
+scene.add(sprite_rough_ER.sprite)
 
-const sprite_nucleous = new THREE.Sprite(annotation_material);
-set_up_sprite(sprite_nucleous, -20, 21, -18)
+const sprite_golgi_body = new Annotation_point([53, 9, 91]);
+scene.add(sprite_golgi_body.sprite)
 
-const sprite_rough_ER = new THREE.Sprite(annotation_material);
-set_up_sprite(sprite_rough_ER, -55.5, 10, 57)
+const sprite_centrioles = new Annotation_point([-85, -2, 122]);
+scene.add(sprite_centrioles.sprite)
 
-const sprite_golgi_body = new THREE.Sprite(annotation_material);
-set_up_sprite(sprite_golgi_body, 53, 9, 91)
+const sprite_mitochondria = new Annotation_point([-12, 13, 162]);
+scene.add(sprite_mitochondria.sprite)
 
-const sprite_centrioles = new THREE.Sprite(annotation_material);
-set_up_sprite(sprite_centrioles, -85, -2, 122)
+const sprite_smooth_ER = new Annotation_point([-27, 2, 102]);
+scene.add(sprite_smooth_ER.sprite)
 
-const sprite_mitochondria = new THREE.Sprite(annotation_material);
-set_up_sprite(sprite_mitochondria, -12, 13, 162)
+const sprite_lysosome = new Annotation_point([-130, 8, 60]);
+scene.add(sprite_lysosome.sprite)
 
-const sprite_smooth_ER = new THREE.Sprite(annotation_material);
-set_up_sprite(sprite_smooth_ER, -27, 2, 102)
+const sprite_membrane = new Annotation_point([-150, 4, -50]);
+scene.add(sprite_membrane.sprite)
 
-const sprite_lysosome = new THREE.Sprite(annotation_material);
-set_up_sprite(sprite_lysosome, -130, 8, 60)
+const sprite_cytsol = new Annotation_point([-100, 1, 80]);
+scene.add(sprite_cytsol.sprite)
 
-const sprite_membrane = new THREE.Sprite(annotation_material);
-set_up_sprite(sprite_membrane, -150, 4, -50)
-
-const sprite_cytsol = new THREE.Sprite(annotation_material);
-set_up_sprite(sprite_cytsol, -100, 1, 80)
-
+const sprite_nuclear_pore = new Annotation_point([-70, 30, -33]);
+scene.add(sprite_nuclear_pore.sprite)
 
 function update_annotation() {
     const title = document.querySelector('#title');
-
-    console.log(title)
+    const details = document.querySelector('#details');
 
     title.innerHTML = "<strong> Nucleous </strong>"
+    details.innerHTML = "The mitochondria is the powerhouse of the cell"
 
 }
 
@@ -140,15 +116,17 @@ function onClick() {
 
     raycaster.setFromCamera(mouse, camera);
 
-    var intersects = raycaster.intersectObject(sprite_nucleous, true);
+    const arrayOfObjects = [sprite_nucleous.getPoint(), sprite_mitochondria.getPoint()]
+
+    var intersects = raycaster.intersectObjects(arrayOfObjects, true);
 
     console.log(intersects)
+    console.log(sprite_nucleous.sprite.isObject3D)
 
     if (intersects.length > 0) {
 
         update_annotation()
-
-        console.log("works")
+        toObject(sprite_nucleous.getPoint())
 
     }
 }
@@ -172,12 +150,11 @@ document.querySelector("#printCameraPosition").onclick = function() {
 
 function printCameraPosition() {
     console.log(camera.position);
+    console.log(sprite_golgi_body.position)
 }
 
 
 function toDefault() {
-    var aabb = new THREE.Box3().setFromObject(sprite_nucleous);
-
     var pl = gsap.timeline();
 
     pl.to(camera.position, {
@@ -193,8 +170,8 @@ function toDefault() {
         }
     });
     console.log("Default");
-    annotation_material.opacity = 1;
     camera_focus = cell_position;
+    points_visible(true);
     console.log(camera.position);
 }
 
@@ -222,7 +199,7 @@ function toObject(annotation) {
             controls.update();
         },
         onComplete: function() {
-            annotation.material.opacity = 0;
+            points_visible(false);
         }
     });
 
