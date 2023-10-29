@@ -12,8 +12,10 @@ export function points_visible(isVisible = true) {
 }
 
 export class Annotation_point {
-    constructor(position, sprite) {
+    constructor(position, name, description, sprite) {
         this.position = position;
+        this.name = name;
+        this.information = new Annotation_Information(name, description)
 
         sprite = new THREE.Sprite(annotation_material);
         this.sprite = sprite;
@@ -21,8 +23,20 @@ export class Annotation_point {
         sprite.scale.set(10, 10, 1);
         sprite.position.set(position[0], position[1], position[2]);
     }
-
     getPoint() {
-        return this.sprite
+        return this.sprite;
+    }
+    getName() {
+        return this.name;
+    }
+    getPosition() {
+        return this.position;
+    }
+}
+
+export class Annotation_Information {
+    constructor(title, description) {
+        this.title = title;
+        this.description = description;
     }
 }

@@ -1,5 +1,5 @@
 import * as THREE from 'three';
-import { comparePositions } from './helper_functions.js';
+import { comparePositions, compareClickWithPoint } from './helper_functions.js';
 import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
 import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
 import { Annotation_point, points_visible } from './annotation_points.js';
@@ -11,13 +11,13 @@ const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerH
 const renderer = new THREE.WebGLRenderer();
 renderer.setSize(window.innerWidth, window.innerHeight);
 document.body.appendChild(renderer.domElement);
-var mouse = new THREE.Vector2()
+let mouse = new THREE.Vector2()
 
 const controls = new OrbitControls(camera, renderer.domElement)
 
 const default_camera_position = new THREE.Vector3(-192.185633513088, 129.31783555216967, 133.80998272738674)
 const cell_position = new THREE.Vector3(0, 0, 0);
-var camera_focus = cell_position
+let camera_focus = cell_position
 
 camera.position.set(default_camera_position.x, default_camera_position.y, default_camera_position.z);
 controls.update();
@@ -66,42 +66,58 @@ loader.load('3D_models/full_cell_model.glb', function(full_cell_model) {
 });
 
 //Annotation 
-const sprite_nucleous = new Annotation_point([-20, 21, -18]);
-scene.add(sprite_nucleous.sprite)
 
-const sprite_rough_ER = new Annotation_point([-55.5, 10, 57]);
-scene.add(sprite_rough_ER.sprite)
+let Annotation_List = []
+let Sprite_List = []
 
-const sprite_golgi_body = new Annotation_point([53, 9, 91]);
-scene.add(sprite_golgi_body.sprite)
+function annotation_set_up(sprite_class) {
+    Annotation_List.push(sprite_class)
+    scene.add(sprite_class.sprite)
+    Sprite_List.push(sprite_class.getPoint())
+}
+const sprite_nucleous = new Annotation_point([-20, 21, -18], "Nucleous",
+    "This is an organelle");
+annotation_set_up(sprite_nucleous)
 
-const sprite_centrioles = new Annotation_point([-85, -2, 122]);
-scene.add(sprite_centrioles.sprite)
+const sprite_rough_ER = new Annotation_point([-55.5, 10, 57], "Rough ER", "This is an organelle");
+annotation_set_up(sprite_rough_ER)
 
-const sprite_mitochondria = new Annotation_point([-12, 13, 162]);
-scene.add(sprite_mitochondria.sprite)
+const sprite_golgi_body = new Annotation_point([53, 9, 91], "Golgi Body", "This is an organelle");
+annotation_set_up(sprite_golgi_body)
 
-const sprite_smooth_ER = new Annotation_point([-27, 2, 102]);
-scene.add(sprite_smooth_ER.sprite)
+const sprite_centrioles = new Annotation_point([-85, -2, 122], "Centrioles", "This is an organelle");
+annotation_set_up(sprite_centrioles)
 
-const sprite_lysosome = new Annotation_point([-130, 8, 60]);
-scene.add(sprite_lysosome.sprite)
+const sprite_mitochondria = new Annotation_point([-12, 13, 162], "Mitochondria", "This is an organelle");
+annotation_set_up(sprite_mitochondria)
 
-const sprite_membrane = new Annotation_point([-150, 4, -50]);
-scene.add(sprite_membrane.sprite)
+const sprite_smooth_ER = new Annotation_point([-27, 2, 102], "Smooth ER", "This is an organelle");
+annotation_set_up(sprite_smooth_ER)
 
-const sprite_cytsol = new Annotation_point([-100, 1, 80]);
-scene.add(sprite_cytsol.sprite)
+const sprite_lysosome = new Annotation_point([-130, 8, 60], "Lysosome", "This is an organelle");
+annotation_set_up(sprite_lysosome)
 
-const sprite_nuclear_pore = new Annotation_point([-70, 30, -33]);
-scene.add(sprite_nuclear_pore.sprite)
+const sprite_membrane = new Annotation_point([-150, 4, -50], "Membrane", "This is an organelle");
+annotation_set_up(sprite_membrane)
 
-function update_annotation() {
+const sprite_cytsol = new Annotation_point([-100, 1, 80], "Cytsol", "This is an organelle");
+annotation_set_up(sprite_cytsol)
+
+const sprite_nuclear_pore = new Annotation_point([-70, 30, -33], "Nuclear Pore", "This is an organelle");
+annotation_set_up(sprite_nuclear_pore)
+
+function update_annotation(sprite) {
     const title = document.querySelector('#title');
     const details = document.querySelector('#details');
 
-    title.innerHTML = "<strong> Nucleous </strong>"
-    details.innerHTML = "The mitochondria is the powerhouse of the cell"
+    if (typeof sprite == "undefined") {
+        title.innerHTML = "<strong>" + "Cell Model" + "</strong>"
+        details.innerHTML = "This is a cell model for you to play around with. Feel free to click on any of the points to learn more about them."
+        return 0
+    }
+
+    title.innerHTML = "<strong>" + sprite.information.title + "</strong>"
+    details.innerHTML = sprite.information.description
 
 }
 
@@ -116,18 +132,21 @@ function onClick() {
 
     raycaster.setFromCamera(mouse, camera);
 
-    const arrayOfObjects = [sprite_nucleous.getPoint(), sprite_mitochondria.getPoint()]
+    let intersects = raycaster.intersectObjects(Sprite_List, true);
+    if (intersects.length != 0) {
+        for (let p of Annotation_List) {
+            if (compareClickWithPoint(intersects[0].point, p.getPosition())) {
 
-    var intersects = raycaster.intersectObjects(arrayOfObjects, true);
+                console.log(p.getName())
 
-    console.log(intersects)
-    console.log(sprite_nucleous.sprite.isObject3D)
-
-    if (intersects.length > 0) {
-
-        update_annotation()
-        toObject(sprite_nucleous.getPoint())
-
+                update_annotation(p)
+                toObject(p.getPoint())
+                break
+            } else {
+                console.log("Not the point I care about")
+                console.log(p.getName())
+            }
+        }
     }
 }
 
@@ -155,7 +174,7 @@ function printCameraPosition() {
 
 
 function toDefault() {
-    var pl = gsap.timeline();
+    let pl = gsap.timeline();
 
     pl.to(camera.position, {
         //delay: 1.3,
@@ -171,24 +190,24 @@ function toDefault() {
     });
     console.log("Default");
     camera_focus = cell_position;
+    update_annotation();
     points_visible(true);
-    console.log(camera.position);
 }
 
 function toObject(annotation) {
-    var aabb = new THREE.Box3().setFromObject(annotation);
-    var center = aabb.getCenter(new THREE.Vector3());
+    let aabb = new THREE.Box3().setFromObject(annotation);
+    let center = aabb.getCenter(new THREE.Vector3());
 
-    var camPosition = camera.position.clone();
-    var targPosition = annotation.position.clone();
-    var distance = camPosition.sub(targPosition);
-    var direction = distance.normalize();
-    var offset = distance.clone().sub(direction.multiplyScalar(2));
-    var newPos = annotation.position.clone().sub(offset);
+    let camPosition = camera.position.clone();
+    let targPosition = annotation.position.clone();
+    let distance = camPosition.sub(targPosition);
+    let direction = distance.normalize();
+    let offset = distance.clone().sub(direction.multiplyScalar(2));
+    let newPos = annotation.position.clone().sub(offset);
     newPos.y = camera.position.y;
 
 
-    var pl = gsap.timeline();
+    let pl = gsap.timeline();
     pl.to(camera.position, {
         duration: 2.5,
         ease: "power3.in",
@@ -221,7 +240,6 @@ function animate() {
 
     controls.update();
     camera.lookAt(camera_focus);
-    // update_annotation
 
     renderer.render(scene, camera);
 }
