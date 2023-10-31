@@ -1,0 +1,86 @@
+ /* CSS HEX */
+ 
+ :root {
+     --mint-green: #c7eae4ff;
+     --main-background: #F4FBFA;
+     --celadon: #a7e8bdff;
+     --eerie-black: #1c2321ff;
+     --tropical-indigo: #9395d3ff;
+     --yale-blue: #0d3b66ff;
+     --fern-green: #A2CE72;
+ }
+ 
+ body {
+     overflow: hidden;
+     margin: 0;
+ }
+ 
+ .btnList {
+     position: fixed;
+     display: inline-flex;
+ }
+ 
+ .animate {
+     background-color: #4CAF55;
+     border: none;
+     color: white;
+     padding: 7px 10px;
+     text-align: center;
+     text-decoration: none;
+     display: flex;
+     flex-direction: row;
+     font-size: 14px;
+     margin: 7px;
+     cursor: pointer;
+ }
+ 
+ #camNucelous {
+     background-color: #0000ff;
+ }
+ 
+ #camOverview {
+     background-color: #ff0000;
+ }
+ 
+ #camMoveThree {
+     background-color: #009900;
+ }
+ 
+ #camMoveFour {
+     background-color: #e67300;
+ }
+ 
+ #camMoveFive {
+     background-color: #9900cc;
+ }
+ 
+ #camMoveSix {
+     background-color: #ffcc00;
+ }
+ 
+ #camMoveSev {
+     background-color: #99ccff;
+ }
+ 
+ #camMoveEig {
+     background-color: #00ef2d;
+ }
+ 
+ .annotation {
+     position: absolute;
+     display: flex;
+     flex-direction: column;
+     top: 12%;
+     left: 0;
+     z-index: 1;
+     margin-left: 15px;
+     margin-top: 15px;
+     padding: 1em;
+     width: 200px;
+     color: #fff;
+     background: rgba(119, 136, 153, 0.5);
+     border-radius: .5em;
+     font-size: 12px;
+     line-height: 1.2;
+     transition: opacity .5s;
+ }
