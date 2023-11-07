@@ -5,8 +5,8 @@ import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
 import { Annotation_point, points_visible } from './annotation_points.js';
 
 const scene = new THREE.Scene();
-const raycaster = new THREE.Raycaster();
-const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+
+const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight - 40, 0.1, 1000);
 
 const renderer = new THREE.WebGLRenderer();
 renderer.setSize(window.innerWidth, window.innerHeight);
@@ -49,6 +49,7 @@ loader.load('3D_models/full_cell_model.glb', function(full_cell_model) {
 
     const cell_model = full_cell_model.scene
 
+
     cell_model.position.setX(0);
     cell_model.position.setY(0);
     cell_model.position.setZ(0);
@@ -65,6 +66,7 @@ loader.load('3D_models/full_cell_model.glb', function(full_cell_model) {
 
 });
 
+const raycaster = new THREE.Raycaster();
 //Annotation 
 
 let Annotation_List = []
@@ -126,9 +128,11 @@ renderer.domElement.addEventListener('click', onClick, false);
 function onClick() {
 
     event.preventDefault();
+    let headerHeight = document.getElementById('header').offsetHeight
+    let renderHeight = window.innerHeight + (headerHeight / 2)
 
     mouse.x = (event.clientX / window.innerWidth) * 2 - 1;
-    mouse.y = -(event.clientY / window.innerHeight) * 2 + 1;
+    mouse.y = -(event.clientY / renderHeight) * 2 + 1;
 
     raycaster.setFromCamera(mouse, camera);
 
@@ -154,7 +158,7 @@ function onClick() {
 // Camera moving functions
 
 document.querySelector("#camNucelous").onclick = function() {
-    toObject(sprite_nucleous)
+    toObject(sprite_nucleous.getPoint())
 }
 
 document.querySelector("#camOverview").onclick = function() {
@@ -228,11 +232,19 @@ function toObject(annotation) {
 
 window.addEventListener("resize", onWindowResize, false);
 
+addEventListener("load", onWindowResize);
+
 function onWindowResize() {
-    camera.aspect = window.innerWidth / window.innerHeight;
+    let headerHeight = document.getElementById('header').offsetHeight
+    let renderHeight = window.innerHeight - headerHeight
+
+    let annotation_box = document.getElementById('annotation_box')
+    annotation_box.style.top = headerHeight.toString() + "px"
+
+    camera.aspect = window.innerWidth / renderHeight;
     camera.updateProjectionMatrix();
 
-    renderer.setSize(window.innerWidth, window.innerHeight);
+    renderer.setSize(window.innerWidth, renderHeight);
 }
 
 function animate() {

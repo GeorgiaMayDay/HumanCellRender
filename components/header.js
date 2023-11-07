@@ -30,22 +30,22 @@ class Header extends HTMLElement {
     }
 
     </style>
-    <header>
+    <header id="header">
     <nav>
         <ul class="nav nav-pills nav-justified">
             <li class="nav-item">
-                <a class="nav-link" id="cellModelLink" href="cell_model.html"> Cell Model </a>
+                <a class="nav-link" id="cellModelLink" href="/cell_model.html"> Cell Model </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" id="home" href="./">
-                    <img src="images/logo.png" alt="Logo" class="logo"> C3ll Education Learning
+                <a class="nav-link" id="home" href="/">
+                    <img src="/images/logo.png" alt="Logo" class="logo"> C3ll Education Learning
                 </a>
             </li>
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle"  data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Quiz</a>
                 <div class="dropdown-menu">
-                    <a class="dropdown-item">Test</a>
-                    <a class="dropdown-item" href="/">Another action</a>
+                    <a class="dropdown-item" href="/quiz_pages/generic.html">Test</a>
+                    <a class="dropdown-item" href="/quiz_pages/end_of_section.html">Another action</a>
                 </div>
             </li>
             <li class="nav-item">
