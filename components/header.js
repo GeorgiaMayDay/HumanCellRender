@@ -21,7 +21,7 @@ class Header extends HTMLElement {
     }
 
     nav {
-        background-color: var(--tropical-indigo);
+        background-color: var(--mint-green);
         font-size: large;
     }
 

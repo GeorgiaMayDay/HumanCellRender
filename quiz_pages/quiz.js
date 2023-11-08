@@ -22,13 +22,20 @@ function getRndQuestionNumber() {
     return Math.floor(Math.random() * ((myQuestions.length) - 0) + 0);
 }
 
+function checkIfSectionDone(question_used) {
+    if (!(question_used.includes(0))) {
+        console.log("You did it")
+        sessionStorage.setItem("score", score);
+        sessionStorage.setItem("questionNum", myQuestions.length);
+        // document.location.href = "../quiz_pages/end_of_section.html";
+        return true
+    }
+    return false
+
+}
+
 function getRndUniqueQuestion(used_list) {
     used = true
-    if (!(used_list.includes(0))) {
-        console.log("You did it")
-        document.location.href = "../quiz_pages/end_of_section.html";
-        return 1
-    }
     while (used) {
         question_number = getRndQuestionNumber()
         if (!(used_list[question_number] == 1)) {
@@ -44,7 +51,7 @@ let quizContainer = document.getElementById('quiz');
 let submitButton = document.getElementById('submit');
 let resultsContainer = document.getElementById('reveal');
 let nextButton = document.getElementById('next');
-let score = []
+let score = 0
 let questionUsed = new Array(myQuestions.length);
 for (let i = 0; i < myQuestions.length; ++i) questionUsed[i] = 0;
 
@@ -53,18 +60,25 @@ generateQuiz(myQuestions, quizContainer, resultsContainer, submitButton, questio
 
 function generateQuiz(questions, quizContainer, resultsContainer, submitButton) {
 
-    function showQuestion(quizContainer) {
-        // we'll need a place to store the output and the answer choices
+    submitButton.style.display = "block";
+    nextButton.style.display = "none";
+
+    function showQuestion(quizContainer, resultsContainer) {
         let output = [];
         let answers;
 
-
-        // first reset the list of answers
+        //reset
         answers = [];
+        resultsContainer.innerHTML = ""
 
+
+
+        let done = checkIfSectionDone(questionUsed)
+        if (done) {
+            return false
+        }
         question_and_used_list = getRndUniqueQuestion(questionUsed)
         let question = myQuestions[question_and_used_list[1]]
-        console.log(question)
         questionUsed = question_and_used_list[0]
 
         // for each available answer...
@@ -130,12 +144,24 @@ function generateQuiz(questions, quizContainer, resultsContainer, submitButton) 
 
         // show number of correct answers out of total and reveal next button
         resultsContainer.innerHTML = numCorrect + ' out of 1';
-        nextButton.removeAttribute("hidden")
+        score += numCorrect;
+        nextButton.style.display = "block";
+        submitButton.style.display = "none";
 
     }
 
+    function displayResults(quizContainer, resultsContainer) {
+        quizContainer.innerHTML = "You did it";
+        resultsContainer.innerHTML = "You got " + score + "/" + myQuestions.length;
+    }
+
     // show questions right away
-    let question_and_used = showQuestion(quizContainer);
+    let question_and_used = showQuestion(quizContainer, resultsContainer);
+    if (!(question_and_used)) {
+        submitButton.style.display = "none";
+        nextButton.style.display = "none";
+        displayResults(quizContainer, resultsContainer)
+    }
 
     // on submit, show results
     submitButton.onclick = function() {
