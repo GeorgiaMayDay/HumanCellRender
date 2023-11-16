@@ -3,7 +3,8 @@ let myQuestions = [{
         answers: {
             a: '3',
             b: '5',
-            c: '115'
+            c: '115',
+            d: '8'
         },
         correctAnswer: 'b'
     },
@@ -12,7 +13,8 @@ let myQuestions = [{
         answers: {
             a: '3',
             b: '5',
-            c: '10'
+            c: '10',
+            d: '17'
         },
         correctAnswer: 'c'
     }
@@ -25,9 +27,6 @@ function getRndQuestionNumber() {
 function checkIfSectionDone(question_used) {
     if (!(question_used.includes(0))) {
         console.log("You did it")
-        sessionStorage.setItem("score", score);
-        sessionStorage.setItem("questionNum", myQuestions.length);
-        // document.location.href = "../quiz_pages/end_of_section.html";
         return true
     }
     return false
@@ -51,12 +50,13 @@ let quizContainer = document.getElementById('quiz');
 let submitButton = document.getElementById('submit');
 let resultsContainer = document.getElementById('reveal');
 let nextButton = document.getElementById('next');
+let restartButton = document.getElementById('restart');
 let score = 0
 let questionUsed = new Array(myQuestions.length);
 for (let i = 0; i < myQuestions.length; ++i) questionUsed[i] = 0;
 
 
-generateQuiz(myQuestions, quizContainer, resultsContainer, submitButton, questionUsed);
+generateQuiz(myQuestions, quizContainer, resultsContainer, submitButton);
 
 function generateQuiz(questions, quizContainer, resultsContainer, submitButton) {
 
@@ -77,26 +77,35 @@ function generateQuiz(questions, quizContainer, resultsContainer, submitButton) 
         if (done) {
             return false
         }
-        question_and_used_list = getRndUniqueQuestion(questionUsed)
-        let question = myQuestions[question_and_used_list[1]]
-        questionUsed = question_and_used_list[0]
+        question_and_used_list = getRndUniqueQuestion(questionUsed);
+        let question = myQuestions[question_and_used_list[1]];
+        questionUsed = question_and_used_list[0];
+        let columns = Object.keys(question['answers']).length;
+        let column_divide = Math.ceil(columns / 2);
+        console.log(columns);
+        count_answer = 0;
 
-        // for each available answer...
         for (letter in question['answers']) {
 
-            console.log(letter)
+            if (count_answer == 0 || count_answer == column_divide) {
+                answers.push('<div class="col p-1" >')
+            }
 
-            // ...add an html radio button
+            count_answer++
+
+            // add an html radio button
             answers.push(
-                '<label>' +
-                '<input type="radio" name="question" value="' + letter + '">' +
+                '<label class="btn btn-xl btn-primary">' +
+                '<input type="radio" name="options" value="' + letter + '">' +
                 letter + ': ' +
                 question['answers'][letter] +
                 '</label>'
             );
-        }
 
-        console.log(quizContainer)
+            if (count_answer == 0 || count_answer == column_divide) {
+                answers.push('</div>')
+            }
+        }
 
         // add this question and its answers to the output
         output.push(
@@ -106,8 +115,6 @@ function generateQuiz(questions, quizContainer, resultsContainer, submitButton) 
 
         // finally combine our output list into one string of html and put it on the page
         quizContainer.innerHTML = output.join('');
-
-        console.log(quizContainer.innerHTML)
 
         return [question, questionUsed]
     }
@@ -124,7 +131,7 @@ function generateQuiz(questions, quizContainer, resultsContainer, submitButton) 
 
 
         // find selected answer
-        userAnswer = (answerContainers.querySelector('input[name=question]:checked') || {}).value;
+        userAnswer = (answerContainers.querySelector('input[name=options]:checked') || {}).value;
 
         console.log(userAnswer)
 
@@ -133,13 +140,17 @@ function generateQuiz(questions, quizContainer, resultsContainer, submitButton) 
             // add to the number of correct answers
             numCorrect++;
 
-            // color the answers green
-            answerContainers.style.color = 'lightgreen';
+            btns = answerContainers.querySelectorAll('input[name=options]')
+
+            btns.forEach((answer_btns) => {
+                answer_btns.disabled = true;
+
+            });
+
         }
         // if answer is wrong or blank
         else {
-            // color the answers red
-            answerContainers.style.color = 'red';
+
         }
 
         // show number of correct answers out of total and reveal next button
@@ -167,6 +178,14 @@ function generateQuiz(questions, quizContainer, resultsContainer, submitButton) 
     submitButton.onclick = function() {
         showResults(question_and_used[0], quizContainer, resultsContainer);
     }
+
+    //on restart, regenerate Quiz
+    restartButton.onclick = function() {
+        score = 0;
+        for (let i = 0; i < myQuestions.length; ++i) questionUsed[i] = 0;
+        generateQuiz(myQuestions, quizContainer, resultsContainer, submitButton);
+    }
+
 
     // on next, move to new question
     nextButton.onclick = function() {

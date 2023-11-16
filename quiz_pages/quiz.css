@@ -1,0 +1,21 @@
+#reveal {
+    width: 30%;
+}
+
+.btn-xl {
+    padding: 10px 20px;
+    font-size: 20px;
+    border-radius: 10px;
+    width: 20%;
+    height: 15%;
+}
+
+.answers {
+    text-align: center;
+    --bs-gutter-x: 10px;
+    --bs-gutter-y: 10px;
+}
+
+.question {
+    font-size: x-large;
+}
