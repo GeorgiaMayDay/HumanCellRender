@@ -44,8 +44,7 @@ class Header extends HTMLElement {
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle"  data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Quiz</a>
                 <div class="dropdown-menu">
-                    <a class="dropdown-item" href="/quiz_pages/generic.html">Test</a>
-                    <a class="dropdown-item" href="/quiz_pages/end_of_section.html">Another action</a>
+                    <a class="dropdown-item" href="/quiz_pages/generic.html">General</a>
                 </div>
             </li>
             <li class="nav-item">

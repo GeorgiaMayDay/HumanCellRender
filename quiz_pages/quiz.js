@@ -46,7 +46,8 @@ function getRndUniqueQuestion(used_list) {
     }
 }
 
-let quizContainer = document.getElementById('quiz');
+let questionContainer = document.getElementById('question');
+let answerContainer = document.getElementById('answers');
 let submitButton = document.getElementById('submit');
 let resultsContainer = document.getElementById('reveal');
 let nextButton = document.getElementById('next');
@@ -56,9 +57,9 @@ let questionUsed = new Array(myQuestions.length);
 for (let i = 0; i < myQuestions.length; ++i) questionUsed[i] = 0;
 
 
-generateQuiz(myQuestions, quizContainer, resultsContainer, submitButton);
+generateQuiz(myQuestions, questionContainer, resultsContainer, submitButton, answerContainer);
 
-function generateQuiz(questions, quizContainer, resultsContainer, submitButton) {
+function generateQuiz(questions, questionContainer, resultsContainer, submitButton, answerContainer) {
 
     submitButton.style.display = "block";
     nextButton.style.display = "none";
@@ -95,11 +96,10 @@ function generateQuiz(questions, quizContainer, resultsContainer, submitButton) 
 
             // add an html radio button
             answers.push(
-                '<label class="btn btn-xl btn-primary">' +
-                '<input type="radio" name="options" value="' + letter + '">' +
+                '<input type="radio" class="ansbutton" name="options" value="' + letter + '" id="' + letter + '">' +
+                '<label class="btn btn-primary btn-xl" for="' + letter + '">' +
                 letter + ': ' +
-                question['answers'][letter] +
-                '</label>'
+                question['answers'][letter] + "</label>"
             );
 
             if (count_answer == 0 || count_answer == column_divide) {
@@ -107,23 +107,24 @@ function generateQuiz(questions, quizContainer, resultsContainer, submitButton) 
             }
         }
 
+        questionContainer.innerHTML = question['question']
+
         // add this question and its answers to the output
         output.push(
-            '<div class="question">' + question['question'] + '</div>' +
-            '<div class="answers">' + answers.join('') + '</div>'
+            answers.join('')
         );
 
         // finally combine our output list into one string of html and put it on the page
-        quizContainer.innerHTML = output.join('');
+        answerContainer.innerHTML = output.join('');
 
         return [question, questionUsed]
     }
 
 
-    function showResults(question, quizContainer, resultsContainer) {
+    function showResults(question, answerContainer, resultsContainer) {
 
-        // gather answer containers from our quiz
-        let answerContainers = quizContainer.querySelector('.answers');
+        // // gather answer containers from our quiz
+        // let answerContainer = quizContainer.querySelector('.answers');
 
         // keep track of user's answers
         let userAnswer = '';
@@ -131,21 +132,22 @@ function generateQuiz(questions, quizContainer, resultsContainer, submitButton) 
 
 
         // find selected answer
-        userAnswer = (answerContainers.querySelector('input[name=options]:checked') || {}).value;
+        userAnswer = (answerContainer.querySelector('input[name=options]:checked') || {}).value;
 
         console.log(userAnswer)
+
+        btns = answerContainer.querySelectorAll('input[name=options]')
+
+        //Disable the buttons for changing
+        btns.forEach((answer_btns) => {
+            answer_btns.disabled = true;
+
+        });
 
         // if answer is correct
         if (userAnswer === question['correctAnswer']) {
             // add to the number of correct answers
             numCorrect++;
-
-            btns = answerContainers.querySelectorAll('input[name=options]')
-
-            btns.forEach((answer_btns) => {
-                answer_btns.disabled = true;
-
-            });
 
         }
         // if answer is wrong or blank
@@ -154,42 +156,43 @@ function generateQuiz(questions, quizContainer, resultsContainer, submitButton) 
         }
 
         // show number of correct answers out of total and reveal next button
-        resultsContainer.innerHTML = numCorrect + ' out of 1';
+        resultsContainer.innerHTML = '<h6>' + numCorrect + ' out of 1 </h6>';
         score += numCorrect;
         nextButton.style.display = "block";
         submitButton.style.display = "none";
 
     }
 
-    function displayResults(quizContainer, resultsContainer) {
-        quizContainer.innerHTML = "You did it";
-        resultsContainer.innerHTML = "You got " + score + "/" + myQuestions.length;
+    function displayResults(questionContainer, answerContainer, resultsContainer) {
+        questionContainer.innerHTML = '<div class="success"> You did it </div>';
+        answerContainer.innerHTML = '';
+        resultsContainer.innerHTML = "<h4> You got " + score + "/" + myQuestions.length + "</h4>";
     }
 
     // show questions right away
-    let question_and_used = showQuestion(quizContainer, resultsContainer);
+    let question_and_used = showQuestion(questionContainer, resultsContainer);
     if (!(question_and_used)) {
         submitButton.style.display = "none";
         nextButton.style.display = "none";
-        displayResults(quizContainer, resultsContainer)
+        displayResults(questionContainer, answerContainer, resultsContainer)
     }
 
     // on submit, show results
     submitButton.onclick = function() {
-        showResults(question_and_used[0], quizContainer, resultsContainer);
+        showResults(question_and_used[0], answerContainer, resultsContainer);
     }
 
     //on restart, regenerate Quiz
     restartButton.onclick = function() {
         score = 0;
         for (let i = 0; i < myQuestions.length; ++i) questionUsed[i] = 0;
-        generateQuiz(myQuestions, quizContainer, resultsContainer, submitButton);
+        generateQuiz(myQuestions, questionContainer, resultsContainer, submitButton, answerContainer);
     }
 
 
     // on next, move to new question
     nextButton.onclick = function() {
-        generateQuiz(myQuestions, quizContainer, resultsContainer, submitButton, question_and_used[1]);
+        generateQuiz(myQuestions, questionContainer, resultsContainer, submitButton, answerContainer);
     }
 
 }

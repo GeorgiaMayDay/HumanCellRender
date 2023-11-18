@@ -130,7 +130,8 @@ function onClick() {
     event.preventDefault();
     let headerHeight = document.getElementById('header').offsetHeight
     let renderHeight = window.innerHeight + (headerHeight / 2)
-
+        // This whole things a little buggy but it's the good enough kind of buggy
+        // Definately good enough for a scripted demo FOR NOW
     mouse.x = (event.clientX / window.innerWidth) * 2 - 1;
     mouse.y = -(event.clientY / renderHeight) * 2 + 1;
 

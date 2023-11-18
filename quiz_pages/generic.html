@@ -14,9 +14,12 @@
     <header-component id="header"></header-component>
 
     <div class="container-md">
-        <div id="quiz">
-            <h2 class="question display-2">Cheese</h2>
-            <div class="answers btn-group justify-content-lg-center" data-toggle="buttons"></div>
+        <div class="row" id="quiz">
+            <h5 class="question display-2" id="question">Cheese</h5>
+            <span id="reveal" class="badge rounded-pill bg-dark"><h6></h6></span>
+        </div>
+        <div class="row justify-content-center">
+            <div class="btn-group" id="answers" data-toggle="button"></div>
         </div>
         <div class="row">
             <button id="submit" class="btn btn-primary">Check</button>
@@ -24,8 +27,6 @@
             <button id="restart" class="btn btn-secondary">Restart</button>
         </div>
         <div class="row">
-            <h4><span id="reveal" class="badge rounded-pill bg-dark"></span></span>
-            </h4>
         </div>
     </div>
     </div>
