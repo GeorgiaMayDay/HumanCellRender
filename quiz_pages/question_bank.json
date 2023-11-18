@@ -1,0 +1,118 @@
+[{
+        "question": "Which of the following parts of a plant cell is NOT part of an animal cell?",
+        "answers": {
+            "a": "Nucleus",
+            "b": "Cytoplasm",
+            "c": "Cell membrane",
+            "d": "Cell wall"
+        },
+        "correctAnswer": "d"
+    },
+    {
+        "question": "Which answer gives the correct functions of both the cytoplasm AND the cell membrane?",
+        "answers": {
+            "a": "Cytoplasm: Place where cell reactions take place \n Cell membrane: Controls what goes in and out of a cell",
+            "b": "Cytoplasm: Controls cell division \n Cell membrane: Gives support to the cell",
+            "c": "Cytoplasm: Gives support to the cell \n Cell membrane: Place where cell reactions take place",
+            "d": "Cytoplasm: Controls cell division \n Cell membrane: Controls what goes in and out of a cell"
+        },
+        "correctAnswer": "a"
+    },
+    {
+        "question": "Which of these units is most suitable for measuring the length of a cell?",
+        "answers": {
+            "a": "Millimetres",
+            "b": "Micrometres",
+            "c": "Terametre",
+            "d": "Femtometre"
+        },
+        "correctAnswer": "b"
+    },
+    {
+        "question": "Which of these cellular structures contain DNA?",
+        "answers": {
+            "a": "Rough Endoplasmic Reticulum",
+            "b": "Smooth Endoplasmic Reticulum",
+            "c": "Ribosomes",
+            "d": "Mitochondria"
+        },
+        "correctAnswer": "d"
+    },
+    {
+        "question": "All of the following organelle interact with ribosomes execpt... ",
+        "answers": {
+            "a": "Rough Endoplasmic Reticulum",
+            "b": "Smooth Endoplasmic Reticulum",
+            "c": "Nucleous",
+            "d": "Golgi Body"
+        },
+        "correctAnswer": "c",
+        "topic": "ribosomes"
+    },
+    {
+        "question": "What are ribosomes made up of?",
+        "answers": {
+            "a": "RNA",
+            "b": "DNA",
+            "c": "RNA, DNA, and proteins",
+            "d": "RNA and proteins"
+        },
+        "correctAnswer": "a",
+        "topic": "ribosomes"
+    },
+    {
+        "question": "Which of the following statements are true?",
+        "answers": {
+            "a": "Ribosomes are self-replicating organelle",
+            "b": "Ribosomes have a double membrane",
+            "c": "Ribsomes are coded by DNA",
+            "d": "Ribosomes are coded by RNA"
+        },
+        "correctAnswer": "c",
+        "topic": "ribosomes"
+    },
+    {
+        "question": "Golgi stack is the stack of Golgi cisternae?",
+        "answers": {
+            "a": "True",
+            "b": "False"
+        },
+        "correctAnswer": "a",
+        "topic": "golgi"
+    },
+    {
+        "question": "Which organelle handles shipping and distributing the protiens and chemicals produced by the cell?",
+        "answers": {
+            "a": "Mitochondria",
+            "b": "Smooth Endoplasmic Reticulum",
+            "c": "Lysosome",
+            "d": "Golgi Body"
+        },
+        "correctAnswer": "d",
+        "topic": "golgi"
+    },
+    {
+        "question": "The region around the Golgi apparatus where other organelles are absent is called?",
+        "answers": {
+            "a": "Zone of inhibition",
+            "b": "Zone of exclusion",
+            "c": "Zone of abscene",
+            "d": "All of the above"
+        },
+        "correctAnswer": "b",
+        "topic": "golgi"
+    },
+    {
+        "question": "Pick the correctly matched pair?",
+        "answers": {
+            "a": "Lysosomes - involved in synthesizing amino acids",
+            "b": "Endoplasmic reticulum - has a role in the formation of a new nuclear membrane whilen",
+            "c": "Centrosomes - Provides enzymes essential for digestion",
+            "d": "All of the above"
+        },
+        "correctAnswer": "b",
+        "topic": "golgi"
+    }
+
+
+]

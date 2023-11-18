@@ -1,27 +1,12 @@
-let myQuestions = [{
-        question: "What is 10/2?",
-        answers: {
-            a: '3',
-            b: '5',
-            c: '115',
-            d: '8'
-        },
-        correctAnswer: 'b'
-    },
-    {
-        question: "What is 30/3?",
-        answers: {
-            a: '3',
-            b: '5',
-            c: '10',
-            d: '17'
-        },
-        correctAnswer: 'c'
-    }
-];
+async function access_question_bank() {
+    const response = await fetch("question_bank.json");
+    const question = await response.json();
+    console.log(question)
+    return JSON.parse(JSON.stringify(question));
+}
 
 function getRndQuestionNumber() {
-    return Math.floor(Math.random() * ((myQuestions.length) - 0) + 0);
+    return Math.floor(Math.random() * ((11) - 0) + 0);
 }
 
 function checkIfSectionDone(question_used) {
@@ -46,6 +31,7 @@ function getRndUniqueQuestion(used_list) {
     }
 }
 
+
 let questionContainer = document.getElementById('question');
 let answerContainer = document.getElementById('answers');
 let submitButton = document.getElementById('submit');
@@ -53,11 +39,20 @@ let resultsContainer = document.getElementById('reveal');
 let nextButton = document.getElementById('next');
 let restartButton = document.getElementById('restart');
 let score = 0
-let questionUsed = new Array(myQuestions.length);
-for (let i = 0; i < myQuestions.length; ++i) questionUsed[i] = 0;
+let myQuestions;
+let questionUsed;
 
+access_question_bank().then(questions => {
+    myQuestions = questions
+    questionUsed = new Array(myQuestions.length);
+    for (let i = 0; i < myQuestions.length; ++i) questionUsed[i] = 0;
+    console.log("These are the questions: " + myQuestions);
+    generateQuiz(myQuestions, questionContainer, resultsContainer, submitButton, answerContainer);
+}).catch(err => {
+    console.log(err)
+    myQuestions = "Help"
+})
 
-generateQuiz(myQuestions, questionContainer, resultsContainer, submitButton, answerContainer);
 
 function generateQuiz(questions, questionContainer, resultsContainer, submitButton, answerContainer) {
 
@@ -80,6 +75,7 @@ function generateQuiz(questions, questionContainer, resultsContainer, submitButt
         }
         question_and_used_list = getRndUniqueQuestion(questionUsed);
         let question = myQuestions[question_and_used_list[1]];
+        console.log(question)
         questionUsed = question_and_used_list[0];
         let columns = Object.keys(question['answers']).length;
         let column_divide = Math.ceil(columns / 2);
