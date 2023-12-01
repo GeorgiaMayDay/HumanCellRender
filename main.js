@@ -1,5 +1,6 @@
 import * as THREE from 'three';
 import { comparePositions, compareClickWithPoint } from './helper_functions.js';
+import { mitochondria_basic, mitochondria_adv } from './descriptions.js';
 import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
 import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
 import { Annotation_point, points_visible } from './annotation_points.js';
@@ -81,6 +82,8 @@ const sprite_nucleous = new Annotation_point([-20, 21, -18], "Nucleous",
     "This is an organelle");
 annotation_set_up(sprite_nucleous)
 
+
+
 const sprite_rough_ER = new Annotation_point([-55.5, 10, 57], "Rough ER", "This is an organelle");
 annotation_set_up(sprite_rough_ER)
 
@@ -90,7 +93,7 @@ annotation_set_up(sprite_golgi_body)
 const sprite_centrioles = new Annotation_point([-85, -2, 122], "Centrioles", "This is an organelle");
 annotation_set_up(sprite_centrioles)
 
-const sprite_mitochondria = new Annotation_point([-12, 13, 162], "Mitochondria", "This is an organelle");
+const sprite_mitochondria = new Annotation_point([-12, 13, 162], "Mitochondria", mitochondria_basic, mitochondria_adv);
 annotation_set_up(sprite_mitochondria)
 
 const sprite_smooth_ER = new Annotation_point([-27, 2, 102], "Smooth ER", "This is an organelle");
@@ -111,15 +114,19 @@ annotation_set_up(sprite_nuclear_pore)
 function update_annotation(sprite) {
     const title = document.querySelector('#title');
     const details = document.querySelector('#details');
+    const k_level = document.getElementById('knowledge_level').checked;
 
     if (typeof sprite == "undefined") {
         title.innerHTML = "<strong>" + "Cell Model" + "</strong>"
         details.innerHTML = "This is a cell model for you to play around with. Feel free to click on any of the points to learn more about them."
         return 0
     }
-
+    let information = sprite.information.description;
+    if (k_level) {
+        information = sprite.information.advanced_description;
+    }
     title.innerHTML = "<strong>" + sprite.information.title + "</strong>"
-    details.innerHTML = sprite.information.description
+    details.innerHTML = " <br>" + information
 
 }
 
@@ -148,29 +155,38 @@ function onClick() {
                 toObject(p.getPoint())
                 break
             } else {
-                console.log("Not the point I care about")
                 console.log(p.getName())
             }
         }
     }
 }
 
+function levelSwitch() {
+    for (let p of Annotation_List) {
+        if (compareClickWithPoint(camera_focus, p.getPosition())) {
 
-// Camera moving functions
+            console.log(p.getName())
 
-document.querySelector("#camNucelous").onclick = function() {
-    toObject(sprite_nucleous.getPoint())
+            update_annotation(p)
+            break
+        } else {
+            console.log(p.getName())
+        }
+    }
 }
 
 document.querySelector("#camOverview").onclick = function() {
     toDefault()
-
 }
 
 document.querySelector("#printCameraPosition").onclick = function() {
     printCameraPosition()
-
 }
+
+document.querySelector("#knowledge_level").onclick = function() {
+    levelSwitch()
+}
+
 
 function printCameraPosition() {
     console.log(camera.position);

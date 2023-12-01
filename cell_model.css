@@ -20,6 +20,22 @@
      display: inline-flex;
  }
  
+ #overview {
+     position: fixed;
+     display: inline-flex;
+     flex-direction: row;
+     width: 100%;
+ }
+ 
+ #overview>span {
+     width: 92%;
+ }
+ 
+ #camOverview {
+     background-color: var(--tropical-indigo);
+     border-radius: 50%;
+ }
+ 
  .animate {
      background-color: #4CAF55;
      border: none;
@@ -36,10 +52,6 @@
  
  #camNucelous {
      background-color: #0000ff;
- }
- 
- #camOverview {
-     background-color: #ff0000;
  }
  
  #camMoveThree {
@@ -77,10 +89,26 @@
      margin-top: 15px;
      padding: 1em;
      width: 200px;
+     overflow: auto;
+     height: 80%;
      color: #fff;
-     background: rgba(119, 136, 153, 0.5);
+     background: rgba(119, 136, 153, 0.7);
      border-radius: .5em;
      font-size: 12px;
      line-height: 1.2;
-     transition: opacity .5s;
+     transition: opacity .2s;
+ }
+ 
+ #knowledge_level {
+     float: centre;
+ }
+ 
+ .toggle.ios,
+ .toggle-on.ios,
+ .toggle-off.ios {
+     border-radius: 10px;
+ }
+ 
+ .toggle.ios .toggle-handle {
+     border-radius: 10px;
  }
