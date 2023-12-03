@@ -1,6 +1,13 @@
 import * as THREE from 'three';
 import { comparePositions, compareClickWithPoint } from './helper_functions.js';
-import { mitochondria_basic, mitochondria_adv, cell_membrane_basic, cell_membrane_adv } from './descriptions.js';
+import {
+    mitochondria_basic,
+    mitochondria_adv,
+    cell_membrane_basic,
+    cell_membrane_adv,
+    nucleolus_basic,
+    nucleolus_adv
+} from './descriptions.js';
 import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
 import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
 import { Annotation_point, points_visible } from './annotation_points.js';
@@ -78,9 +85,9 @@ function annotation_set_up(sprite_class) {
     scene.add(sprite_class.sprite)
     Sprite_List.push(sprite_class.getPoint())
 }
-const sprite_nucleous = new Annotation_point([-20, 21, -18], "Nucleous",
-    "This is an organelle");
-annotation_set_up(sprite_nucleous)
+const sprite_nucleolus = new Annotation_point([-20, 21, -18], "Nucleolus",
+    nucleolus_basic, nucleolus_adv);
+annotation_set_up(sprite_nucleolus)
 
 
 
