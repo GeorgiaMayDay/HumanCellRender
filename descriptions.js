@@ -11,4 +11,10 @@ export const mitochondria_adv = "<p> Mitochondria are membrane-bound cell organe
 
 export const cell_membrane_basic = "Selectively permeable double layer of lipid (lipid bilayer) with protien molcules dotted within it.  It acts as a border for the cell and the outside world and like a border guard controls what substance can enter and leave the cell. It is present in all cells.";
 
-export const cell_membrane_adv = "<p> The cell membrane (or plasma membrane) is found in all cells and separates the interior of the cell from the outside. This membrane is made up of a semi-permeable lipid bilayer. It regulates what materials enter and leave the cell </p>";
+export const cell_membrane_adv = "<p> The cell membrane (or plasma membrane) is found in all cells and separates the interior of the cell from the outside. This membrane is made up of a semi-permeable lipid bilayer. It regulates what materials enter and leave the cell </p>" +
+    "<p> It also manages how cells communciate with other cells, through what chemicals it realises and through certain protiens are studded through out. </p>" +
+    "<p> Chemicals move through across the membrane with through diffusion, the movement of molecules from an area of high concentration to an area of low concentration, or through transport protiens which move bigger molecules in and out. </p>";
+
+export const nucleolus_basic = "Part of the nucleus, the nucleolus contains RNA, a nucleric acid like DNA, that is smaller and unlike DNA, is able to leave the nucelous. This RNA is used to create ribosomes, which are then transported out of the nucleus and in the cytoplasm. It does not contain any chomosones";
+
+export const nucleolus_adv = "Part of the nucleus, the nucleolus contains RNA, a nucleric acid like DNA, that is smaller and unlike DNA, is able to leave the nucelous. RNA is created by protiens that copying DNA into RNA, a process known as transcription.";
