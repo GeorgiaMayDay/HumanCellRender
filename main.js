@@ -1,6 +1,6 @@
 import * as THREE from 'three';
 import { comparePositions, compareClickWithPoint } from './helper_functions.js';
-import { mitochondria_basic, mitochondria_adv } from './descriptions.js';
+import { mitochondria_basic, mitochondria_adv, cell_membrane_basic, cell_membrane_adv } from './descriptions.js';
 import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
 import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
 import { Annotation_point, points_visible } from './annotation_points.js';
@@ -102,7 +102,7 @@ annotation_set_up(sprite_smooth_ER)
 const sprite_lysosome = new Annotation_point([-130, 8, 60], "Lysosome", "This is an organelle");
 annotation_set_up(sprite_lysosome)
 
-const sprite_membrane = new Annotation_point([-150, 4, -50], "Membrane", "This is an organelle");
+const sprite_membrane = new Annotation_point([-150, 4, -50], "Membrane", cell_membrane_basic, cell_membrane_adv);
 annotation_set_up(sprite_membrane)
 
 const sprite_cytsol = new Annotation_point([-100, 1, 80], "Cytsol", "This is an organelle");
@@ -111,26 +111,53 @@ annotation_set_up(sprite_cytsol)
 const sprite_nuclear_pore = new Annotation_point([-70, 30, -33], "Nuclear Pore", "This is an organelle");
 annotation_set_up(sprite_nuclear_pore)
 
-function update_annotation(sprite) {
+function update_annotation(sprite, quickclick = false) {
     const title = document.querySelector('#title');
     const details = document.querySelector('#details');
-    const k_level = document.getElementById('knowledge_level').checked;
+    let k_level = document.getElementById('knowledge_level').checked;
+    if (quickclick) {
+        k_level = !k_level;
+    }
 
     if (typeof sprite == "undefined") {
-        title.innerHTML = "<strong>" + "Cell Model" + "</strong>"
-        details.innerHTML = "This is a cell model for you to play around with. Feel free to click on any of the points to learn more about them."
-        return 0
+        title.innerHTML = "<strong>" + "Cell Model" + "</strong>";
+        details.innerHTML = "This is a cell model for you to play around with. Feel free to click on any of the points to learn more about them.";
+        return 0;
     }
     let information = sprite.information.description;
     if (k_level) {
         information = sprite.information.advanced_description;
     }
-    title.innerHTML = "<strong>" + sprite.information.title + "</strong>"
-    details.innerHTML = " <br>" + information
+    title.innerHTML = "<strong>" + sprite.information.title + "</strong>";
+    details.innerHTML = " <br>" + information;
 
 }
 
+function knowledge_level() {
+    for (let p of Annotation_List) {
+        if (compareClickWithPoint(camera_focus, p.getPosition())) {
+
+            console.log(p.getName())
+
+            update_annotation(p, true)
+            break
+        } else {
+            console.log(p.getName())
+        }
+    }
+}
+
+
+const knowledge_level_selection = document.getElementById('knowledge_level');
+const test = document.getElementById('overview');
+
 renderer.domElement.addEventListener('click', onClick, false);
+
+test.addEventListener("mouseover", (event) => {
+    console.log("Cheedle")
+});
+
+test.addEventListener('click', knowledge_level);
 
 function onClick() {
 
@@ -161,19 +188,6 @@ function onClick() {
     }
 }
 
-function levelSwitch() {
-    for (let p of Annotation_List) {
-        if (compareClickWithPoint(camera_focus, p.getPosition())) {
-
-            console.log(p.getName())
-
-            update_annotation(p)
-            break
-        } else {
-            console.log(p.getName())
-        }
-    }
-}
 
 document.querySelector("#camOverview").onclick = function() {
     toDefault()
@@ -183,9 +197,10 @@ document.querySelector("#printCameraPosition").onclick = function() {
     printCameraPosition()
 }
 
-document.querySelector("#knowledge_level").onclick = function() {
-    levelSwitch()
-}
+// document.querySelector("#knowledge_level").onclick = function() {
+//     console.log("work");
+//     knowledge_level();
+// }
 
 
 function printCameraPosition() {
