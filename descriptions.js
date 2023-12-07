@@ -37,8 +37,8 @@ export const golgi_body_adv = "<p> The Golgi Body, or Golgi Apparatus, is a made
     "<p> For example, protiens or materials, that are meant to leave the cell are wrapped in secretory vesicles so the cell knows they're mean to leave.  </p>" +
     "<p> This process is how the vast majority of enzymes, horomones and ion channels are made. </p>";
 
-export const rough_ER_basic = "<p> The Rough Endoplasmic Recticulum is part of the Endoplasmic Recticulum (ER) - the largest organelle in the cell." +
-    " It is made up of a web of folded membrane, which pocketed with ribosomes. The ribsome pockmarks are why it's known was the \"Rough\" Endoplasmic Recticulum.</p>" +
+export const rough_ER_basic = "<p> The Rough Endoplasmic Recticulum (Rough) is part of the Endoplasmic Recticulum (ER) - the largest organelle in the cell. </p>" +
+    " <p>The Rough ER is made up of a web of folded membrane, which pocketed with ribosomes. The ribsome pockmarks are why it's known was the \"Rough\" Endoplasmic Recticulum.</p>" +
     " <p> The most important function of the Rough ER is protein synthesis. The folded membrane forms channels within its self, and using the ribosomes within the membrane, proteins are generated. </p>";
 
 export const rough_ER_adv = "<p>The Endoplasmic Recticulum (ER) is the largest organelle in the human cell, often accounting for 10% of the cells volume. However the ER is shifting in shape and size, so this is not always true - even in the same cell </p>" +
@@ -53,23 +53,31 @@ export const smooth_ER_adv = "<p> Part of the Endoplasmic Recticulum, the Smooth
     "<p> The primary role of the Smooth ER is to synthesis lipids. These lipids must be synthesised within a membrane as they are hydrophobic i.e repel water. These lipids are essential to building and maintaining membranes, both for organelle and cell itself. These lipids also used in other biological reaction. </p>" +
     "<p> After these lipids are created within the Smooth ER, they like the protiens are exported to the Golgi Body </p>";
 
-export const centrioles_basic = "";
+export const centrioles_adv = "<p> This pair of organelles are used in mitosis and meiosis, to pull the cell apart. </p>" +
+    "<p> When they are not involved to dividing, they sit as they do now, at right angles to each other and make up part of the centrosome. The centrosome provides structure and support to the cell by producing and organising microtubules.  </p>" +
+    "<p> Microtubules are strings of protians that are strong and inflexible. They are manipulated by the centromes and it's component centrioles to perform many tasks, often ones specialised for the type of cell. But crucially it's used to form the spindles that splits the cell in nuclear division. </p>";
 
-export const centrioles_adv = "";
+export const centrioles_basic = "<p> This pair of organelles are used in mitosis and meiosis, to pull the cell apart. Collectively </p>" + "<p>Mitosis is the division of a parent cell into daughter cells. These daughter cells are genetical identical to each other and to the parent cell</p><p> Meiosis is when a parent cell splits into four genetical different hapliod (half the genes) cells. Meiosis is only done by reproductive cells to create gametes.  </p>";;
 
-export const nuclear_pore_basic = "";
+export const nuclear_envelope_basic = "<p> A complex membrane around the nucelous. Molecules can only pass through the nuclear pore complexes, the circluar holes surrounded by protiens in the membrane.</p>" +
+    "<p> Because molecules and RNA must pass through the nuclear pores to pass through the nuclear envelope, it is able to control what is able to leave and enter the nucleous </p>";
 
-export const nuclear_pore_adv = "";
+export const nuclear_envelope_adv = "<p> The nuclear enveolope is a multi-layer membrane, which seperaete the nucelous from the cytoplasm. Acting as this barrier, it is able to regulates what comes in and out of the nucelous </p>" +
+    "<p> The nuclear enveolope has two lipid bilayers, known as the outer nuclear membrane (ONM) and the inner nuclear membrane (IMN). These membrane are distinct from each other and provide different functionality for the nucelous. </p>" +
+    "<p> The outer membrane can connects to the rough Endoplasmic Recticulum and has ribsomes studded within it. The inner nuclear membrane contains protiens that support the inner workings for the nucelous. </p>" +
+    "<p> These two membranes are fused at the nuclear pore complexes, holes ringed by proteins in the membrane. This allows the nuclear pores to penetrate entirely through the nuclear envelope</p>" +
+    "<p> RNA and larger molecules can only pass through the nuclear pore complexes, so nuclear pores how the nuclear envelope controls what comes out the cell</p>";
 
 export const cytsol_basic = "<p> Cytsol is the liquid part of the Cytoplasm, a term used for the space between the cell membrane and the nucelous. The fluid maintains the shape of the cell and fills the void between organelle</p>" +
     "<p> Ribsomes, organelle, protien, all float within it. Millions of chemical reactions happen within it, as it helps ferry molecules, protiens and enzymes around. </p>";
 
 export const cytsol_adv = "";
 
-export const nucelous_basic = "";
+export const nucelous_basic = "<p>The nucelous contain the cell's DNA, which is stored as chromosomes. It acts as the code for the cell, controlling what is produced and done by sending out RNA messenges </p>" +
+    "<p> The nucelous is a complex structure with many component parts like the nucelous";
 
 export const nucelous_adv = "";
 
-export const ribosome_basic = "";
+export const ribosome_basic = "<p> These organelle are where protiens are made. This why most of them are found in the membrane of the  Rough ER. </p> <p> They recieve RNA from the nucelous and read it, in a process called translation. </p><p>The RNA tells them what order they should connect amino acid together to make a protien.</p> ";
 
 export const ribosome_adv = "";

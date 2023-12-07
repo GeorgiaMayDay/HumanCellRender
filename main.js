@@ -17,8 +17,8 @@ import {
     smooth_ER_adv,
     centrioles_basic,
     centrioles_adv,
-    nuclear_pore_basic,
-    nuclear_pore_adv,
+    nuclear_envelope_basic,
+    nuclear_envelope_adv,
     nucelous_basic,
     nucelous_adv,
     cytsol_basic,
@@ -107,8 +107,6 @@ const sprite_nucleolus = new Annotation_point([-20, 21, -18], "Nucleolus",
     nucleolus_basic, nucleolus_adv);
 annotation_set_up(sprite_nucleolus)
 
-
-
 const sprite_rough_ER = new Annotation_point([-55.5, 10, 57], "Rough Endoplasmic Recticulum", rough_ER_basic, rough_ER_adv);
 annotation_set_up(sprite_rough_ER)
 
@@ -130,7 +128,7 @@ annotation_set_up(sprite_lysosome)
 const sprite_membrane = new Annotation_point([-150, 4, -50], "Membrane", cell_membrane_basic, cell_membrane_adv);
 annotation_set_up(sprite_membrane);
 
-const sprite_nucelous = new Annotation_point([0, 30, -25], "Nucelous", nucelous_basic, nucleolus_adv);
+const sprite_nucelous = new Annotation_point([0, 30, -25], "Nucelous", nucelous_basic, nucelous_adv);
 annotation_set_up(sprite_nucelous);
 
 const sprite_ribosome = new Annotation_point([-100, 1, 80], "Ribosome", ribosome_basic, ribosome_adv);
@@ -139,8 +137,8 @@ annotation_set_up(sprite_ribosome);
 const sprite_cytsol = new Annotation_point([-60, 2, 158], "Cytsol", cytsol_basic, cytsol_adv);
 annotation_set_up(sprite_cytsol);
 
-const sprite_nuclear_pore = new Annotation_point([-70, 30, -33], "Nuclear Pore", nuclear_pore_basic, nuclear_pore_adv);
-annotation_set_up(sprite_nuclear_pore)
+const sprite_nuclear_envelope = new Annotation_point([-70, 30, -33], "Nuclear Envelope", nuclear_envelope_basic, nuclear_envelope_adv);
+annotation_set_up(sprite_nuclear_envelope)
 
 function update_annotation(sprite, quickclick = false) {
     const title = document.querySelector('#title');
