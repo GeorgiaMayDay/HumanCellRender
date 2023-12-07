@@ -1,5 +1,5 @@
-export const mitochondria_basic = "Rod-shaped structures that perform aerobic (with oxygen) cellular respiration." +
-    " Aerobic respiration means the mitochondria consume glucose and produce ATP - an energy source needed for a lot of cell activity" +
+export const mitochondria_basic = "<p>Rod-shaped structures that perform aerobic (with oxygen) cellular respiration." +
+    " Aerobic respiration means the mitochondria consume glucose and produce ATP - an energy source needed for a lot of cell activity </p>" +
     " These cells are found in Animal cells, Plants cells and even fungal cells" + " They have their own double membrane - quite rare for an organelle";
 
 export const mitochondria_adv = "<p> Mitochondria are membrane-bound cell organelles (mitochondrion, singular) that generate most of the chemical energy needed to power the cell's biochemical reactions. </p><p> This chemical energy produced by the mitochondria is stored in a small molecule called adenosine triphosphate (ATP). Mitochondria contain their own small chromosomes. Generally, mitochondria, and therefore mitochondrial DNA, are inherited only from the mother </p><p>" +
@@ -15,6 +15,61 @@ export const cell_membrane_adv = "<p> The cell membrane (or plasma membrane) is 
     "<p> It also manages how cells communciate with other cells, through what chemicals it realises and through certain protiens are studded through out. </p>" +
     "<p> Chemicals move through across the membrane with through diffusion, the movement of molecules from an area of high concentration to an area of low concentration, or through transport protiens which move bigger molecules in and out. </p>";
 
-export const nucleolus_basic = "Part of the nucleus, the nucleolus contains RNA, a nucleric acid like DNA, that is smaller and unlike DNA, is able to leave the nucelous. This RNA is used to create ribosomes, which are then transported out of the nucleus and in the cytoplasm. It does not contain any chomosones";
+export const nucleolus_basic = "Part of the nucleus, the nucleolus contains RNA, a nucleric acid like DNA, that is smaller and unlike DNA, is able to leave the nucelous. </p> <p> The RNA is used to send messages from the nucleous to the rest of the cell and orchastrate what the cell does. It does not contain any chromosones. </p>";
 
-export const nucleolus_adv = "Part of the nucleus, the nucleolus contains RNA, a nucleric acid like DNA, that is smaller and unlike DNA, is able to leave the nucelous. RNA is created by protiens that copying DNA into RNA, a process known as transcription.";
+export const nucleolus_adv = "<p> Part of the nucleus, the nucleolus is the largest structure in the nucleous and form around specific chomosomal regions (organising regions). The Nucleolus are made of proteins, DNA and RNA. </p>" +
+    " <p>RNA is a nucleric acid like DNA, but smaller. IMportantly unlike DNA, is able to leave the nucelous. This means that it can carry messages from the nucleous to other organelles </p>" +
+    "<p> RNA is created by protiens that copying DNA into RNA, a process known as transcription. This forms m-RNA which is then further processed within the nucleous before moving into the cytoplasm and entering a ribosome. The ribosome then creates the protien encoded onto the RNA, in a process known as protien synthesis </p>";
+
+export const lysosome_basic = "<p> Lysosomes act the digestive and disposal system of the cell. There are normally multiple in a cell. </p> <p> They contains a variety of enzymes that each breakdown the different waste materials and cellular debris. </p><p> They are a type of vesicle - which are membrane bound structures </p>";
+
+//Needs more work
+export const lysosome_adv = "<p> Lysosomes are membrane-enclosed organelles that act the digestive system of the cell. They breakdown protiens, nucleic acids(DNA and RNA), carbohydrates, and lipids. </p> <p>Although portrayed as a sphere here, they actually come in a variety of shapes and sizes, due to being only defined by being a membrane-bound structure filled with digestive enzymes </p>.";
+
+export const golgi_body_basic = "<p> The Golgi body, also known as the Golgi Apparatus, is an organelle made of folded membrane sacs. It is involved in protien processing. </p>" +
+    "<p> Protiens and other molecules, leave the Endoplasmic Recticulum and the Golgi Body absorbs them. The Golgi Body adds any more molecules, if needed, and wraps them in a membrane sac (known as a vesicles). </p>" +
+    "<p>The protiens, in their vesciles can then can be moved to their final destination </p>";
+
+export const golgi_body_adv = "<p> The Golgi Body, or Golgi Apparatus, is a made up of a series of stacked, folded membranes. These flattened sacs are known as cisternae. It is located next to the nucelous, in what's known as the perinuclear position. </p>" +
+    "<p> The primary function of the Golgi Body is processing and sorting protiens, though it does also sort lipids in a similar manner. </p>" +
+    "<p> Processing means modifying the protien by adding other materials. For example, it could add carbohydrates to a protein, creating a composite known as a glycoprotien. </p>" +
+    "<p> Once the products have been processed, they get wrapped in a vesicle, a membrane sac. The type of vesicle the product is wrapped in tells the cells where to send the protien. </p> " +
+    "<p> For example, protiens or materials, that are meant to leave the cell are wrapped in secretory vesicles so the cell knows they're mean to leave.  </p>" +
+    "<p> This process is how the vast majority of enzymes, horomones and ion channels are made. </p>";
+
+export const rough_ER_basic = "<p> The Rough Endoplasmic Recticulum is part of the Endoplasmic Recticulum (ER) - the largest organelle in the cell." +
+    " It is made up of a web of folded membrane, which pocketed with ribosomes. The ribsome pockmarks are why it's known was the \"Rough\" Endoplasmic Recticulum.</p>" +
+    " <p> The most important function of the Rough ER is protein synthesis. The folded membrane forms channels within its self, and using the ribosomes within the membrane, proteins are generated. </p>";
+
+export const rough_ER_adv = "<p>The Endoplasmic Recticulum (ER) is the largest organelle in the human cell, often accounting for 10% of the cells volume. However the ER is shifting in shape and size, so this is not always true - even in the same cell </p>" +
+    "<p> The  Endoplasmic Recticulum is made up of a series of cistarne (sacs of membrane), folded over each other to create channels. The membrane is not just a lipid bilayer containing with ribosomes and protiens. These ribosomes and proteins are both part of the process of protien synthesis </p>" +
+    "<p> The Rough ER is essential for protien synthesis in mammalian cells, even protiens produced by free-floating ribosomes must go through the Rough ER before being used. Within the Rough ER, these proteins are processed further and then tagged with siginal recognition particle (check the book for this), which tells them which organelle they should go to next. </p>";
+
+export const smooth_ER_basic = "<p> The Smooth Endoplasmic Recticulum is part of the Endoplasmic Recticulum (ER) - the largest organelle in the cell. It is made up of a number of tubular, interconnected, membranes. </p>" +
+    "<p> While the Rough ER is focused on protien processing, the Smooth ER is focused on lipid synthesis. These lipids are used to construct and repair membranes across the cell. </p>";
+
+export const smooth_ER_adv = "<p> Part of the Endoplasmic Recticulum, the Smooth ER is different to the Rough in shape and function. </p>" +
+    "<p> It's does not have any ribosomes on the surface, hence being called smooth, and is more tubular. The different look follows from it performing a different function to the Rough ER.</p>" +
+    "<p> The primary role of the Smooth ER is to synthesis lipids. These lipids must be synthesised within a membrane as they are hydrophobic i.e repel water. These lipids are essential to building and maintaining membranes, both for organelle and cell itself. These lipids also used in other biological reaction. </p>" +
+    "<p> After these lipids are created within the Smooth ER, they like the protiens are exported to the Golgi Body </p>";
+
+export const centrioles_basic = "";
+
+export const centrioles_adv = "";
+
+export const nuclear_pore_basic = "";
+
+export const nuclear_pore_adv = "";
+
+export const cytsol_basic = "<p> Cytsol is the liquid part of the Cytoplasm, a term used for the space between the cell membrane and the nucelous. The fluid maintains the shape of the cell and fills the void between organelle</p>" +
+    "<p> Ribsomes, organelle, protien, all float within it. Millions of chemical reactions happen within it, as it helps ferry molecules, protiens and enzymes around. </p>";
+
+export const cytsol_adv = "";
+
+export const nucelous_basic = "";
+
+export const nucelous_adv = "";
+
+export const ribosome_basic = "";
+
+export const ribosome_adv = "";

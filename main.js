@@ -6,7 +6,25 @@ import {
     cell_membrane_basic,
     cell_membrane_adv,
     nucleolus_basic,
-    nucleolus_adv
+    nucleolus_adv,
+    lysosome_adv,
+    lysosome_basic,
+    golgi_body_basic,
+    golgi_body_adv,
+    rough_ER_basic,
+    rough_ER_adv,
+    smooth_ER_basic,
+    smooth_ER_adv,
+    centrioles_basic,
+    centrioles_adv,
+    nuclear_pore_basic,
+    nuclear_pore_adv,
+    nucelous_basic,
+    nucelous_adv,
+    cytsol_basic,
+    cytsol_adv,
+    ribosome_basic,
+    ribosome_adv
 } from './descriptions.js';
 import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
 import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
@@ -53,7 +71,7 @@ function light_update() {
 // Objects in space
 const loader = new GLTFLoader();
 
-loader.load('3D_models/full_cell_model.glb', function(full_cell_model) {
+loader.load('3D_models/3D_cell_model_ribosomes.glb', function(full_cell_model) {
 
     const cell_model = full_cell_model.scene
 
@@ -91,31 +109,37 @@ annotation_set_up(sprite_nucleolus)
 
 
 
-const sprite_rough_ER = new Annotation_point([-55.5, 10, 57], "Rough ER", "This is an organelle");
+const sprite_rough_ER = new Annotation_point([-55.5, 10, 57], "Rough Endoplasmic Recticulum", rough_ER_basic, rough_ER_adv);
 annotation_set_up(sprite_rough_ER)
 
-const sprite_golgi_body = new Annotation_point([53, 9, 91], "Golgi Body", "This is an organelle");
+const sprite_golgi_body = new Annotation_point([53, 9, 91], "Golgi Body", golgi_body_basic, golgi_body_adv);
 annotation_set_up(sprite_golgi_body)
 
-const sprite_centrioles = new Annotation_point([-85, -2, 122], "Centrioles", "This is an organelle");
+const sprite_centrioles = new Annotation_point([-85, -2, 122], "Centrioles", centrioles_basic, centrioles_adv);
 annotation_set_up(sprite_centrioles)
 
 const sprite_mitochondria = new Annotation_point([-12, 13, 162], "Mitochondria", mitochondria_basic, mitochondria_adv);
 annotation_set_up(sprite_mitochondria)
 
-const sprite_smooth_ER = new Annotation_point([-27, 2, 102], "Smooth ER", "This is an organelle");
+const sprite_smooth_ER = new Annotation_point([-35, 7, 102], "Smooth Endoplasmic Recticulum", smooth_ER_basic, smooth_ER_adv);
 annotation_set_up(sprite_smooth_ER)
 
-const sprite_lysosome = new Annotation_point([-130, 8, 60], "Lysosome", "This is an organelle");
+const sprite_lysosome = new Annotation_point([-130, 8, 60], "Lysosome", lysosome_basic, lysosome_adv);
 annotation_set_up(sprite_lysosome)
 
 const sprite_membrane = new Annotation_point([-150, 4, -50], "Membrane", cell_membrane_basic, cell_membrane_adv);
-annotation_set_up(sprite_membrane)
+annotation_set_up(sprite_membrane);
 
-const sprite_cytsol = new Annotation_point([-100, 1, 80], "Cytsol", "This is an organelle");
-annotation_set_up(sprite_cytsol)
+const sprite_nucelous = new Annotation_point([0, 30, -25], "Nucelous", nucelous_basic, nucleolus_adv);
+annotation_set_up(sprite_nucelous);
 
-const sprite_nuclear_pore = new Annotation_point([-70, 30, -33], "Nuclear Pore", "This is an organelle");
+const sprite_ribosome = new Annotation_point([-100, 1, 80], "Ribosome", ribosome_basic, ribosome_adv);
+annotation_set_up(sprite_ribosome);
+
+const sprite_cytsol = new Annotation_point([-60, 2, 158], "Cytsol", cytsol_basic, cytsol_adv);
+annotation_set_up(sprite_cytsol);
+
+const sprite_nuclear_pore = new Annotation_point([-70, 30, -33], "Nuclear Pore", nuclear_pore_basic, nuclear_pore_adv);
 annotation_set_up(sprite_nuclear_pore)
 
 function update_annotation(sprite, quickclick = false) {
