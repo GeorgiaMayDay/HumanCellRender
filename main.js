@@ -19,8 +19,8 @@ import {
     centrioles_adv,
     nuclear_envelope_basic,
     nuclear_envelope_adv,
-    nucelous_basic,
-    nucelous_adv,
+    nucleus_basic,
+    nucleus_adv,
     cytsol_basic,
     cytsol_adv,
     ribosome_basic,
@@ -128,8 +128,8 @@ annotation_set_up(sprite_lysosome)
 const sprite_membrane = new Annotation_point([-150, 4, -50], "Membrane", cell_membrane_basic, cell_membrane_adv);
 annotation_set_up(sprite_membrane);
 
-const sprite_nucelous = new Annotation_point([0, 30, -25], "Nucelous", nucelous_basic, nucelous_adv);
-annotation_set_up(sprite_nucelous);
+const sprite_nucleus = new Annotation_point([0, 30, -25], "Nucleus", nucleus_basic, nucleus_adv);
+annotation_set_up(sprite_nucleus);
 
 const sprite_ribosome = new Annotation_point([-100, 1, 80], "Ribosome", ribosome_basic, ribosome_adv);
 annotation_set_up(sprite_ribosome);
