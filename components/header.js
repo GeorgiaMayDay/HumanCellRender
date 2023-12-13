@@ -41,11 +41,8 @@ class Header extends HTMLElement {
                     <img src="/images/logo.png" alt="Logo" class="logo"> C3ll Education Learning
                 </a>
             </li>
-            <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle"  data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Quiz</a>
-                <div class="dropdown-menu">
-                    <a class="dropdown-item" href="/quiz_pages/generic.html">General</a>
-                </div>
+            <li class="nav-item ">
+                <a class="nav-link" href="/quiz_pages/main.html">Quiz</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" target="_blank" id="surveyLink" href="https://forms.office.com/Pages/ResponsePage.aspx?id=B8tSwU5hu0qBivA1z6kadzwmpSt1IGJHv4WPWlMtWNdUMUxaVkdMM1hXMUlFUUxFTVZSMU40MVVOVi4u"> Survey </a>

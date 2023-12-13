@@ -104,40 +104,40 @@ function annotation_set_up(sprite_class) {
     Sprite_List.push(sprite_class.getPoint())
 }
 const sprite_nucleolus = new Annotation_point([-20, 21, -18], "Nucleolus",
-    nucleolus_basic, nucleolus_adv);
+    nucleolus_basic, nucleolus_adv, 0);
 annotation_set_up(sprite_nucleolus)
 
-const sprite_rough_ER = new Annotation_point([-55.5, 10, 57], "Rough Endoplasmic Recticulum", rough_ER_basic, rough_ER_adv);
+const sprite_rough_ER = new Annotation_point([-55.5, 10, 57], "Rough Endoplasmic Recticulum", rough_ER_basic, rough_ER_adv, [-57, 41, 69]);
 annotation_set_up(sprite_rough_ER)
 
-const sprite_golgi_body = new Annotation_point([53, 9, 91], "Golgi Body", golgi_body_basic, golgi_body_adv);
+const sprite_golgi_body = new Annotation_point([53, 9, 91], "Golgi Body", golgi_body_basic, golgi_body_adv, 0);
 annotation_set_up(sprite_golgi_body)
 
-const sprite_centrioles = new Annotation_point([-85, -2, 122], "Centrioles", centrioles_basic, centrioles_adv);
+const sprite_centrioles = new Annotation_point([-85, -2, 122], "Centrioles", centrioles_basic, centrioles_adv, 0);
 annotation_set_up(sprite_centrioles)
 
-const sprite_mitochondria = new Annotation_point([-12, 13, 162], "Mitochondria", mitochondria_basic, mitochondria_adv);
+const sprite_mitochondria = new Annotation_point([-12, 13, 162], "Mitochondria", mitochondria_basic, mitochondria_adv, 0);
 annotation_set_up(sprite_mitochondria)
 
-const sprite_smooth_ER = new Annotation_point([-35, 7, 102], "Smooth Endoplasmic Recticulum", smooth_ER_basic, smooth_ER_adv);
+const sprite_smooth_ER = new Annotation_point([-35, 7, 102], "Smooth Endoplasmic Recticulum", smooth_ER_basic, smooth_ER_adv, 0);
 annotation_set_up(sprite_smooth_ER)
 
-const sprite_lysosome = new Annotation_point([-130, 8, 60], "Lysosome", lysosome_basic, lysosome_adv);
+const sprite_lysosome = new Annotation_point([-130, 8, 60], "Lysosome", lysosome_basic, lysosome_adv, 0);
 annotation_set_up(sprite_lysosome)
 
-const sprite_membrane = new Annotation_point([-150, 4, -50], "Membrane", cell_membrane_basic, cell_membrane_adv);
+const sprite_membrane = new Annotation_point([-150, 4, -50], "Membrane", cell_membrane_basic, cell_membrane_adv, 0);
 annotation_set_up(sprite_membrane);
 
-const sprite_nucleus = new Annotation_point([0, 30, -25], "Nucleus", nucleus_basic, nucleus_adv);
+const sprite_nucleus = new Annotation_point([0, 30, -25], "Nucleus", nucleus_basic, nucleus_adv, 0);
 annotation_set_up(sprite_nucleus);
 
-const sprite_ribosome = new Annotation_point([-100, 1, 80], "Ribosome", ribosome_basic, ribosome_adv);
+const sprite_ribosome = new Annotation_point([-100, 1, 80], "Ribosome", ribosome_basic, ribosome_adv, 0);
 annotation_set_up(sprite_ribosome);
 
-const sprite_cytsol = new Annotation_point([-60, 2, 158], "Cytsol", cytsol_basic, cytsol_adv);
+const sprite_cytsol = new Annotation_point([-60, 2, 158], "Cytsol", cytsol_basic, cytsol_adv, 0);
 annotation_set_up(sprite_cytsol);
 
-const sprite_nuclear_envelope = new Annotation_point([-70, 30, -33], "Nuclear Envelope", nuclear_envelope_basic, nuclear_envelope_adv);
+const sprite_nuclear_envelope = new Annotation_point([-70, 30, -33], "Nuclear Envelope", nuclear_envelope_basic, nuclear_envelope_adv, [-101, 41, -24]);
 annotation_set_up(sprite_nuclear_envelope)
 
 function update_annotation(sprite, quickclick = false) {
@@ -159,7 +159,6 @@ function update_annotation(sprite, quickclick = false) {
     }
     title.innerHTML = "<strong>" + sprite.information.title + "</strong>";
     details.innerHTML = " <br>" + information;
-
 }
 
 function knowledge_level() {
@@ -176,8 +175,6 @@ function knowledge_level() {
     }
 }
 
-
-const knowledge_level_selection = document.getElementById('knowledge_level');
 const test = document.getElementById('overview');
 
 renderer.domElement.addEventListener('click', onClick, false);
@@ -192,9 +189,8 @@ function onClick() {
 
     event.preventDefault();
     let headerHeight = document.getElementById('header').offsetHeight
-    let renderHeight = window.innerHeight + (headerHeight / 2)
-        // This whole things a little buggy but it's the good enough kind of buggy
-        // Definately good enough for a scripted demo FOR NOW
+    let renderHeight = window.innerHeight + headerHeight
+
     mouse.x = (event.clientX / window.innerWidth) * 2 - 1;
     mouse.y = -(event.clientY / renderHeight) * 2 + 1;
 
@@ -208,7 +204,8 @@ function onClick() {
                 console.log(p.getName())
 
                 update_annotation(p)
-                toObject(p.getPoint())
+                    // toObject(p.getPoint())
+                toViewPosition(p);
                 break
             } else {
                 console.log(p.getName())
@@ -217,7 +214,6 @@ function onClick() {
     }
 }
 
-
 document.querySelector("#camOverview").onclick = function() {
     toDefault()
 }
@@ -225,12 +221,6 @@ document.querySelector("#camOverview").onclick = function() {
 document.querySelector("#printCameraPosition").onclick = function() {
     printCameraPosition()
 }
-
-// document.querySelector("#knowledge_level").onclick = function() {
-//     console.log("work");
-//     knowledge_level();
-// }
-
 
 function printCameraPosition() {
     console.log(camera.position);
@@ -242,10 +232,8 @@ function toDefault() {
     let pl = gsap.timeline();
 
     pl.to(camera.position, {
-        //delay: 1.3,
         duration: 2,
         ease: "power4.out",
-        // ease: "slow (0.7, 0.1, false)",    
         x: default_camera_position.x,
         y: default_camera_position.y,
         z: default_camera_position.z,
@@ -288,8 +276,42 @@ function toObject(annotation) {
     });
 
     camera_focus = targPosition;
-    console.log(camera.position);
+    console.log(targPosition);
 }
+
+function toViewPosition(annotation) {
+    const viewpoint = annotation.getViewPoint();
+    console.log(viewpoint);
+
+    let pl = gsap.timeline();
+    pl.to(camera.position, {
+        duration: 2.5,
+        ease: "power3.in",
+        x: viewpoint[0],
+        y: viewpoint[1],
+        z: viewpoint[2],
+        onUpdate: function() {
+            controls.update();
+            camera.lookAt(annotation.getPosition());
+        },
+        onComplete: function() {
+            points_visible(false);
+        }
+    }).to(camera.position, {
+        duration: 10,
+        ease: "power1.out",
+        x: viewpoint[0] + 10,
+        y: viewpoint[1] + 10,
+    })
+
+
+
+    let organelle_pos = annotation.getPosition();
+    camera_focus = new THREE.Vector3(organelle_pos[0], organelle_pos[1], organelle_pos[2])
+    console.log("The camera is : ");
+    console.log(camera_focus);
+}
+
 
 window.addEventListener("resize", onWindowResize, false);
 

@@ -1,0 +1,33 @@
+:root {
+    --mint-green: #c7eae4ff;
+    --main-background: #F4FBFA;
+    --celadon: #a7e8bdff;
+    --eerie-black: #1c2321ff;
+    --tropical-indigo: #9395d3ff;
+    --yale-blue: #0d3b66ff;
+    --fern-green: #A2CE72;
+}
+
+.no-gutters {
+    height: 100%;
+}
+
+.btn {
+    width: 100%;
+    height: 80%;
+}
+
+#GCSE {
+    background-color: #A2CE72;
+    border-color: #87ab5f;
+}
+
+#Advanced {
+    background-color: #319d87;
+    border-color: #87ab5f;
+}
+
+#Extension {
+    background-color: #0d3b66ff;
+    border-color: #87ab5f;
+}

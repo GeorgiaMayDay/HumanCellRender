@@ -1,5 +1,5 @@
 [{
-        "question": "Which of the following parts of a plant cell is NOT part of an animal cell?",
+        "question": "Which of the following organelle is NOT part of an animal cell?",
         "answers": {
             "a": "Nucleus",
             "b": "Cytoplasm",
@@ -11,10 +11,10 @@
     {
         "question": "Which answer gives the correct functions of both the cytoplasm AND the cell membrane?",
         "answers": {
-            "a": "Cytoplasm: Place where cell reactions take place \n Cell membrane: Controls what goes in and out of a cell",
-            "b": "Cytoplasm: Controls cell division \n Cell membrane: Gives support to the cell",
-            "c": "Cytoplasm: Gives support to the cell \n Cell membrane: Place where cell reactions take place",
-            "d": "Cytoplasm: Controls cell division \n Cell membrane: Controls what goes in and out of a cell"
+            "a": "Cytoplasm: Place where cell reactions take place ‎ ‎ ‎ Cell membrane: Controls what goes in and out of a cell",
+            "b": "Cytoplasm: Controls cell division ‎ ‎ ‎ Cell membrane: Gives support to the cell",
+            "c": "Cytoplasm: Gives support to the cell ‎ ‎  ‎ Cell membrane: Place where cell reactions take place",
+            "d": "Cytoplasm: Controls cell division ‎ ‎  ‎ Cell membrane: Controls what goes in and out of a cell"
         },
         "correctAnswer": "a"
     },
@@ -39,11 +39,11 @@
         "correctAnswer": "d"
     },
     {
-        "question": "All of the following organelle interact with ribosomes execpt... ",
+        "question": "All of the following organelle interact with ribosomes except... ",
         "answers": {
             "a": "Rough Endoplasmic Reticulum",
             "b": "Smooth Endoplasmic Reticulum",
-            "c": "Nucleous",
+            "c": "Mitochondria",
             "d": "Golgi Body"
         },
         "correctAnswer": "c",
@@ -72,16 +72,16 @@
         "topic": "ribosomes"
     },
     {
-        "question": "Golgi stack is the stack of Golgi cisternae?",
+        "question": "Is the Golgi stack the same as the Golgi cisternae?",
         "answers": {
             "a": "True",
             "b": "False"
         },
-        "correctAnswer": "a",
+        "correctAnswer": "b",
         "topic": "golgi"
     },
     {
-        "question": "Which organelle handles shipping and distributing the protiens and chemicals produced by the cell?",
+        "question": "Which organelle handles shipping and distributing of protiens and chemicals produced by the cell?",
         "answers": {
             "a": "Mitochondria",
             "b": "Smooth Endoplasmic Reticulum",
