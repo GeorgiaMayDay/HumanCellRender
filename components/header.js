@@ -38,15 +38,17 @@ class Header extends HTMLElement {
             </li>
             <li class="nav-item">
                 <a class="nav-link" id="home" href="/">
-                    <img src="/images/logo.png" alt="Logo" class="logo"> C3ll Education Learning
+                    <img src="/images/logo.png" alt="Logo" class="logo"> LIVE Cell
                 </a>
             </li>
             <li class="nav-item ">
                 <a class="nav-link" href="/quiz_pages/main.html">Quiz</a>
             </li>
+            <!--
             <li class="nav-item">
                 <a class="nav-link" target="_blank" id="surveyLink" href="https://forms.office.com/Pages/ResponsePage.aspx?id=B8tSwU5hu0qBivA1z6kadzwmpSt1IGJHv4WPWlMtWNdUMUxaVkdMM1hXMUlFUUxFTVZSMU40MVVOVi4u"> Survey </a>
             </li>
+            -->
         </ul>
     </nav>
     </header>`;

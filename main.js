@@ -232,6 +232,7 @@ function toDefault() {
     let pl = gsap.timeline();
 
     pl.to(camera.position, {
+        overwrite: "auto",
         duration: 2,
         ease: "power4.out",
         x: default_camera_position.x,

@@ -11,10 +11,10 @@
     {
         "question": "Which answer gives the correct functions of both the cytoplasm AND the cell membrane?",
         "answers": {
-            "a": "Cytoplasm: Place where cell reactions take place ‎ ‎ ‎ Cell membrane: Controls what goes in and out of a cell",
-            "b": "Cytoplasm: Controls cell division ‎ ‎ ‎ Cell membrane: Gives support to the cell",
-            "c": "Cytoplasm: Gives support to the cell ‎ ‎  ‎ Cell membrane: Place where cell reactions take place",
-            "d": "Cytoplasm: Controls cell division ‎ ‎  ‎ Cell membrane: Controls what goes in and out of a cell"
+            "a": "The Cytoplasm is the place where cell reactions take place. ‎ ‎ ‎The cell membrane controls what goes in and out of a cell",
+            "b": "The Cytoplasm controls cell division ‎ ‎ ‎ The cell membrane gives support to the cell",
+            "c": "The Cytoplasm gives support to the cell ‎ ‎  ‎ The cell membrane place where cell reactions take place",
+            "d": "The Cytoplasm controls cell division ‎ ‎  ‎ The cell membrane controls what goes in and out of a cell"
         },
         "correctAnswer": "a"
     },
@@ -33,7 +33,7 @@
         "answers": {
             "a": "Rough Endoplasmic Reticulum",
             "b": "Smooth Endoplasmic Reticulum",
-            "c": "Ribosomes",
+            "c": "Lysosome",
             "d": "Mitochondria"
         },
         "correctAnswer": "d"
@@ -54,7 +54,7 @@
         "answers": {
             "a": "RNA",
             "b": "DNA",
-            "c": "RNA, DNA, and proteins",
+            "c": "DNA, and proteins",
             "d": "RNA and proteins"
         },
         "correctAnswer": "a",
@@ -106,8 +106,8 @@
         "question": "Pick the correctly matched pair?",
         "answers": {
             "a": "Lysosomes - involved in synthesizing amino acids",
-            "b": "Endoplasmic reticulum - has a role in the formation of a new nuclear membrane whilen",
-            "c": "Centrosomes - Provides enzymes essential for digestion",
+            "b": "Endoplasmic reticulum - plays a role in synthesising protiens and lipids ",
+            "c": "Centrosomes - Provides enzymes for digestion",
             "d": "All of the above"
         },
         "correctAnswer": "b",
