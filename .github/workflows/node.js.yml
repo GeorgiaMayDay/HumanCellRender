@@ -12,11 +12,6 @@ jobs:
     name: Deploy Website
     runs-on: ubuntu-latest
 
-    defaults:
-      run:
-        working-directory: ./HumanCellRender
-
-
 
     strategy:
       matrix:
