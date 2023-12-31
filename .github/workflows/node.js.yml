@@ -30,7 +30,8 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
         cache: 'npm'
-        cache-dependency-path: "./HumanCellRender/package-lock.json"
+        cache-dependency-path: "./HumanCellRender"
+    - run: pwd
     - run: npm ci
     - run: npm run build --if-present
     - run: npm test
