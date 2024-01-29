@@ -5,15 +5,14 @@ export function comparePositions(i, j) {
         return true;
     }
     return false;
-
 }
 
 export function compareClickWithPoint(i, j) {
     console.log(i)
     console.log(j)
-    if ((j[0] >= i.x - 10 && j[0] <= i.x + 10) &&
-        (j[1] >= i.y - 10 && j[1] <= i.y + 10) &&
-        (j[2] >= i.z - 10 && j[2] <= i.z + 10)) {
+    if ((j[0] >= i.x - 15 && j[0] <= i.x + 15) &&
+        (j[1] >= i.y - 15 && j[1] <= i.y + 15) &&
+        (j[2] >= i.z - 15 && j[2] <= i.z + 15)) {
         return true;
     }
 

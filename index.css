@@ -34,3 +34,89 @@
      max-width: 110%;
      height: auto;
  }
+ 
+ #Mascot {
+     width: 300px;
+     height: 200px;
+ }
+ /* (A) SPEECH BOX */
+ 
+ .speech {
+     /* (A1) FONT & COLORS */
+     font-size: 1.2em;
+     color: #fff;
+     background: #a53d38;
+     /* (A2) DIMENSIONS */
+     padding: 20px;
+     border-radius: 10px;
+     max-width: 600px;
+ }
+ /* (B) USE ::AFTER TO CREATE THE "CALLOUT" */
+ 
+ .speech::after {
+     display: block;
+     width: 0;
+     content: "";
+     border: 15px solid transparent;
+ }
+ /* (C) "CALLOUT" DIRECTIONS */
+ 
+ .speech.up::after {
+     border-bottom-color: #a53d38;
+     border-top: 0;
+ }
+ 
+ .speech.up-left::after {
+     border-bottom-color: #a53d38;
+     border-top: 0;
+ }
+ 
+ .speech.down::after {
+     border-top-color: #a53d38;
+     border-bottom: 0;
+ }
+ 
+ .speech.left::after {
+     border-right-color: #a53d38;
+     border-left: 0;
+ }
+ 
+ .speech.right::after {
+     border-left-color: #a53d38;
+     border-right: 0;
+ }
+ /* (D) POSITION THE CALLOUT */
+ 
+ .speech {
+     position: relative;
+     margin: 30px;
+ }
+ 
+ .speech::after {
+     position: absolute;
+ }
+ 
+ .speech.up::after {
+     top: -1px;
+     left: calc(50% - 15px);
+ }
+ 
+ .speech.up-left::after {
+     top: -17px;
+     left: calc(20% - 15px);
+ }
+ 
+ .speech.down::after {
+     bottom: -17px;
+     left: calc(50% - 15px);
+ }
+ 
+ .speech.left::after {
+     left: -17px;
+     top: calc(50% - 15px);
+ }
+ 
+ .speech.right::after {
+     right: -17px;
+     top: calc(50% - 15px);
+ }
