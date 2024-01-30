@@ -24,6 +24,7 @@
 
     <div id="overview">
         <span></span>
+        <input id="mode" type="checkbox" data-toggle="toggle" data-style="ios" data-onstyle="primary" data-offstyle="warning" data-on="Tour" data-off="Explore">
         <input id="knowledge_level" type="checkbox" data-toggle="toggle" data-style="ios" data-onstyle="info" data-offstyle="success" data-on="Advanced" data-off="GCSE">
         <button class="animate" id="camOverview" onclick="toDefault()"><i class="fa fa-3x fa-solid fa-arrow-left fa-beat"></i></button>
     </div>
@@ -35,9 +36,14 @@
     </div>
 
     <div class="annotation" id="annotation_box">
-        <h5 id="title"><strong>Cell Model</strong></h5>
+        <img src="images/Mascot_draft_1.png" alt="Mascot" id="Mascot">
+        <div id="dialog-arrow"></div>
+        <h5 id="title"><strong>Welcome to the Cell Model!</strong></h5>
         <br>
-        <div id="details"> This is a cell model for you to play around with. Feel free to click on any of the points to learn more about them.</div>
+        <div id="details"> Feel free to click on any of the points to learn more about them.
+            <br> or if you want more of a guided experience, switch to Tour mode!
+        </div>
+
     </div>
 </body>
 

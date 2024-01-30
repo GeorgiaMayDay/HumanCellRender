@@ -179,9 +179,9 @@ const test = document.getElementById('overview');
 
 renderer.domElement.addEventListener('click', onClick, false);
 
-test.addEventListener("mouseover", (event) => {
-    console.log("Cheedle")
-});
+// test.addEventListener("mouseover", (event) => {
+
+// });
 
 test.addEventListener('click', knowledge_level);
 
