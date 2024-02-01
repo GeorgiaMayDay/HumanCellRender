@@ -37,7 +37,7 @@ class Header extends HTMLElement {
                 <a class="nav-link" id="cellModelLink" href="cell_model.html"> Cell Model </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" id="home" href="/">
+                <a class="nav-link" id="home" href="index.html">
                     <img src="images/logo.png" alt="Logo" class="logo"> LIVE Cell
                 </a>
             </li>
