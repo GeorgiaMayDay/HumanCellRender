@@ -1,4 +1,4 @@
-import { first_question, answer_explain, answer_to_cell, explanation } from "./mascot_dialogue";
+import { first_question, answer_explain, answer_to_cell, explanation } from "./mascot_dialogue.js";
 
 window.addEventListener("resize", adjustSpeechBubble, false);
 
