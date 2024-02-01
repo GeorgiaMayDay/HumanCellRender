@@ -42,7 +42,7 @@ class Header extends HTMLElement {
                 </a>
             </li>
             <li class="nav-item ">
-                <a class="nav-link" href="quiz_pages/main.html">Quiz</a>
+                <a class="nav-link" href="quiz_menu.html">Quiz</a>
             </li>
             <!--
             <li class="nav-item">

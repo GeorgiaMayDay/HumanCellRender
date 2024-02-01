@@ -42,7 +42,7 @@ let mouse = new THREE.Vector2()
 const controls = new OrbitControls(camera, renderer.domElement)
 
 const default_camera_position = new THREE.Vector3(-192.185633513088, 129.31783555216967, 133.80998272738674)
-const cell_position = new THREE.Vector3(0, 0, 0);
+const cell_position = new THREE.Vector3(-10, -10, 0);
 let camera_focus = cell_position
 
 camera.position.set(default_camera_position.x, default_camera_position.y, default_camera_position.z);

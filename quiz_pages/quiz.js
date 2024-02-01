@@ -1,5 +1,5 @@
 async function access_question_bank() {
-    const response = await fetch("question_bank.json");
+    const response = await fetch("quiz_pages/question_bank.json");
     const question = await response.json();
     console.log(question)
     return JSON.parse(JSON.stringify(question));
