@@ -34,15 +34,15 @@ class Header extends HTMLElement {
     <nav>
         <ul class="nav nav-pills nav-justified">
             <li class="nav-item">
-                <a class="nav-link" id="cellModelLink" href="/cell_model.html"> Cell Model </a>
+                <a class="nav-link" id="cellModelLink" href="cell_model.html"> Cell Model </a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" id="home" href="/">
-                    <img src="/images/logo.png" alt="Logo" class="logo"> LIVE Cell
+                    <img src="images/logo.png" alt="Logo" class="logo"> LIVE Cell
                 </a>
             </li>
             <li class="nav-item ">
-                <a class="nav-link" href="/quiz_pages/main.html">Quiz</a>
+                <a class="nav-link" href="quiz_pages/main.html">Quiz</a>
             </li>
             <!--
             <li class="nav-item">
