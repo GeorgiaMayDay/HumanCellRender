@@ -1,6 +1,6 @@
 import * as THREE from 'https://unpkg.com/three/build/three.module.js';
 
-const map = new THREE.TextureLoader().load('../images/annotation_point.png');
+const map = new THREE.TextureLoader().load('./images/annotation_point.png');
 const annotation_material = new THREE.SpriteMaterial({ map: map, color: 0xffffff });
 
 export function points_visible(isVisible = true) {
