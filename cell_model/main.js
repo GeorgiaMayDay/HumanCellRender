@@ -1,4 +1,4 @@
-import * as THREE from 'three';
+import * as three from 'https://unpkg.com/three/build/three.module.js';
 import { comparePositions, compareClickWithPoint } from './helper_functions.js';
 import {
     mitochondria_basic,
@@ -26,23 +26,23 @@ import {
     ribosome_basic,
     ribosome_adv
 } from './descriptions.js';
-import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
-import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
+import { OrbitControls } from 'https://unpkg.com/three/examples/jsm/controls/OrbitControls.js';
+import { GLTFLoader } from 'https://unpkg.com/three/examples/jsm/loaders/GLTFLoader.js';
 import { Annotation_point, points_visible } from './annotation_points.js';
 
-const scene = new THREE.Scene();
+const scene = new three.Scene();
 
-const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight - 40, 0.1, 1000);
+const camera = new three.PerspectiveCamera(75, window.innerWidth / window.innerHeight - 40, 0.1, 1000);
 
-const renderer = new THREE.WebGLRenderer();
+const renderer = new three.WebGLRenderer();
 renderer.setSize(window.innerWidth, window.innerHeight);
 document.body.appendChild(renderer.domElement);
-let mouse = new THREE.Vector2()
+let mouse = new three.Vector2()
 
 const controls = new OrbitControls(camera, renderer.domElement)
 
-const default_camera_position = new THREE.Vector3(-192.185633513088, 129.31783555216967, 133.80998272738674)
-const cell_position = new THREE.Vector3(-10, -10, 0);
+const default_camera_position = new three.Vector3(-192.185633513088, 129.31783555216967, 133.80998272738674)
+const cell_position = new three.Vector3(-10, -10, 0);
 let camera_focus = cell_position
 
 camera.position.set(default_camera_position.x, default_camera_position.y, default_camera_position.z);
@@ -50,17 +50,17 @@ controls.update();
 
 //Light
 
-const light = new THREE.AmbientLight(0x404040, 1.5); // soft white light
+const light = new three.AmbientLight(0x404040, 1.5); // soft white light
 scene.add(light);
 
-const skylight = new THREE.DirectionalLight(0xffffff, 0.5);
+const skylight = new three.DirectionalLight(0xffffff, 0.5);
 skylight.position.set(0, 100, 0)
 scene.add(skylight);
 
-const cameralight = new THREE.DirectionalLight(0xffffff, 0.1);
+const cameralight = new three.DirectionalLight(0xffffff, 0.1);
 scene.add(cameralight);
 
-const cell_light = new THREE.DirectionalLight(0xffffff, 0.5);
+const cell_light = new three.DirectionalLight(0xffffff, 0.5);
 scene.add(cell_light)
 
 controls.addEventListener('change', light_update);
@@ -92,7 +92,7 @@ loader.load('3D_models/3D_cell_model_ribosomes.glb', function(full_cell_model) {
 
 });
 
-const raycaster = new THREE.Raycaster();
+const raycaster = new three.Raycaster();
 //Annotation 
 
 let Annotation_List = []
@@ -249,8 +249,8 @@ function toDefault() {
 }
 
 function toObject(annotation) {
-    let aabb = new THREE.Box3().setFromObject(annotation);
-    let center = aabb.getCenter(new THREE.Vector3());
+    let aabb = new three.Box3().setFromObject(annotation);
+    let center = aabb.getCenter(new three.Vector3());
 
     let camPosition = camera.position.clone();
     let targPosition = annotation.position.clone();
@@ -308,7 +308,7 @@ function toViewPosition(annotation) {
 
 
     let organelle_pos = annotation.getPosition();
-    camera_focus = new THREE.Vector3(organelle_pos[0], organelle_pos[1], organelle_pos[2])
+    camera_focus = new three.Vector3(organelle_pos[0], organelle_pos[1], organelle_pos[2])
     console.log("The camera is : ");
     console.log(camera_focus);
 }
