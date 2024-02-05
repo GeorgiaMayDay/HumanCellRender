@@ -15,8 +15,17 @@
      background-color: var(--main-background);
  }
  
+ a:hover {
+     border-style: solid;
+ }
+ 
  .logo {
      width: 20px;
+ }
+ 
+ a {
+     color: black;
+     text-decoration: none;
  }
  
  nav {
@@ -36,6 +45,10 @@
      height: auto;
  }
  
+ .row {
+     text-align: center;
+ }
+ 
  #Mascot {
      margin-top: 10px;
      width: 160px;
@@ -47,6 +60,8 @@
      padding: 1em;
      border-radius: .5em;
      transition: opacity .2s;
+     margin-left: 0%;
+     margin-right: 0%;
  }
  
  .btn {
