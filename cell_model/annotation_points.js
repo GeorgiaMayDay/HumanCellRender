@@ -1,4 +1,4 @@
-import * as THREE from 'three';
+import * as THREE from 'https://unpkg.com/three/build/three.module.js';
 
 const map = new THREE.TextureLoader().load('../images/annotation_point.png');
 const annotation_material = new THREE.SpriteMaterial({ map: map, color: 0xffffff });
