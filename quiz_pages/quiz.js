@@ -1,12 +1,13 @@
 async function access_question_bank() {
-    const response = await fetch("quiz_pages/question_bank.json");
+    let aarr = window.location.href.split('?');
+    let study_type = "advanced";
+    if (aarr.length > 1) {
+        study_type = aarr[aarr.length - 1];
+    }
+    const response = await fetch("quiz_pages/question_bank_" + study_type + ".json");
+    console.log(response);
     const question = await response.json();
-    console.log(question)
     return JSON.parse(JSON.stringify(question));
-}
-
-function getRndQuestionNumber() {
-    return Math.floor(Math.random() * ((11) - 0) + 0);
 }
 
 function checkIfSectionDone(question_used) {
@@ -21,12 +22,11 @@ function checkIfSectionDone(question_used) {
 function getRndUniqueQuestion(used_list) {
     used = true
     while (used) {
-        question_number = getRndQuestionNumber()
+        question_number = getRndQuestionNumber(used_list.length)
         if (!(used_list[question_number] == 1)) {
-            used = false
-            console.log(question_number)
-            used_list[question_number] = 1
-            return [used_list, question_number]
+            used = false;
+            used_list[question_number] = 1;
+            return [used_list, question_number];
         }
     }
 }
@@ -42,11 +42,14 @@ let score = 0
 let myQuestions;
 let questionUsed;
 
+function getRndQuestionNumber(total_num_of_question) {
+    return Math.floor(Math.random() * ((total_num_of_question) - 0) + 0);
+}
+
 access_question_bank().then(questions => {
     myQuestions = questions
     questionUsed = new Array(myQuestions.length);
     for (let i = 0; i < myQuestions.length; ++i) questionUsed[i] = 0;
-    console.log("These are the questions: " + myQuestions);
     generateQuiz(myQuestions, questionContainer, resultsContainer, submitButton, answerContainer);
 }).catch(err => {
     console.log(err)
@@ -55,7 +58,6 @@ access_question_bank().then(questions => {
 
 
 function generateQuiz(questions, questionContainer, resultsContainer, submitButton, answerContainer) {
-
     submitButton.style.display = "block";
     nextButton.style.display = "none";
 
@@ -67,16 +69,15 @@ function generateQuiz(questions, questionContainer, resultsContainer, submitButt
         answers = [];
         resultsContainer.innerHTML = ""
 
-
-
         let done = checkIfSectionDone(questionUsed)
         if (done) {
             return false
         }
         question_and_used_list = getRndUniqueQuestion(questionUsed);
         let question = myQuestions[question_and_used_list[1]];
-        console.log(question)
         questionUsed = question_and_used_list[0];
+        console.log(questionUsed);
+        console.log(question);
         let columns = Object.keys(question['answers']).length;
         let column_divide = Math.ceil(columns / 2);
         console.log(columns);

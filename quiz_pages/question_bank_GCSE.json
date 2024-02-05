@@ -1,0 +1,31 @@
+[{
+        "question": "Which of the following organelle is NOT part of an animal cell?",
+        "answers": {
+            "a": "Nucleus",
+            "b": "Cytoplasm",
+            "c": "Cell membrane",
+            "d": "Cell wall"
+        },
+        "correctAnswer": "d"
+    },
+    {
+        "question": "Cells with more mitochondria have more...?",
+        "answers": {
+            "a": "Energy",
+            "b": "Protien",
+            "c": "Ribosomes",
+            "d": "Health"
+        },
+        "correctAnswer": "a"
+    }, {
+        "question": "The endoplasmic recticulum has two sections. What are these two sections called?",
+        "answers": {
+            "a": "Inner and Outer",
+            "b": "Double and Single",
+            "c": "Smooth and Rough",
+            "d": "Protien and Lipid"
+        },
+        "correctAnswer": "c"
+    }
+
+]

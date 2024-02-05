@@ -1,14 +1,4 @@
 [{
-        "question": "Which of the following organelle is NOT part of an animal cell?",
-        "answers": {
-            "a": "Nucleus",
-            "b": "Cytoplasm",
-            "c": "Cell membrane",
-            "d": "Cell wall"
-        },
-        "correctAnswer": "d"
-    },
-    {
         "question": "Which answer gives the correct functions of both the cytoplasm AND the cell membrane?",
         "answers": {
             "a": "The Cytoplasm is the place where cell reactions take place. ‎ ‎ ‎The cell membrane controls what goes in and out of a cell",

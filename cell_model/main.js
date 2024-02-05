@@ -30,6 +30,9 @@ import { OrbitControls } from 'https://unpkg.com/three/examples/jsm/controls/Orb
 import { GLTFLoader } from 'https://unpkg.com/three/examples/jsm/loaders/GLTFLoader.js';
 import { Annotation_point, points_visible } from './annotation_points.js';
 
+OrbitControls.minDistance = 1;
+OrbitControls.maxDistance = 2;
+
 const scene = new three.Scene();
 
 const camera = new three.PerspectiveCamera(75, window.innerWidth / window.innerHeight - 40, 0.1, 1000);
