@@ -153,7 +153,14 @@ function generateQuiz(questions, questionContainer, resultsContainer, submitButt
         }
 
         // show number of correct answers out of total and reveal next button
-        resultsContainer.innerHTML = '<h6>' + numCorrect + ' out of 1 </h6>';
+        if (numCorrect > 0) {
+            resultsContainer.innerHTML = 'Correct';
+            resultsContainer.style.backgroundColor = '0EB70E';
+        } else {
+            resultsContainer.innerHTML = 'Incorrect';
+            resultsContainer.style.backgroundColor = '8b0000';
+        }
+
         score += numCorrect;
         nextButton.style.display = "block";
         submitButton.style.display = "none";
