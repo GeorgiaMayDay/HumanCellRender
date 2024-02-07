@@ -19,9 +19,13 @@ export class Annotation_point {
         this.information = new Annotation_Information(name, description, advanced_description)
 
         sprite = new THREE.Sprite(annotation_material);
+        //  const geometry = new THREE.BoxGeometry(15, 15, 15);
+        //  const material = new THREE.MeshBasicMaterial({ color: 0x00ff00 });
+        //  const cube = new THREE.Mesh(geometry, material);
+        sprite = sprite;
         this.sprite = sprite;
 
-        sprite.scale.set(10, 10, 1);
+        sprite.scale.set(15, 15, 1);
         sprite.position.set(position[0], position[1], position[2]);
     }
     getPoint() {

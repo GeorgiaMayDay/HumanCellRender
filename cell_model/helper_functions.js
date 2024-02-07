@@ -10,9 +10,9 @@ export function comparePositions(i, j) {
 export function compareClickWithPoint(i, j) {
     console.log(i)
     console.log(j)
-    if ((j[0] >= i.x - 15 && j[0] <= i.x + 15) &&
-        (j[1] >= i.y - 15 && j[1] <= i.y + 15) &&
-        (j[2] >= i.z - 15 && j[2] <= i.z + 15)) {
+    if ((j[0] >= i.x - 20 && j[0] <= i.x + 20) &&
+        (j[1] >= i.y - 20 && j[1] <= i.y + 20) &&
+        (j[2] >= i.z - 20 && j[2] <= i.z + 20)) {
         return true;
     }
 
