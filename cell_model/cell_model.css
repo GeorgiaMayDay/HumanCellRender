@@ -34,8 +34,16 @@
      width: 100%;
  }
  
- #overview>span {
-     width: 92%;
+ #spacer {
+     width: 62%;
+ }
+ 
+ #quiz_button {
+     width: 90px;
+     height: 40px;
+     background-color: var(--yale-blue);
+     color: white;
+     border-radius: 10px;
  }
  
  #camOverview {

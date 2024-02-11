@@ -30,8 +30,7 @@ import { OrbitControls } from 'https://unpkg.com/three/examples/jsm/controls/Orb
 import { GLTFLoader } from 'https://unpkg.com/three/examples/jsm/loaders/GLTFLoader.js';
 import { Annotation_point, points_visible } from './annotation_points.js';
 
-OrbitControls.minDistance = 1;
-OrbitControls.maxDistance = 2;
+
 
 const scene = new three.Scene();
 
@@ -47,6 +46,9 @@ const controls = new OrbitControls(camera, renderer.domElement)
 const default_camera_position = new three.Vector3(-192.185633513088, 129.31783555216967, 133.80998272738674)
 const cell_position = new three.Vector3(-10, -10, 0);
 let camera_focus = cell_position
+
+controls.minDistance = 70;
+controls.maxDistance = 500;
 
 camera.position.set(default_camera_position.x, default_camera_position.y, default_camera_position.z);
 controls.update();
