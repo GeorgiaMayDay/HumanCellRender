@@ -1,5 +1,5 @@
 import * as three from 'https://unpkg.com/three/build/three.module.js';
-import { comparePositions, compareClickWithPoint } from './helper_functions.js';
+import { compareClickWithPoint } from './helper_functions.js';
 import {
     mitochondria_basic,
     mitochondria_adv,
@@ -29,8 +29,6 @@ import {
 import { OrbitControls } from 'https://unpkg.com/three/examples/jsm/controls/OrbitControls.js';
 import { GLTFLoader } from 'https://unpkg.com/three/examples/jsm/loaders/GLTFLoader.js';
 import { Annotation_point, points_visible } from './annotation_points.js';
-
-
 
 const scene = new three.Scene();
 
@@ -80,7 +78,6 @@ loader.load('3D_models/3D_cell_model_ribosomes.glb', function(full_cell_model) {
 
     const cell_model = full_cell_model.scene
 
-
     cell_model.position.setX(0);
     cell_model.position.setY(0);
     cell_model.position.setZ(0);
@@ -108,6 +105,7 @@ function annotation_set_up(sprite_class) {
     scene.add(sprite_class.sprite)
     Sprite_List.push(sprite_class.getPoint())
 }
+
 const sprite_nucleolus = new Annotation_point([-20, 21, -18], "Nucleolus",
     nucleolus_basic, nucleolus_adv, 0);
 annotation_set_up(sprite_nucleolus)
@@ -145,23 +143,35 @@ annotation_set_up(sprite_cytsol);
 const sprite_nuclear_envelope = new Annotation_point([-70, 30, -33], "Nuclear Envelope", nuclear_envelope_basic, nuclear_envelope_adv, [-101, 41, -24]);
 annotation_set_up(sprite_nuclear_envelope)
 
+function default_annotation() {
+    const title = document.querySelector('#title');
+    const details = document.querySelector('#details');
+    let quiz_button = document.querySelector('#quiz_sensor');
+
+    quiz_button.style.visibility = "";
+    title.innerHTML = "<strong>" + "Cell Model" + "</strong>";
+    details.innerHTML = "This is a cell model for you to play around with. Feel free to click on any of the points to learn more about them.";
+    return 0;
+}
+
 function update_annotation(sprite, quickclick = false) {
     const title = document.querySelector('#title');
     const details = document.querySelector('#details');
     let k_level = document.getElementById('knowledge_level').checked;
+    let quiz_button = document.querySelector('#quiz_sensor');
+
     if (quickclick) {
         k_level = !k_level;
     }
 
     if (typeof sprite == "undefined") {
-        title.innerHTML = "<strong>" + "Cell Model" + "</strong>";
-        details.innerHTML = "This is a cell model for you to play around with. Feel free to click on any of the points to learn more about them.";
-        return 0;
+        return default_annotation();
     }
     let information = sprite.information.description;
     if (k_level) {
         information = sprite.information.advanced_description;
     }
+    quiz_button.style.visibility = "hidden";
     title.innerHTML = "<strong>" + sprite.information.title + "</strong>";
     details.innerHTML = " <br>" + information;
 }
@@ -180,21 +190,20 @@ function knowledge_level() {
     }
 }
 
-const test = document.getElementById('overview');
+const knowledge_button = document.getElementById('knowledge_sensor');
 
-renderer.domElement.addEventListener('click', onClick, false);
+knowledge_button.addEventListener('click', knowledge_level);
 
-// test.addEventListener("mouseover", (event) => {
+const quiz_button = document.getElementById('quiz_sensor');
 
-// });
-
-test.addEventListener('click', knowledge_level);
+quiz_button.addEventListener('click', quiz_switch);
 
 function onClick() {
 
     event.preventDefault();
     let headerHeight = document.getElementById('header').offsetHeight
     let renderHeight = window.innerHeight + headerHeight
+    let quiz_mode = document.getElementById('quiz_button').checked;
 
     mouse.x = (event.clientX / window.innerWidth) * 2 - 1;
     mouse.y = -(event.clientY / renderHeight) * 2 + 1;
@@ -205,19 +214,20 @@ function onClick() {
     if (intersects.length != 0) {
         for (let p of Annotation_List) {
             if (compareClickWithPoint(intersects[0].point, p.getPosition())) {
-
-                console.log(p.getName())
-
-                update_annotation(p)
-                    // toObject(p.getPoint())
-                toViewPosition(p);
-                break
-            } else {
-                console.log(p.getName())
+                if (quiz_mode) {
+                    update_annotation(p)
+                    toViewPosition(p);
+                    break;
+                } else {
+                    check_question_answer(p.getName());
+                    break;
+                }
             }
         }
     }
 }
+
+renderer.domElement.addEventListener('click', onClick, false);
 
 document.querySelector("#camOverview").onclick = function() {
     toDefault()
@@ -253,36 +263,60 @@ function toDefault() {
     points_visible(true);
 }
 
-function toObject(annotation) {
-    let aabb = new three.Box3().setFromObject(annotation);
-    let center = aabb.getCenter(new three.Vector3());
+// function toObject(annotation) {
+//     let aabb = new three.Box3().setFromObject(annotation);
+//     let center = aabb.getCenter(new three.Vector3());
 
-    let camPosition = camera.position.clone();
-    let targPosition = annotation.position.clone();
-    let distance = camPosition.sub(targPosition);
-    let direction = distance.normalize();
-    let offset = distance.clone().sub(direction.multiplyScalar(2));
-    let newPos = annotation.position.clone().sub(offset);
-    newPos.y = camera.position.y;
+//     let camPosition = camera.position.clone();
+//     let targPosition = annotation.position.clone();
+//     let distance = camPosition.sub(targPosition);
+//     let direction = distance.normalize();
+//     let offset = distance.clone().sub(direction.multiplyScalar(2));
+//     let newPos = annotation.position.clone().sub(offset);
+//     newPos.y = camera.position.y;
 
 
-    let pl = gsap.timeline();
-    pl.to(camera.position, {
-        duration: 2.5,
-        ease: "power3.in",
-        x: newPos.x,
-        y: center.y,
-        z: newPos.z + 20,
-        onUpdate: function() {
-            controls.update();
-        },
-        onComplete: function() {
-            points_visible(false);
-        }
-    });
+//     let pl = gsap.timeline();
+//     pl.to(camera.position, {
+//         duration: 2.5,
+//         ease: "power3.in",
+//         x: newPos.x,
+//         y: center.y,
+//         z: newPos.z + 20,
+//         onUpdate: function() {
+//             controls.update();
+//         },
+//         onComplete: function() {
+//             points_visible(false);
+//         }
+//     });
 
-    camera_focus = targPosition;
-    console.log(targPosition);
+//     camera_focus = targPosition;
+//     console.log(targPosition);
+// }
+
+function check_question_answer(answer) {
+    let details = document.querySelector('#details');
+    console.log(answer);
+
+    if (answer == "Ribosome") {
+        details.innerHTML = "<br> Correct! <br> <h3>  1/5 </h3>"
+    } else {
+        details.innerHTML = "<br> Incorrect <br> <h3>  0/5 </h3>"
+    }
+}
+
+function quiz_switch() {
+    let details = document.querySelector('#details');
+    let title = document.querySelector('#title');
+    let quiz_mode = document.getElementById('quiz_button').checked;
+
+    if (quiz_mode) {
+        title.innerHTML = "<strong> Click on where the Ribosome is </strong>";
+        details.innerHTML = " <br> <h3>  0/5 </h3> "
+    } else {
+        default_annotation();
+    }
 }
 
 function toViewPosition(annotation) {

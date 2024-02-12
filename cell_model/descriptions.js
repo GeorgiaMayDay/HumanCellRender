@@ -2,7 +2,7 @@ export const mitochondria_basic = "<p>Rod-shaped structures that perform aerobic
     " Aerobic respiration means the mitochondria consume glucose and produce ATP - an energy source needed for a lot of cell activity </p>" +
     " These cells are found in Animal cells, Plants cells and even fungal cells" + " They have their own double membrane - quite rare for an organelle";
 
-export const mitochondria_adv = "<p> Mitochondria are membrane-bound cell organelles (mitochondrion, singular) that generate most of the chemical energy needed to power the cell's biochemical reactions. </p><p> This chemical energy produced by the mitochondria is stored in a small molecule called adenosine triphosphate (ATP). Mitochondria contain their own small chromosomes. Generally, mitochondria, and therefore mitochondrial DNA, are inherited only from the mother </p><p>" +
+export const mitochondria_adv = "<p> Mitochondria are membrane-bound cell organelles (mitochondrion, singular) that generate most of the chemical energy needed to power the cell's biochemical reactions. </p><p> This chemical energy produced by the mitochondria is stored in a small molecule called adenosine triphosphate (ATP). Mitochondria contain their own small chromosomes. Mitochondria, and therefore mitochondrial DNA, are inherited from the mother </p><p>" +
     " Mitochondria are membrane-bound with two different membranes. " +
     "These membranes are essential to produce energy (ATP). " + "Oxygen is used to create an electrochemical gradient across the membranes. </p>" +
     "<p> That gradient means when ADP moves through the membranes, it has enough energy to become ATP. " +

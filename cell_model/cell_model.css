@@ -38,21 +38,12 @@
      width: 62%;
  }
  
- #quiz_button {
-     width: 90px;
-     height: 40px;
-     background-color: var(--yale-blue);
-     color: white;
-     border-radius: 10px;
- }
- 
  #camOverview {
      background-color: var(--tropical-indigo);
      border-radius: 50%;
  }
  
- .animate {
-     background-color: #4CAF55;
+ .back_button {
      border: none;
      color: white;
      padding: 7px 10px;
