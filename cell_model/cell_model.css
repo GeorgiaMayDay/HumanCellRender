@@ -16,6 +16,10 @@
      margin: 0;
  }
  
+ h3 {
+     text-align: center;
+ }
+ 
  .btnList {
      position: fixed;
      display: inline-flex;

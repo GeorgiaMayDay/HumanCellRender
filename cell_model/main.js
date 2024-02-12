@@ -303,24 +303,28 @@ function checkAnswer(answer) {
     console.log(answer);
     let results_blurb = current_quiz.checkAnswerAndIncreaseScore(answer);
     details.innerHTML = results_blurb;
+    set_up_question();
 }
 
-function set_up_question(current_quiz) {
+function set_up_question() {
     let title = document.querySelector('#title');
+    let details = document.querySelector('#details');
 
     let question = current_quiz.generateNewQuestion();
 
     title.innerHTML = "<strong>" + question.getQuestion() + "<strong>";
-    details.innerHTML = "There are 5 questions in this quiz. Current Score: <br> <h3> " + current_quiz.getScore() + "/5 <h3>"
+    details.innerHTML = details.innerHTML + " <br> <h3> Score <br>" + current_quiz.getScore() + "/5 <h3>"
 }
 
 function quiz_switch() {
 
     let quiz_mode = document.getElementById('quiz_button').checked;
 
+
     if (quiz_mode) {
         current_quiz = new Quiz();
-        set_up_question(current_quiz);
+        details.innerHTML = "There are 5 questions in this quiz."
+        set_up_question();
     } else {
         default_annotation();
     }
@@ -366,13 +370,12 @@ function learningModeDefault() {
     let quiz_toggle = document.querySelector('#quiz_button');
 
     quiz_toggle.checked = true;
-
-    console.log(quiz_toggle.checked);
+    console.log("Checked")
 }
 
 function load() {
-    learningModeDefault();
     onWindowResize();
+    learningModeDefault();
 }
 
 function onWindowResize() {
