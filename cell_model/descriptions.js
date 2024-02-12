@@ -67,8 +67,8 @@ export const centrioles_basic = "<p> This pair of organelles are used in mitosis
 export const nuclear_envelope_basic = "<p> A complex membrane around the nucleus. Molecules can only pass through the nuclear pore complexes, the circluar holes surrounded by proteins in the membrane.</p>" +
     "<p> Because molecules and RNA must pass through the nuclear pores to pass through the nuclear envelope, it is able to control what is able to leave and enter the nucleous </p>";
 
-export const nuclear_envelope_adv = "<p> The nuclear enveolope is a multi-layer membrane, which seperaete the nucleus from the cytoplasm. Acting as this barrier, it is able to regulates what comes in and out of the nucleus </p>" +
-    "<p> The nuclear enveolope has two lipid bilayers, known as the outer nuclear membrane (ONM) and the inner nuclear membrane (IMN). These membrane are distinct from each other and provide different functionality for the nucleus. </p>" +
+export const nuclear_envelope_adv = "<p> The nuclear envelope is a multi-layer membrane, which seperaete the nucleus from the cytoplasm. Acting as this barrier, it is able to regulates what comes in and out of the nucleus </p>" +
+    "<p> The nuclear envelope has two lipid bilayers, known as the outer nuclear membrane (ONM) and the inner nuclear membrane (IMN). These membrane are distinct from each other and provide different functionality for the nucleus. </p>" +
     "<p> The outer membrane can connects to the rough Endoplasmic Recticulum and has ribsomes studded within it. The inner nuclear membrane contains proteins that support the inner workings for the nucleus. </p>" +
     "<p> These two membranes are fused at the nuclear pore complexes, holes ringed by proteins in the membrane. This allows the nuclear pores to penetrate entirely through the nuclear envelope</p>" +
     "<p> RNA and larger molecules can only pass through the nuclear pore complexes, so nuclear pores how the nuclear envelope controls what comes out the cell</p>";

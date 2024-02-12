@@ -120,10 +120,6 @@ function generateQuiz(questions, questionContainer, resultsContainer, submitButt
 
     function showResults(question, answerContainer, resultsContainer) {
 
-        // // gather answer containers from our quiz
-        // let answerContainer = quizContainer.querySelector('.answers');
-
-        // keep track of user's answers
         let userAnswer = '';
         let numCorrect = 0;
 
@@ -148,9 +144,7 @@ function generateQuiz(questions, questionContainer, resultsContainer, submitButt
 
         }
         // if answer is wrong or blank
-        else {
-
-        }
+        else {}
 
         // show number of correct answers out of total and reveal next button
         if (numCorrect > 0) {

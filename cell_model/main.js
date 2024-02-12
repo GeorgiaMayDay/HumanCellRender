@@ -29,6 +29,7 @@ import {
 import { OrbitControls } from 'https://unpkg.com/three/examples/jsm/controls/OrbitControls.js';
 import { GLTFLoader } from 'https://unpkg.com/three/examples/jsm/loaders/GLTFLoader.js';
 import { Annotation_point, points_visible } from './annotation_points.js';
+import { Quiz } from './questions.js';
 
 const scene = new three.Scene();
 
@@ -143,14 +144,17 @@ annotation_set_up(sprite_cytsol);
 const sprite_nuclear_envelope = new Annotation_point([-70, 30, -33], "Nuclear Envelope", nuclear_envelope_basic, nuclear_envelope_adv, [-101, 41, -24]);
 annotation_set_up(sprite_nuclear_envelope)
 
+let current_quiz;
+
 function default_annotation() {
     const title = document.querySelector('#title');
     const details = document.querySelector('#details');
     let quiz_button = document.querySelector('#quiz_sensor');
 
     quiz_button.style.visibility = "";
-    title.innerHTML = "<strong>" + "Cell Model" + "</strong>";
-    details.innerHTML = "This is a cell model for you to play around with. Feel free to click on any of the points to learn more about them.";
+    title.innerHTML = "<strong>" + "Animal Cell Model" + "</strong>";
+    details.innerHTML = "This is a cell model for you to play around with. Feel free to click on any of the points to learn more about them." +
+        "<br> You can answer some questions in Quiz mode by switching over the learning toggle";
     return 0;
 }
 
@@ -199,7 +203,6 @@ const quiz_button = document.getElementById('quiz_sensor');
 quiz_button.addEventListener('click', quiz_switch);
 
 function onClick() {
-
     event.preventDefault();
     let headerHeight = document.getElementById('header').offsetHeight
     let renderHeight = window.innerHeight + headerHeight
@@ -219,7 +222,7 @@ function onClick() {
                     toViewPosition(p);
                     break;
                 } else {
-                    check_question_answer(p.getName());
+                    checkAnswer(p.getName());
                     break;
                 }
             }
@@ -295,25 +298,29 @@ function toDefault() {
 //     console.log(targPosition);
 // }
 
-function check_question_answer(answer) {
+function checkAnswer(answer) {
     let details = document.querySelector('#details');
     console.log(answer);
+    let results_blurb = current_quiz.checkAnswerAndIncreaseScore(answer);
+    details.innerHTML = results_blurb;
+}
 
-    if (answer == "Ribosome") {
-        details.innerHTML = "<br> Correct! <br> <h3>  1/5 </h3>"
-    } else {
-        details.innerHTML = "<br> Incorrect <br> <h3>  0/5 </h3>"
-    }
+function set_up_question(current_quiz) {
+    let title = document.querySelector('#title');
+
+    let question = current_quiz.generateNewQuestion();
+
+    title.innerHTML = "<strong>" + question.getQuestion() + "<strong>";
+    details.innerHTML = "There are 5 questions in this quiz. Current Score: <br> <h3> " + current_quiz.getScore() + "/5 <h3>"
 }
 
 function quiz_switch() {
-    let details = document.querySelector('#details');
-    let title = document.querySelector('#title');
+
     let quiz_mode = document.getElementById('quiz_button').checked;
 
     if (quiz_mode) {
-        title.innerHTML = "<strong> Click on where the Ribosome is </strong>";
-        details.innerHTML = " <br> <h3>  0/5 </h3> "
+        current_quiz = new Quiz();
+        set_up_question(current_quiz);
     } else {
         default_annotation();
     }
@@ -344,8 +351,6 @@ function toViewPosition(annotation) {
         y: viewpoint[1] + 10,
     })
 
-
-
     let organelle_pos = annotation.getPosition();
     camera_focus = new three.Vector3(organelle_pos[0], organelle_pos[1], organelle_pos[2])
     console.log("The camera is : ");
@@ -355,7 +360,20 @@ function toViewPosition(annotation) {
 
 window.addEventListener("resize", onWindowResize, false);
 
-addEventListener("load", onWindowResize);
+window.addEventListener("load", load);
+
+function learningModeDefault() {
+    let quiz_toggle = document.querySelector('#quiz_button');
+
+    quiz_toggle.checked = true;
+
+    console.log(quiz_toggle.checked);
+}
+
+function load() {
+    learningModeDefault();
+    onWindowResize();
+}
 
 function onWindowResize() {
     let headerHeight = document.getElementById('header').offsetHeight
