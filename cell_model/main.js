@@ -364,19 +364,8 @@ function toViewPosition(annotation) {
 
 window.addEventListener("resize", onWindowResize, false);
 
-window.addEventListener("load", load);
+window.addEventListener("load", onWindowResize);
 
-function learningModeDefault() {
-    let quiz_toggle = document.querySelector('#quiz_button');
-
-    quiz_toggle.checked = true;
-    console.log("Checked")
-}
-
-function load() {
-    onWindowResize();
-    learningModeDefault();
-}
 
 function onWindowResize() {
     let headerHeight = document.getElementById('header').offsetHeight
