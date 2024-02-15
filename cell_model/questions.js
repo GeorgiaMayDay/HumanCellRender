@@ -13,13 +13,15 @@ export class Question {
         return this.answer;
     }
     checkAnswer(entered_answer) {
+        console.log(entered_answer);
+        console.log(this.answer);
         if (typeof this.answer == "string") {
             if (entered_answer == this.answer) {
                 return true;
             }
             return false
         }
-        if (entered_answer in this.answer) {
+        if (this.answer.includes(entered_answer)) {
             return true;
         }
         return false;
@@ -41,7 +43,7 @@ export class Question {
 }
 
 export const question_list = [
-    new Question("Click on where the Ribosome is", "Ribosome", "Click", "Not a ribosome, that is a {}", "Correct! Ribosomes "),
+    new Question("Click on where the Ribosome is", "Ribosome", "Click", "Not a ribosome, that is a {}", "Correct! This is an unattached rib "),
     new Question("Click on where the DNA is stored in the cell", "Nucleus", "Click", "No, this is a {}", "Correct! This is the nucleus and it's where genetic information is contained"),
     new Question("Click on one of the organelles that make up the Endoplasmic Recticulum", ["Smooth Endoplasmic Recticulum", "Rough Endoplasmic Recticulum"], "Click", "No, this is a {}. <br> Hint: Think about 'Smooth' and 'Rough'", "Correct! This is the {}."),
     new Question("Click on the organelle that produces energy for the cell", "Mitochondria", "Click", "No, this is a {}", "Correct! This is the {}."),
@@ -57,7 +59,7 @@ export class Quiz {
     }
 
     generateNewQuestion() {
-        let question_number = Math.floor(Math.random() * ((this.quiz_length) - 1) + 0);
+        let question_number = Math.floor(Math.random() * ((this.quiz_length)) + 0);
         this.current_question = question_list[question_number];
         return this.current_question;
     }
