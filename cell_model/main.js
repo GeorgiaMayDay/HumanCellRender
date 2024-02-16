@@ -299,11 +299,20 @@ function toDefault() {
 // }
 
 function checkAnswer(answer) {
+    let title = document.querySelector('#title');
     let details = document.querySelector('#details');
-    console.log(answer);
     let results_blurb = current_quiz.checkAnswerAndIncreaseScore(answer);
     details.innerHTML = results_blurb;
-    set_up_question();
+    if (current_quiz.checkIfQuizOver()) {
+        set_up_question();
+    } else {
+        title.innerHTML = "<strong> Animal Cell model <strong>"
+        details.innerHTML = "Well done!" +
+            " You've finished the quiz with a score of: <br> <h3>" +
+            current_quiz.getScore() + "/5 <h3> <br>" +
+            "If you want to try the quiz again, then flip the toggle back to Quiz mode."
+        $("#quiz_button").bootstrapToggle('on');
+    }
 }
 
 function set_up_question() {

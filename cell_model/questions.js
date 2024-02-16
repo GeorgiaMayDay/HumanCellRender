@@ -55,6 +55,7 @@ export class Quiz {
         this.question_list = question_list;
         this.score = 0;
         this.quiz_length = 5;
+        this.number_of_questions = 0;
         this.current_question = "";
     }
 
@@ -73,11 +74,19 @@ export class Quiz {
     }
 
     checkAnswerAndIncreaseScore(answer) {
+        this.number_of_questions++;
         if (this.current_question.checkAnswer(answer)) {
             this.score++;
             return this.current_question.getBlurb(true, answer);
         } else {
             return this.current_question.getBlurb(false, answer);
         }
+    }
+
+    checkIfQuizOver() {
+        if (this.number_of_questions <= this.quiz_length) {
+            return true;
+        }
+        return false;
     }
 }
