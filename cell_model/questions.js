@@ -43,7 +43,7 @@ export class Question {
 }
 
 export const question_list = [
-    new Question("Click on where the Ribosome is", "Ribosome", "Click", "Not a ribosome, that is a {}", "Correct! This is an unattached rib "),
+    new Question("Click on where the Ribosome is", "Ribosome", "Click", "Not a ribosome, that is a {}", "Correct! This is an unattached ribosome"),
     new Question("Click on where the DNA is stored in the cell", "Nucleus", "Click", "No, this is a {}", "Correct! This is the nucleus and it's where genetic information is contained"),
     new Question("Click on one of the organelles that make up the Endoplasmic Recticulum", ["Smooth Endoplasmic Recticulum", "Rough Endoplasmic Recticulum"], "Click", "No, this is a {}. <br> Hint: Think about 'Smooth' and 'Rough'", "Correct! This is the {}."),
     new Question("Click on the organelle that produces energy for the cell", "Mitochondria", "Click", "No, this is a {}", "Correct! This is the {}."),
@@ -84,6 +84,7 @@ export class Quiz {
     }
 
     checkIfQuizOver() {
+        console.log(this.number_of_questions);
         if (this.number_of_questions <= this.quiz_length) {
             return true;
         }
