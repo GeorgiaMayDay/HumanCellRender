@@ -8,7 +8,7 @@
      --tropical-indigo: #9395d3ff;
      --yale-blue: #0d3b66ff;
      --fern-green: #A2CE72;
-     --mascot-red: #a53d38;
+     --mascot: #FFC87F;
  }
  
  body {
@@ -50,9 +50,9 @@
  }
  
  #Mascot {
-     margin-top: 10px;
+     margin-left: 20px;
      width: 160px;
-     height: 160px;
+     height: 200px;
  }
  
  #mascot-space {
@@ -72,14 +72,18 @@
  #answer-space {
      height: 200%;
  }
+ 
+ #answer-space .btn {
+     background-color: var(--mint-green);
+ }
  /* (A) SPEECH BOX */
  
  .speech {
      /* (A1) FONT & COLORS */
      font-size: 1.2em;
      line-height: 1.2;
-     color: #fff;
-     background: #a53d38;
+     color: black;
+     background: var(--mascot);
      /* (A2) DIMENSIONS */
      padding: 20px;
      border-radius: 10px;
@@ -96,27 +100,27 @@
  /* (C) "CALLOUT" DIRECTIONS */
  
  .speech.up::after {
-     border-bottom-color: var(--mascot-red);
+     border-bottom-color: var(--mascot);
      border-top: 0;
  }
  
  .speech.up-left::after {
-     border-bottom-color: var(--mascot-red);
+     border-bottom-color: var(--mascot);
      border-top: 0;
  }
  
  .speech.down::after {
-     border-top-color: var(--mascot-red);
+     border-top-color: var(--mascot);
      border-bottom: 0;
  }
  
  .speech.left::after {
-     border-right-color: var(--mascot-red);
+     border-right-color: var(--mascot);
      border-left: 0;
  }
  
  .speech.right::after {
-     border-left-color: var(--mascot-red);
+     border-left-color: var(--mascot);
      border-right: 0;
  }
  /* (D) POSITION THE CALLOUT */
@@ -156,7 +160,7 @@
  }
  
  .text-btn {
-     background-color: var(--mascot-red);
+     background-color: var(--mascot);
      border-radius: 50%;
      width: min-content;
      height: min-content;
