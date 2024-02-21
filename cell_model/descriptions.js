@@ -20,7 +20,7 @@ export const nucleolus_basic = "Part of the nucleus, the nucleolus constructs th
 
 export const nucleolus_adv = "<p> Part of the nucleus, the nucleolus is the largest structure in the nucleus. It's main role is to produce ribosomal subunits. </p>" +
     "<p> Ribosomal subunits combine in pairs to create ribosomes, though that process occurs outside the nucleolus. These ribosomal subunits are contructed of ribosomal RNA (rRNA) and proteins</p>" +
-    "<p> Nucleolus also contributes to other roles like cell growth management but those area's are still under research</p>";
+    "<p> The Nucleolus contributes to other jobs like cell growth management</p>";
 
 // "<p> Part of the nucleus, the nucleolus is the largest structure in the nucleous and form around specific chomosomal regions (organising regions). The Nucleolus is made of proteins, DNA and RNA. </p>" +
 // " <p>RNA is a nucleric acid like DNA, but smaller. Importantly unlike DNA, is able to leave the nucleus. This means that it can carry messages from the nucleous to other organelles </p>" +

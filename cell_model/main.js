@@ -43,7 +43,7 @@ let mouse = new three.Vector2()
 const controls = new OrbitControls(camera, renderer.domElement)
 
 const default_camera_position = new three.Vector3(-192.185633513088, 129.31783555216967, 133.80998272738674)
-const cell_position = new three.Vector3(-10, -10, 0);
+const cell_position = new three.Vector3(-10, -10, -10);
 let camera_focus = cell_position
 
 controls.minDistance = 70;
@@ -79,9 +79,9 @@ loader.load('3D_models/3D_cell_model_ribosomes.glb', function(full_cell_model) {
 
     const cell_model = full_cell_model.scene
 
-    cell_model.position.setX(0);
+    cell_model.position.setX(10);
     cell_model.position.setY(0);
-    cell_model.position.setZ(0);
+    cell_model.position.setZ(-10);
 
     cell_model.scale.set(50, 50, 50)
 
@@ -107,41 +107,41 @@ function annotation_set_up(sprite_class) {
     Sprite_List.push(sprite_class.getPoint())
 }
 
-const sprite_nucleolus = new Annotation_point([-20, 21, -18], "Nucleolus",
+const sprite_nucleolus = new Annotation_point([-10, 21, -28], "Nucleolus",
     nucleolus_basic, nucleolus_adv, 0);
 annotation_set_up(sprite_nucleolus)
 
-const sprite_rough_ER = new Annotation_point([-55.5, 10, 57], "Rough Endoplasmic Recticulum", rough_ER_basic, rough_ER_adv, [-57, 41, 69]);
+const sprite_rough_ER = new Annotation_point([-45.5, 10, 47], "Rough Endoplasmic Recticulum", rough_ER_basic, rough_ER_adv, [-57, 41, 69]);
 annotation_set_up(sprite_rough_ER)
 
-const sprite_golgi_body = new Annotation_point([53, 9, 91], "Golgi Body", golgi_body_basic, golgi_body_adv, 0);
+const sprite_golgi_body = new Annotation_point([63, 9, 81], "Golgi Body", golgi_body_basic, golgi_body_adv, 0);
 annotation_set_up(sprite_golgi_body)
 
-const sprite_centrioles = new Annotation_point([-85, -2, 122], "Centrioles", centrioles_basic, centrioles_adv, 0);
+const sprite_centrioles = new Annotation_point([-75, -2, 112], "Centrioles", centrioles_basic, centrioles_adv, 0);
 annotation_set_up(sprite_centrioles)
 
-const sprite_mitochondria = new Annotation_point([-12, 13, 162], "Mitochondria", mitochondria_basic, mitochondria_adv, 0);
+const sprite_mitochondria = new Annotation_point([-2, 13, 152], "Mitochondria", mitochondria_basic, mitochondria_adv, 0);
 annotation_set_up(sprite_mitochondria)
 
-const sprite_smooth_ER = new Annotation_point([-35, 7, 102], "Smooth Endoplasmic Recticulum", smooth_ER_basic, smooth_ER_adv, 0);
+const sprite_smooth_ER = new Annotation_point([-25, 7, 92], "Smooth Endoplasmic Recticulum", smooth_ER_basic, smooth_ER_adv, 0);
 annotation_set_up(sprite_smooth_ER)
 
-const sprite_lysosome = new Annotation_point([-130, 8, 60], "Lysosome", lysosome_basic, lysosome_adv, 0);
+const sprite_lysosome = new Annotation_point([-120, 8, 50], "Lysosome", lysosome_basic, lysosome_adv, 0);
 annotation_set_up(sprite_lysosome)
 
-const sprite_membrane = new Annotation_point([-150, 4, -50], "Membrane", cell_membrane_basic, cell_membrane_adv, 0);
+const sprite_membrane = new Annotation_point([-140, 4, -60], "Membrane", cell_membrane_basic, cell_membrane_adv, 0);
 annotation_set_up(sprite_membrane);
 
-const sprite_nucleus = new Annotation_point([0, 30, -25], "Nucleus", nucleus_basic, nucleus_adv, 0);
+const sprite_nucleus = new Annotation_point([10, 30, -35], "Nucleus", nucleus_basic, nucleus_adv, 0);
 annotation_set_up(sprite_nucleus);
 
-const sprite_ribosome = new Annotation_point([-100, 1, 80], "Ribosome", ribosome_basic, ribosome_adv, 0);
+const sprite_ribosome = new Annotation_point([-90, 1, 70], "Ribosome", ribosome_basic, ribosome_adv, 0);
 annotation_set_up(sprite_ribosome);
 
-const sprite_cytsol = new Annotation_point([-60, 2, 158], "Cytsol", cytsol_basic, cytsol_adv, 0);
+const sprite_cytsol = new Annotation_point([-50, 2, 148], "Cytsol", cytsol_basic, cytsol_adv, 0);
 annotation_set_up(sprite_cytsol);
 
-const sprite_nuclear_envelope = new Annotation_point([-70, 30, -33], "Nuclear Envelope", nuclear_envelope_basic, nuclear_envelope_adv, [-101, 41, -24]);
+const sprite_nuclear_envelope = new Annotation_point([-60, 30, -43], "Nuclear Envelope", nuclear_envelope_basic, nuclear_envelope_adv, [-101, 41, -24]);
 annotation_set_up(sprite_nuclear_envelope)
 
 let current_quiz;
@@ -265,38 +265,6 @@ function toDefault() {
     update_annotation();
     points_visible(true);
 }
-
-// function toObject(annotation) {
-//     let aabb = new three.Box3().setFromObject(annotation);
-//     let center = aabb.getCenter(new three.Vector3());
-
-//     let camPosition = camera.position.clone();
-//     let targPosition = annotation.position.clone();
-//     let distance = camPosition.sub(targPosition);
-//     let direction = distance.normalize();
-//     let offset = distance.clone().sub(direction.multiplyScalar(2));
-//     let newPos = annotation.position.clone().sub(offset);
-//     newPos.y = camera.position.y;
-
-
-//     let pl = gsap.timeline();
-//     pl.to(camera.position, {
-//         duration: 2.5,
-//         ease: "power3.in",
-//         x: newPos.x,
-//         y: center.y,
-//         z: newPos.z + 20,
-//         onUpdate: function() {
-//             controls.update();
-//         },
-//         onComplete: function() {
-//             points_visible(false);
-//         }
-//     });
-
-//     camera_focus = targPosition;
-//     console.log(targPosition);
-// }
 
 function checkAnswer(answer) {
     let title = document.querySelector('#title');
