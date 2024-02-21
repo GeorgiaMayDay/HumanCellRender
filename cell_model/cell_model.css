@@ -21,11 +21,8 @@
  }
  
  .btnList {
-     position: absolute;
+     position: fixed;
      display: inline-flex;
-     flex-direction: row;
-     width: 100%;
-     margin-top: 160px;
  }
  
  #Mascot {
@@ -39,14 +36,11 @@
      content: "";
      width: 0;
      height: 0;
-     border-top: 15px solid transparent;
-     border-bottom: 15px solid transparent;
-     border-left: 15px solid var(--mascot);
-     margin-top: 0px;
- }
- 
- #info-container {
-     margin-left: 10px;
+     border-left: 15px solid transparent;
+     border-right: 15px solid transparent;
+     border-top: 15px solid var(--mascot);
+     ;
+     margin-left: 50px;
  }
  
  #overview {
@@ -57,7 +51,7 @@
  }
  
  #spacer {
-     width: 94%;
+     width: 85%;
  }
  
  #camOverview {
@@ -109,14 +103,16 @@
  .annotation {
      position: absolute;
      display: flex;
-     flex-direction: row;
+     flex-direction: column;
+     top: 12%;
+     left: 0;
      z-index: 1;
-     margin-left: 20px;
-     margin-top: 5px;
+     margin-left: 15px;
+     margin-top: 15px;
      padding: 1em;
-     width: 90%;
+     width: 250px;
      overflow: auto;
-     height: 30%;
+     height: 80%;
      color: #fff;
      background: rgba(119, 136, 153, 0.7);
      border-radius: .5em;
