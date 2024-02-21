@@ -27,8 +27,31 @@
 <body>
     <header-component id="header"></header-component>
 
+    <div class="annotation" id="annotation_box">
+        <img src="images/ribecca_neutral_right.png" alt="Mascot" id="Mascot">
+        <div id="dialog-arrow"></div>
+        <div id="info-container">
+            <h5 id="title"><strong>Welcome to the Cell Model!</strong></h5>
+            <br>
+            <div id="details"> Feel free to click on any of the points to learn more about them.
+                <br> Answer some questions by switching from Learning to Quiz mode
+                <br> For a guided experience, switch from Explore to Tour mode!
+            </div>
+        </div>
+
+    </div>
+
     <div id="overview">
         <span id="spacer"></span>
+        <button class="back_button" id="camOverview" onclick="toDefault()"><i class="fa fa-3x fa-solid fa-arrow-left fa-beat"></i></button>
+    </div>
+
+
+
+    <div class="btnList">
+        <button class="animate" id="printCameraPosition" onclick="printCameraPosition()">
+              Camera
+        </button>
         <span id="quiz_sensor">
             <input id="quiz_button" type="checkbox" data-toggle="toggle" data-style="ios" data-onstyle="info" data-offstyle="success" data-on="Learning" data-off="Quiz" checked></button>
         </span>
@@ -36,13 +59,6 @@
         <span id="knowledge_sensor">
             <input id="knowledge_level" type="checkbox" data-toggle="toggle" data-style="ios" data-onstyle="info" data-offstyle="success" data-on="Advanced" data-off="GCSE">
         </span>
-        <button class="back_button" id="camOverview" onclick="toDefault()"><i class="fa fa-3x fa-solid fa-arrow-left fa-beat"></i></button>
-    </div>
-
-    <div class="btnList">
-        <button class="animate" id="printCameraPosition" onclick="printCameraPosition()">
-              Camera
-        </button>
     </div>
 
     <script>
@@ -52,17 +68,7 @@
         });
     </script>
 
-    <div class="annotation" id="annotation_box">
-        <img src="images/ribecca_neutral_right.png" alt="Mascot" id="Mascot">
-        <div id="dialog-arrow"></div>
-        <h5 id="title"><strong>Welcome to the Cell Model!</strong></h5>
-        <br>
-        <div id="details"> Feel free to click on any of the points to learn more about them.
-            <br> Answer some questions by switching from Learning to Quiz mode
-            <br> For a guided experience, switch from Explore to Tour mode!
-        </div>
 
-    </div>
 
 </body>
 
