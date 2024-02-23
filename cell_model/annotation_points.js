@@ -17,24 +17,12 @@ export class Annotation_point {
         this.name = name;
         this.view_point = view_point;
         this.information = new Annotation_Information(name, description, advanced_description)
-        this.in_tour = in_tour;
-        this.tour_sprite = false;
+        this.in_tour = in_tour
 
         sprite = new THREE.Sprite(annotation_material);
-        sprite = sprite;
-        this.sprite = sprite;
-
-        if (in_tour) {
-            const tour_material = new THREE.SpriteMaterial({ map: map, color: 0xffffff });
-            let tour_sprite = new THREE.Sprite(tour_material);
-            tour_sprite.scale.set(15, 15, 1);
-            tour_sprite.position.set(position[0], position[1], position[2]);
-            this.tour_sprite = tour_sprite;
-        }
-
-
         sprite.scale.set(15, 15, 1);
         sprite.position.set(position[0], position[1], position[2]);
+        this.sprite = sprite;
     }
     getPoint() {
         return this.sprite;
@@ -45,7 +33,6 @@ export class Annotation_point {
     }
 
     getViewPoint() {
-        console.log(this.view_point);
         if (this.view_point != 0) {
             return this.view_point;
         }

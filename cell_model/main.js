@@ -181,10 +181,14 @@ function default_annotation() {
     const details = document.querySelector('#details');
     let quiz_button = document.querySelector('#quiz_sensor');
     let tour_button = document.querySelector('#tour_sensor');
+    let tour_mode = document.getElementById('tour_button').checked;
 
     quiz_button.style.visibility = "";
     tour_button.style.visibility = "";
-    points_visible(true);
+    console.log(tour_mode);
+    if (!tour_mode) {
+        points_visible(true);
+    }
     title.innerHTML = "<strong>" + "Animal Cell Model" + "</strong>";
     details.innerHTML = "This is a cell model for you to play around with. Feel free to click on any of the points to learn more about them." +
         "<br> You can answer some questions in Quiz mode by switching over the learning toggle";
@@ -247,17 +251,19 @@ function tour_switch() {
     let tour_mode = document.getElementById('tour_button').checked;
 
     if (tour_mode) {
-        console.log("Touring");
-        set_up_tour();
-    } else {
         destory_tour_sprites();
         default_annotation();
+        points_visible(true);
+    } else {
+        console.log("Touring");
+        set_up_tour();
     }
 }
 
 function destory_tour_sprites() {
-    //TODO
-    // https://stackoverflow.com/questions/70903111/phaser-js-how-to-get-or-remove-all-sprites-in-one-scene
+    for (let p of tour.get_sprite_list()) {
+        scene.remove(p);
+    }
 }
 
 function set_up_tour() {
@@ -266,7 +272,9 @@ function set_up_tour() {
     points_visible(false);
     for (let p of Annotation_List) {
         if (p.inTour()) {
-            scene.add(p.tour_sprite);
+            let tour_sprite = tour.add_tour_sprite(p);
+            p.tour_sprite = tour_sprite;
+            scene.add(tour_sprite);
         }
     }
 }
@@ -370,7 +378,6 @@ function toDefault() {
     console.log("Default");
     camera_focus = cell_position;
     update_annotation();
-    points_visible(true);
 }
 
 renderer.domElement.addEventListener('click', onClick, false);
