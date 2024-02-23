@@ -1,3 +1,5 @@
+import { Annotation_Information } from "./annotation_points";
+
 export class Question {
     constructor(question, answer, type, incorrect_blurb, correct_blurb) {
         this.question = question;
@@ -42,26 +44,40 @@ export class Question {
     }
 }
 
-export const question_list = [
-    new Question("Click on where the Ribosome is", "Ribosome", "Click", "Not a ribosome, that is a {}", "Correct! This is an unattached ribosome"),
+const sprite = ["Nucleolus", "Rough Endoplasmic Recticulum", "Golgi Body", "Centrioles", "Mitochondria", "Smooth Endoplasmic Recticulum", "Lysosome", "Membrane", "Nucleus", "Ribosome", "Cytsol", "Nuclear Envelope"]
+
+let sprite_question_list = [];
+
+const question_list = [
     new Question("Click on where the DNA is stored in the cell", "Nucleus", "Click", "No, this is a {}", "Correct! This is the nucleus and it's where genetic information is contained"),
     new Question("Click on one of the organelles that make up the Endoplasmic Recticulum", ["Smooth Endoplasmic Recticulum", "Rough Endoplasmic Recticulum"], "Click", "No, this is a {}. <br> Hint: Think about 'Smooth' and 'Rough'", "Correct! This is the {}."),
     new Question("Click on the organelle that produces energy for the cell", "Mitochondria", "Click", "No, this is a {}", "Correct! This is the {}."),
     new Question("Click on an organelle that has a membrane", ["Mitochondria", "Golgi Body", "Nucleus", "Nucleolus", "Nuclear Envelope", "Smooth Endoplasmic Recticulum", "Rough Endoplasmic Recticulum", "Lysosome"], "Click", "No, this is a {}, which has no membrane", "Correct! This is the {}, which has a membrane.")
 ];
 
+for (let p of sprite) {
+    let sprite_question = new Question("Click on where the " + p + " is", p, "Click", "Not a " + p + ", that is a {}", "Correct! This is a " + p);
+    if (p == "Ribosome") {
+        sprite_question = new Question("Click on where the Ribosome is", "Ribosome", "Click", "Not a ribosome, that is a {}", "Correct! This is an unattached ribosome");
+    }
+    sprite_question_list.push(sprite_question);
+}
+
+const total_q_list = question_list.concat(sprite_question_list);
+
 export class Quiz {
     constructor() {
-        this.question_list = question_list;
+        this.question_list = total_q_list;
         this.score = 0;
         this.quiz_length = 5;
-        this.number_of_questions = 1;
+        this.questions_total = 16;
+        this.question_so_far = 1;
         this.current_question = "";
     }
 
     generateNewQuestion() {
-        let question_number = Math.floor(Math.random() * ((this.quiz_length)) + 0);
-        this.current_question = question_list[question_number];
+        let question_number = Math.floor(Math.random() * ((this.questions_total) - 1) + 0);
+        this.current_question = this.question_list[question_number];
         return this.current_question;
     }
 
@@ -74,7 +90,7 @@ export class Quiz {
     }
 
     checkAnswerAndIncreaseScore(answer) {
-        this.number_of_questions++;
+        this.question_so_far++;
         if (this.current_question.checkAnswer(answer)) {
             this.score++;
             return this.current_question.getBlurb(true, answer);
@@ -88,7 +104,7 @@ export class Quiz {
     }
 
     checkIfQuizOver() {
-        if (this.number_of_questions <= this.quiz_length) {
+        if (this.question_so_far <= this.quiz_length) {
             return true;
         }
         return false;

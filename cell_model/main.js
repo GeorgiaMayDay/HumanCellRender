@@ -202,7 +202,6 @@ function default_annotation() {
     title.innerHTML = "<strong>" + "Animal Cell Model" + "</strong>";
     details.innerHTML = "This is a cell model for you to play around with. Feel free to click on any of the points to learn more about them." +
         "<br> You can answer some questions in Quiz mode by switching over the learning toggle";
-    return 0;
 }
 
 function update_annotation(sprite, quickclick = false) {
