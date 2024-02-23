@@ -311,6 +311,9 @@ quiz_button.addEventListener('click', quiz_switch);
 function checkAnswer(answer) {
     let title = document.querySelector('#title');
     let details = document.querySelector('#details');
+    // if (current_quiz.checkAnswer(answer)) {
+    //     toggle_mascot("happy");
+    // }
     let results_blurb = current_quiz.checkAnswerAndIncreaseScore(answer);
     details.innerHTML = results_blurb;
     if (current_quiz.checkIfQuizOver()) {

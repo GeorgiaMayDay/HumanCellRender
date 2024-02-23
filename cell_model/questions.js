@@ -55,7 +55,7 @@ export class Quiz {
         this.question_list = question_list;
         this.score = 0;
         this.quiz_length = 5;
-        this.number_of_questions = 0;
+        this.number_of_questions = 1;
         this.current_question = "";
     }
 
@@ -83,8 +83,11 @@ export class Quiz {
         }
     }
 
+    checkAnswer(answer) {
+        return this.current_question.checkAnswer(answer);
+    }
+
     checkIfQuizOver() {
-        console.log(this.number_of_questions);
         if (this.number_of_questions <= this.quiz_length) {
             return true;
         }
