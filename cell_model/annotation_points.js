@@ -12,12 +12,13 @@ export function points_visible(isVisible = true) {
 }
 
 export class Annotation_point {
-    constructor(position, name, description, advanced_description, view_point, in_tour, sprite) {
+    constructor(position, name, description, advanced_description, view_point, in_tour, pan_position, sprite) {
         this.position = position;
         this.name = name;
         this.view_point = view_point;
-        this.information = new Annotation_Information(name, description, advanced_description)
-        this.in_tour = in_tour
+        this.information = new Annotation_Information(name, description, advanced_description);
+        this.in_tour = in_tour;
+        this.pan_position = pan_position;
 
         sprite = new THREE.Sprite(annotation_material);
         sprite.scale.set(15, 15, 1);
@@ -44,6 +45,14 @@ export class Annotation_point {
     getPosition() {
         return this.position;
     }
+
+    getPanPosition() {
+        return this.pan_position;
+    }
+
+    setBasicTourDescriptionForPoint(des) {
+        this.information.setBasicTourDescription(des);
+    }
 }
 
 export class Annotation_Information {
@@ -51,5 +60,10 @@ export class Annotation_Information {
         this.title = title;
         this.description = description;
         this.advanced_description = adv;
+        this.basic_tour = "";
+    }
+
+    setBasicTourDescription(des) {
+        this.basic_tour = des;
     }
 }

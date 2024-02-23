@@ -110,40 +110,40 @@ function annotation_set_up(sprite_class) {
 }
 
 const sprite_nucleolus = new Annotation_point([-10, 21, -28], "Nucleolus",
-    nucleolus_basic, nucleolus_adv, 0, false);
+    nucleolus_basic, nucleolus_adv, 0, false, [20, 40]);
 annotation_set_up(sprite_nucleolus)
 
-const sprite_rough_ER = new Annotation_point([-45.5, 10, 47], "Rough Endoplasmic Recticulum", rough_ER_basic, rough_ER_adv, [-57, 41, 69], false);
+const sprite_rough_ER = new Annotation_point([-45.5, 10, 47], "Rough Endoplasmic Recticulum", rough_ER_basic, rough_ER_adv, [-57, 41, 69], false, [10, 10]);
 annotation_set_up(sprite_rough_ER)
 
-const sprite_golgi_body = new Annotation_point([63, 9, 81], "Golgi Body", golgi_body_basic, golgi_body_adv, 0, false);
+const sprite_golgi_body = new Annotation_point([63, 9, 81], "Golgi Body", golgi_body_basic, golgi_body_adv, 0, false, [10, 10]);
 annotation_set_up(sprite_golgi_body)
 
-const sprite_centrioles = new Annotation_point([-75, -2, 112], "Centrioles", centrioles_basic, centrioles_adv, 0, false);
+const sprite_centrioles = new Annotation_point([-75, -2, 112], "Centrioles", centrioles_basic, centrioles_adv, 0, false, [10, 10]);
 annotation_set_up(sprite_centrioles)
 
-const sprite_mitochondria = new Annotation_point([-2, 13, 152], "Mitochondria", mitochondria_basic, mitochondria_adv, 0, true);
+const sprite_mitochondria = new Annotation_point([-2, 13, 152], "Mitochondria", mitochondria_basic, mitochondria_adv, 0, true, [10, 10]);
 annotation_set_up(sprite_mitochondria)
 
-const sprite_smooth_ER = new Annotation_point([-25, 7, 92], "Smooth Endoplasmic Recticulum", smooth_ER_basic, smooth_ER_adv, 0, false);
+const sprite_smooth_ER = new Annotation_point([-25, 7, 92], "Smooth Endoplasmic Recticulum", smooth_ER_basic, smooth_ER_adv, 0, false, [10, 10]);
 annotation_set_up(sprite_smooth_ER)
 
-const sprite_lysosome = new Annotation_point([-120, 8, 50], "Lysosome", lysosome_basic, lysosome_adv, 0, false);
+const sprite_lysosome = new Annotation_point([-120, 8, 50], "Lysosome", lysosome_basic, lysosome_adv, 0, false, [10, 10]);
 annotation_set_up(sprite_lysosome)
 
-const sprite_membrane = new Annotation_point([-140, 4, -60], "Membrane", cell_membrane_basic, cell_membrane_adv, 0, true);
+const sprite_membrane = new Annotation_point([-140, 4, -60], "Membrane", cell_membrane_basic, cell_membrane_adv, 0, true, [10, 10]);
 annotation_set_up(sprite_membrane);
 
-const sprite_nucleus = new Annotation_point([10, 30, -35], "Nucleus", nucleus_basic, nucleus_adv, 0, true);
+const sprite_nucleus = new Annotation_point([10, 30, -35], "Nucleus", nucleus_basic, nucleus_adv, 0, true, [30, 10]);
 annotation_set_up(sprite_nucleus);
 
-const sprite_ribosome = new Annotation_point([-90, 1, 70], "Ribosome", ribosome_basic, ribosome_adv, 0, true);
+const sprite_ribosome = new Annotation_point([-90, 1, 70], "Ribosome", ribosome_basic, ribosome_adv, 0, true, [10, 10]);
 annotation_set_up(sprite_ribosome);
 
-const sprite_cytsol = new Annotation_point([-50, 2, 148], "Cytsol", cytsol_basic, cytsol_adv, 0, true);
+const sprite_cytsol = new Annotation_point([-50, 2, 148], "Cytsol", cytsol_basic, cytsol_adv, 0, true, [10, 10]);
 annotation_set_up(sprite_cytsol);
 
-const sprite_nuclear_envelope = new Annotation_point([-60, 30, -43], "Nuclear Envelope", nuclear_envelope_basic, nuclear_envelope_adv, [-101, 41, -24], false);
+const sprite_nuclear_envelope = new Annotation_point([-60, 30, -43], "Nuclear Envelope", nuclear_envelope_basic, nuclear_envelope_adv, [-101, 41, -24], false, [10, 10]);
 annotation_set_up(sprite_nuclear_envelope)
 
 // Decides what happens when you're clicking
@@ -175,6 +175,16 @@ function onClick() {
     }
 }
 
+function toggle_mascot(mood) {
+    let mascot = document.querySelector('#Mascot');
+    if (mood = "happy") {
+        mascot.src = "images/ribecca_happy.png";
+    } else {
+        mascot.src = "images/ribecca_neutral_right.png";
+    }
+
+}
+
 
 function default_annotation() {
     const title = document.querySelector('#title');
@@ -199,8 +209,7 @@ function update_annotation(sprite, quickclick = false) {
     const title = document.querySelector('#title');
     const details = document.querySelector('#details');
     let k_level = document.getElementById('knowledge_level').checked;
-    let quiz_button = document.querySelector('#quiz_sensor');
-    let tour_button = document.querySelector('#tour_sensor');
+    let tour_mode = document.getElementById('tour_button').checked;
 
     if (quickclick) {
         k_level = !k_level;
@@ -213,11 +222,21 @@ function update_annotation(sprite, quickclick = false) {
     if (k_level) {
         information = sprite.information.advanced_description;
     }
+    if (tour_mode) {
+        information = sprite.information.basic_tour;
+    }
+
+    title.innerHTML = "<strong>" + sprite.information.title + "</strong>";
+    details.innerHTML = " <br>" + information;
+    hide_buttons();
+}
+
+function hide_buttons() {
+    let quiz_button = document.querySelector('#quiz_sensor');
+    let tour_button = document.querySelector('#tour_sensor');
 
     quiz_button.style.visibility = "hidden";
     tour_button.style.visibility = "hidden";
-    title.innerHTML = "<strong>" + sprite.information.title + "</strong>";
-    details.innerHTML = " <br>" + information;
 }
 
 function knowledge_level() {
@@ -255,7 +274,6 @@ function tour_switch() {
         default_annotation();
         points_visible(true);
     } else {
-        console.log("Touring");
         set_up_tour();
     }
 }
@@ -268,7 +286,9 @@ function destory_tour_sprites() {
 
 function set_up_tour() {
     let title = document.querySelector('#title');
-    title.innerHTML = "<strong> This feature is a working in progress! Please explore our other features until the next release <strong>"
+    let details = document.querySelector('#details');
+    title.innerHTML = "<strong> Welcome to Tour Mode! Click on the organelle's in order <strong>";
+    details.innerHTML = "This is the GSCE tour, it'll goes through the key organelle needed for the exams and their functions";
     points_visible(false);
     for (let p of Annotation_List) {
         if (p.inTour()) {
@@ -328,9 +348,11 @@ function quiz_switch() {
     }
 }
 
+//Basic and set up Navigation
+
 function toViewPosition(annotation) {
     const viewpoint = annotation.getViewPoint();
-    console.log(viewpoint);
+    const pan_position = annotation.getPanPosition();
 
     let pl = gsap.timeline();
     pl.to(camera.position, {
@@ -349,8 +371,8 @@ function toViewPosition(annotation) {
     }).to(camera.position, {
         duration: 10,
         ease: "power1.out",
-        x: viewpoint[0] + 10,
-        y: viewpoint[1] + 10,
+        x: viewpoint[0] + pan_position[0],
+        y: viewpoint[1] + pan_position[1],
     })
 
     let organelle_pos = annotation.getPosition();
@@ -358,8 +380,6 @@ function toViewPosition(annotation) {
     console.log("The camera is : ");
     console.log(camera_focus);
 }
-
-//Basic and set up Navigation
 
 function toDefault() {
     let pl = gsap.timeline();
@@ -385,16 +405,6 @@ renderer.domElement.addEventListener('click', onClick, false);
 document.querySelector("#camOverview").onclick = function() {
     toDefault()
 }
-
-document.querySelector("#printCameraPosition").onclick = function() {
-    printCameraPosition()
-}
-
-function printCameraPosition() {
-    console.log(camera.position);
-    console.log(sprite_golgi_body.position)
-}
-
 
 window.addEventListener("resize", onWindowResize, false);
 
