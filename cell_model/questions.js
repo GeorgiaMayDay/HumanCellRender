@@ -78,6 +78,7 @@ export class Quiz {
     generateNewQuestion() {
         let question_number = Math.floor(Math.random() * ((this.questions_total) - 1) + 0);
         this.current_question = this.question_list[question_number];
+        this.question_list.splice(question_number, 1);
         return this.current_question;
     }
 

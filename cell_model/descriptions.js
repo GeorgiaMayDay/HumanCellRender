@@ -42,7 +42,7 @@ export const golgi_body_adv = "<p> The Golgi Body, or Golgi Apparatus, is a made
     "<p> For example, proteins or materials, that are meant to leave the cell are wrapped in secretory vesicles so the cell knows they're mean to leave.  </p>" +
     "<p> This process is how the vast majority of enzymes, horomones and ion channels are made. </p>";
 
-export const rough_ER_basic = "<p> The Rough Endoplasmic Recticulum (Rough) is part of the Endoplasmic Recticulum (ER) - the largest organelle in the cell. </p>" +
+export const rough_ER_basic = "<p> The Rough Endoplasmic Recticulum is part of the Endoplasmic Recticulum (ER) - the largest organelle in the cell. </p>" +
     " <p>The Rough ER is made up of a web of folded membrane, which pocketed with ribosomes. The ribsome pockmarks are why it's known was the \"Rough\" Endoplasmic Recticulum.</p>" +
     " <p> The most important function of the Rough ER is protein synthesis. The folded membrane forms channels within its self, and using the ribosomes within the membrane, proteins are generated. </p>";
 

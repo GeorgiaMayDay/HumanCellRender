@@ -179,6 +179,8 @@ function toggle_mascot(mood) {
     let mascot = document.querySelector('#Mascot');
     if (mood = "happy") {
         mascot.src = "images/ribecca_happy.png";
+        mascot.style.width = "200px";
+        mascot.style.height = "240px";
     } else {
         mascot.src = "images/ribecca_neutral_right.png";
     }
@@ -317,8 +319,10 @@ function checkAnswer(answer) {
         title.innerHTML = "<strong> Animal Cell model <strong>"
         details.innerHTML = "Well done!" +
             " You've finished the quiz with a score of: <br> <h3>" +
-            current_quiz.getScore() + "/5 <h3> <br>" +
-            "If you want to try the quiz again, then flip the toggle back to Quiz mode."
+            current_quiz.getScore() + "/5 </h3> <br>" +
+            "If you want to try the quiz again, then flip the toggle back to Quiz mode." +
+            "If you want to try a more detailed quiz click the button below" +
+            "<a class='quiz_link' href='Fquiz_menu.html'> Quiz  .</a>"
         $("#quiz_button").bootstrapToggle('on');
     }
 }
@@ -393,9 +397,12 @@ function toDefault() {
             controls.update();
         }
     });
-    console.log("Default");
     camera_focus = cell_position;
-    update_annotation();
+    let quiz_mode = document.getElementById('quiz_button').checked;
+    let tour_mode = document.getElementById('tour_button').checked;
+    if (quiz_mode) {
+        update_annotation();
+    }
 }
 
 renderer.domElement.addEventListener('click', onClick, false);
