@@ -182,23 +182,28 @@ function toggle_mascot(mood) {
     } else {
         mascot.src = "images/ribecca_neutral_right.png";
     }
-
 }
 
+function appear_button(type) {
+    let button = document.querySelector('#' + type + '_sensor');
+    button.style.visibility = "";
+}
+
+function hide_button(type) {
+    let button = document.querySelector('#' + type + '_sensor');
+    button.style.visibility = "hidden";
+}
 
 function default_annotation() {
     const title = document.querySelector('#title');
     const details = document.querySelector('#details');
-    let quiz_button = document.querySelector('#quiz_sensor');
-    let tour_button = document.querySelector('#tour_sensor');
     let tour_mode = document.getElementById('tour_button').checked;
 
-    quiz_button.style.visibility = "";
-    tour_button.style.visibility = "";
-    console.log(tour_mode);
     if (!tour_mode) {
         points_visible(true);
+        appear_button("quiz");
     }
+    appear_button("tour");
     title.innerHTML = "<strong>" + "Animal Cell Model" + "</strong>";
     details.innerHTML = "This is a cell model for you to play around with. Feel free to click on any of the points to learn more about them." +
         "<br> You can answer some questions in Quiz mode by switching over the learning toggle";
@@ -227,23 +232,13 @@ function update_annotation(sprite, quickclick = false) {
 
     title.innerHTML = "<strong>" + sprite.information.title + "</strong>";
     details.innerHTML = " <br>" + information;
-    hide_buttons();
-}
-
-function hide_buttons() {
-    let quiz_button = document.querySelector('#quiz_sensor');
-    let tour_button = document.querySelector('#tour_sensor');
-
-    quiz_button.style.visibility = "hidden";
-    tour_button.style.visibility = "hidden";
+    hide_button("quiz");
+    hide_button("tour");
 }
 
 function knowledge_level() {
     for (let p of Annotation_List) {
         if (compareClickWithPoint(camera_focus, p.getPosition())) {
-
-            console.log(p.getName())
-
             update_annotation(p, true)
             break
         } else {
@@ -286,6 +281,7 @@ function destory_tour_sprites() {
 function set_up_tour() {
     let title = document.querySelector('#title');
     let details = document.querySelector('#details');
+    hide_button("quiz");
     title.innerHTML = "<strong> Welcome to Tour Mode! Click on the organelle's in order <strong>";
     details.innerHTML = "This is the GSCE tour, it'll goes through the key organelle needed for the exams and their functions";
     points_visible(false);
@@ -330,8 +326,8 @@ function checkAnswer(answer) {
 function set_up_question() {
     let title = document.querySelector('#title');
     let details = document.querySelector('#details');
-
     let question = current_quiz.generateNewQuestion();
+    hide_button("tour");
 
     title.innerHTML = "<strong>" + question.getQuestion() + "<strong>";
     details.innerHTML = details.innerHTML + " <br> <h3> Score <br>" + current_quiz.getScore() + "/5 <h3>"
