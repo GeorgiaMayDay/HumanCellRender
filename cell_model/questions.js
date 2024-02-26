@@ -67,7 +67,7 @@ const total_q_list = question_list.concat(sprite_question_list);
 
 export class Quiz {
     constructor() {
-        this.question_list = total_q_list;
+        this.question_list = total_q_list.slice();
         this.score = 0;
         this.quiz_length = 5;
         this.questions_total = 16;
@@ -79,6 +79,8 @@ export class Quiz {
         let question_number = Math.floor(Math.random() * ((this.questions_total) - 1) + 0);
         this.current_question = this.question_list[question_number];
         this.question_list.splice(question_number, 1);
+        this.questions_total--;
+        console.log(this.question_list);
         return this.current_question;
     }
 
