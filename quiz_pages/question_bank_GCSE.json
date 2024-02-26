@@ -6,7 +6,8 @@
             "c": "Cell membrane",
             "d": "Cell wall"
         },
-        "correctAnswer": "d"
+        "correctAnswer": "d",
+        "tag": "Analysis"
     },
     {
         "question": "Cells with more mitochondria have more...?",
@@ -16,7 +17,8 @@
             "c": "Ribosomes",
             "d": "Health"
         },
-        "correctAnswer": "a"
+        "correctAnswer": "a",
+        "tag": "Remembering"
     }, {
         "question": "The endoplasmic recticulum has two sections. What are these two sections called?",
         "answers": {
@@ -25,6 +27,18 @@
             "c": "Smooth and Rough",
             "d": "Protien and Lipid"
         },
-        "correctAnswer": "c"
+        "correctAnswer": "c",
+        "tag": "Remembering"
+    },
+    {
+        "question": "What is the difference between active transport and diffusion?",
+        "answers": {
+            "a": "Diffusion is passive movement of particles from a higher concentration and lower concentration, active transport is diffusion of water across a membrane ",
+            "b": "Diffusion passively moves substances against the concentration gradient, Active transport uses energy to move substances with the concentration gradient.",
+            "c": "Diffusion is when energy is used to move substances against the concentration gradient, Active transport uses energy to move substances with the concentration gradient.",
+            "d": "Diffusion passively moves substances with the concentration, Active transport uses energy to move substances against the concentration gradient"
+        },
+        "correctAnswer": "c",
+        "tag": "Remembering"
     }
 ]
