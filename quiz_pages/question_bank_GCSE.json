@@ -38,7 +38,28 @@
             "c": "Diffusion is when energy is used to move substances against the concentration gradient, Active transport uses energy to move substances with the concentration gradient.",
             "d": "Diffusion passively moves substances with the concentration, Active transport uses energy to move substances against the concentration gradient"
         },
-        "correctAnswer": "c",
+        "correctAnswer": "d",
         "tag": "Remembering"
+    },
+    {
+        "question": "Would a sperm cell, a cell that requires a lot of energy, have a lot of mitochondria?",
+        "answers": {
+            "a": "Yes, a sperm cell would need a lot of mitochondria",
+            "b": "No, a sperm would only need a few mitochondria"
+        },
+        "correctAnswer": "a",
+        "tag": "Analysis"
+    },
+    {
+        "question": "What is the organelle labelled 2 on the diagram?",
+        "answers": {
+            "a": "Mitochondria",
+            "b": "Nucleus",
+            "c": "Lysosome",
+            "d": "Nucleolus"
+        },
+        "correctAnswer": "b",
+        "tag": "Comprehension",
+        "image": "../images/unlabelled_cell_diagram.png"
     }
 ]

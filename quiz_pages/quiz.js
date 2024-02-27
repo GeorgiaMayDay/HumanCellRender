@@ -56,6 +56,15 @@ access_question_bank().then(questions => {
     myQuestions = "Help"
 })
 
+function add_diagram(image_link) {
+    let diagramContainer = document.getElementById('diagrams');
+    diagramContainer.innerHTML = "<img src=" + image_link + " id='diagram'>";
+}
+
+function clear_diagram() {
+    let diagramContainer = document.getElementById('diagrams');
+    diagramContainer.innerHTML = "";
+}
 
 function generateQuiz(questions, questionContainer, resultsContainer, submitButton, answerContainer) {
     submitButton.style.display = "block";
@@ -86,10 +95,16 @@ function generateQuiz(questions, questionContainer, resultsContainer, submitButt
         for (letter in question['answers']) {
 
             if (count_answer == 0 || count_answer == column_divide) {
-                answers.push('<div class="col p-1" >')
+                answers.push('<div class="row justify-content-center p-1" >')
             }
 
             count_answer++
+
+            if ("image" in question) {
+                add_diagram(question["image"]);
+            } else {
+                clear_diagram();
+            }
 
             // add an html radio button
             answers.push(

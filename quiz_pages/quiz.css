@@ -16,8 +16,8 @@
     padding: 10px 20px;
     font-size: 20px;
     border-radius: 10px;
-    width: 40%;
-    height: 100%;
+    width: 80%;
+    height: fit-content;
 }
 
 #answers {
@@ -28,6 +28,12 @@
 
 .btn-group {
     vertical-align: flex;
+    text-align: center;
+}
+
+.diagram {
+    height: 200px;
+    width: 200px;
 }
 
 #answers input[type="radio"] {
