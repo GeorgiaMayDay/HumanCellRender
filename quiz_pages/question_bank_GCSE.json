@@ -70,7 +70,7 @@
         },
         "correctAnswer": "b",
         "tag": "Comprehension",
-        "image": "../images/unlabelled_cell_diagram.png"
+        "image": "unlabelled_cell_diagram.png"
     },
     {
         "question": "What is the organelle labelled 3 on the diagram?",
@@ -82,7 +82,7 @@
         },
         "correctAnswer": "b",
         "tag": "Comprehension",
-        "image": "../images/unlabelled_cell_diagram.png"
+        "image": "unlabelled_cell_diagram.png"
     },
     {
         "question": "What is the substance labelled 1 on the diagram?",
@@ -94,7 +94,7 @@
         },
         "correctAnswer": "a",
         "tag": "Comprehension",
-        "image": "../images/unlabelled_cell_diagram.png"
+        "image": "unlabelled_cell_diagram.png"
     },
     {
         "question": "What is the organelle labelled 4 on the diagram?",
@@ -106,6 +106,6 @@
         },
         "correctAnswer": "c",
         "tag": "Comprehension",
-        "image": "../images/unlabelled_cell_diagram.png"
+        "image": "unlabelled_cell_diagram.png"
     }
 ]

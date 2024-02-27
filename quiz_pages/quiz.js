@@ -60,7 +60,7 @@ access_question_bank().then(questions => {
 
 function add_diagram(image_link) {
     let diagramContainer = document.getElementById('diagrams');
-    diagramContainer.innerHTML = "<img src=" + image_link + " id='diagram'>";
+    diagramContainer.innerHTML = "<img src='../images/" + image_link + "' id='diagram'>";
 }
 
 function clear_diagram() {
@@ -172,7 +172,18 @@ function generateQuiz(questions, questionContainer, resultsContainer, submitButt
         questionContainer.innerHTML = '<div class="success"> You did it </div>';
         answerContainer.innerHTML = '';
         control_container.innerHTML = '<button id="restart" class="btn btn-secondary control">Restart</button>';
+        restartButton = document.getElementById('restart');
         resultsContainer.innerHTML = "<h4> You got " + score + "/" + quiz_length + "</h4>";
+        if ((score / quiz_length) >= 0.7) {
+            resultsContainer.style.backgroundColor = '#0EB70E';
+            add_diagram("ribecca_happy.png");
+        } else if ((score / quiz_length) >= 0.4) {
+            resultsContainer.style.backgroundColor = '#FFC87F';
+            add_diagram("ribecca_neutral_right.png");
+        } else {
+            resultsContainer.style.backgroundColor = '#8b0000';
+            add_diagram("ribecca_sad.png");
+        }
     }
 
     // show questions right away
