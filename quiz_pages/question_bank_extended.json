@@ -6,7 +6,8 @@
             "c": "The Cytoplasm gives support to the cell <br> The cell membrane place where cell reactions take place",
             "d": "The Cytoplasm controls cell division <br>  The cell membrane controls what goes in and out of a cell"
         },
-        "correctAnswer": "a"
+        "correctAnswer": "a",
+        "tag": "Comprehension"
     },
     {
         "question": "Which of these cellular structures contain DNA?",
@@ -18,6 +19,28 @@
         },
         "correctAnswer": "d",
         "tag": "Comprehension"
+    },
+    {
+        "question": "If the cell has a protien which it wants to leave the cell what organelles MUST it go though ?",
+        "answers": {
+            "a": "Nucleus",
+            "b": "Golgi Body",
+            "c": "Centrosomes",
+            "d": "Nuclear Pores"
+        },
+        "correctAnswer": "b",
+        "tag": "Analysis"
+    },
+    {
+        "question": "If the cell has a protien which it wants to leave the cell what organelles MUST it go though ?",
+        "answers": {
+            "a": "Nucleus",
+            "b": "Golgi Body",
+            "c": "Centrosomes",
+            "d": "Nuclear Pores"
+        },
+        "correctAnswer": "b",
+        "tag": "Analysis"
     },
     {
         "question": "All of the following organelle interact with ribosomes except... ",

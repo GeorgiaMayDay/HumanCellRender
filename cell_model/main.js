@@ -322,7 +322,7 @@ function checkAnswer(answer) {
             current_quiz.getScore() + "/5 </h3> <br>" +
             "If you want to try the quiz again, then flip the toggle back to Quiz mode." +
             "If you want to try a more detailed quiz click the button below" +
-            "<a class='quiz_link' href='Fquiz_menu.html'> Quiz  .</a>"
+            "<a class='quiz_link' href='quiz_menu.html'> Quiz  .</a>"
         $("#quiz_button").bootstrapToggle('on');
     }
 }

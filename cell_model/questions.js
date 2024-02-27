@@ -1,5 +1,3 @@
-import { Annotation_Information } from "./annotation_points";
-
 export class Question {
     constructor(question, answer, type, incorrect_blurb, correct_blurb) {
         this.question = question;

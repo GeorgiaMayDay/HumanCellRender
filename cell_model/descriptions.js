@@ -38,8 +38,8 @@ export const golgi_body_basic = "<p> The Golgi body, also known as the Golgi App
 export const golgi_body_adv = "<p> The Golgi Body, or Golgi Apparatus, is a made up of a series of stacked, folded membranes. These flattened sacs are known as cisternae. It is located next to the nucleus, in what's known as the perinuclear position. </p>" +
     "<p> The primary function of the Golgi Body is processing and sorting proteins, though it does also sort lipids in a similar manner. </p>" +
     "<p> Processing means modifying the protein by adding other materials. For example, it could add carbohydrates to a protein, creating a composite known as a glycoprotein. </p>" +
-    "<p> Once the products have been processed, they get wrapped in a vesicle, a membrane sac. The type of vesicle the product is wrapped in tells the cells where to send the protein. </p> " +
-    "<p> For example, proteins or materials, that are meant to leave the cell are wrapped in secretory vesicles so the cell knows they're mean to leave.  </p>" +
+    "<p> Once the products have been processed, they get wrapped in a vesicle, a membrane sac. The type of vesicle the product is wrapped in tells the cells where to send the products. </p> " +
+    "<p> For example products that are meant to leave the cell are wrapped in 'secretory' vesicles </p>" +
     "<p> This process is how the vast majority of enzymes, horomones and ion channels are made. </p>";
 
 export const rough_ER_basic = "<p> The Rough Endoplasmic Recticulum is part of the Endoplasmic Recticulum (ER) - the largest organelle in the cell. </p>" +
