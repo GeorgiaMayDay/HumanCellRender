@@ -20,6 +20,16 @@
         "correctAnswer": "a",
         "tag": "Remembering"
     }, {
+        "question": "One of the follow is NOT a function of the cell wall?",
+        "answers": {
+            "a": "Providing structure for the cell",
+            "b": "Facilitating Active Transport",
+            "c": "Protien Synthesis",
+            "d": "Facilitating Diffusion"
+        },
+        "correctAnswer": "c",
+        "tag": "Remembering"
+    }, {
         "question": "The endoplasmic recticulum has two sections. What are these two sections called?",
         "answers": {
             "a": "Inner and Outer",
@@ -59,6 +69,42 @@
             "d": "Nucleolus"
         },
         "correctAnswer": "b",
+        "tag": "Comprehension",
+        "image": "../images/unlabelled_cell_diagram.png"
+    },
+    {
+        "question": "What is the organelle labelled 3 on the diagram?",
+        "answers": {
+            "a": "Golgi Apparutas",
+            "b": "Cell Membrane",
+            "c": "Nuclear Envelope",
+            "d": "Cell Wall"
+        },
+        "correctAnswer": "b",
+        "tag": "Comprehension",
+        "image": "../images/unlabelled_cell_diagram.png"
+    },
+    {
+        "question": "What is the substance labelled 1 on the diagram?",
+        "answers": {
+            "a": "Cystoplasm",
+            "b": "Cell Liquid",
+            "c": "Nuclear Acid",
+            "d": "Chromosonal Fluid"
+        },
+        "correctAnswer": "a",
+        "tag": "Comprehension",
+        "image": "../images/unlabelled_cell_diagram.png"
+    },
+    {
+        "question": "What is the organelle labelled 4 on the diagram?",
+        "answers": {
+            "a": "Golgi Apparutas",
+            "b": "Nucleus",
+            "c": "Mitochondria",
+            "d": "Chloroplasts"
+        },
+        "correctAnswer": "c",
         "tag": "Comprehension",
         "image": "../images/unlabelled_cell_diagram.png"
     }
