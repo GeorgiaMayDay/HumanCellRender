@@ -20,6 +20,11 @@
     height: fit-content;
 }
 
+.control {
+    width: 100%;
+    height: 100%;
+}
+
 #answers {
     text-align: center;
     --bs-gutter-x: 10px;

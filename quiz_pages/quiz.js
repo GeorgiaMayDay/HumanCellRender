@@ -11,7 +11,7 @@ async function access_question_bank() {
 }
 
 function checkIfSectionDone(question_used) {
-    if (!(question_used.includes(0))) {
+    if (!(question_used.includes(0)) || num_of_question_done >= quiz_length) {
         console.log("You did it")
         return true
     }
@@ -39,6 +39,8 @@ let resultsContainer = document.getElementById('reveal');
 let nextButton = document.getElementById('next');
 let restartButton = document.getElementById('restart');
 let score = 0
+let quiz_length = 6;
+let num_of_question_done = 0;
 let myQuestions;
 let questionUsed;
 
@@ -85,11 +87,8 @@ function generateQuiz(questions, questionContainer, resultsContainer, submitButt
         question_and_used_list = getRndUniqueQuestion(questionUsed);
         let question = myQuestions[question_and_used_list[1]];
         questionUsed = question_and_used_list[0];
-        console.log(questionUsed);
-        console.log(question);
         let columns = Object.keys(question['answers']).length;
         let column_divide = Math.ceil(columns / 2);
-        console.log(columns);
         count_answer = 0;
 
         for (letter in question['answers']) {
@@ -97,7 +96,6 @@ function generateQuiz(questions, questionContainer, resultsContainer, submitButt
             if (count_answer == 0 || count_answer == column_divide) {
                 answers.push('<div class="row justify-content-center p-1" >')
             }
-
             count_answer++
 
             if ("image" in question) {
@@ -106,7 +104,7 @@ function generateQuiz(questions, questionContainer, resultsContainer, submitButt
                 clear_diagram();
             }
 
-            // add an html radio button
+            // add an answer
             answers.push(
                 '<input type="radio" class="ansbutton" name="options" value="' + letter + '" id="' + letter + '">' +
                 '<label class="btn btn-primary btn-xl" for="' + letter + '">' +
@@ -136,57 +134,50 @@ function generateQuiz(questions, questionContainer, resultsContainer, submitButt
     function showResults(question, answerContainer, resultsContainer) {
 
         let userAnswer = '';
-        let numCorrect = 0;
-
+        let correct = false;
+        num_of_question_done++;
 
         // find selected answer
         userAnswer = (answerContainer.querySelector('input[name=options]:checked') || {}).value;
-
-        console.log(userAnswer)
-
         btns = answerContainer.querySelectorAll('input[name=options]')
 
-        //Disable the buttons for changing
+        //Disable the buttons
         btns.forEach((answer_btns) => {
             answer_btns.disabled = true;
 
         });
-
-        // if answer is correct
         if (userAnswer === question['correctAnswer']) {
-            // add to the number of correct answers
-            numCorrect++;
+            correct = true;
 
         }
-        // if answer is wrong or blank
-        else {}
 
         // show number of correct answers out of total and reveal next button
-        if (numCorrect > 0) {
+        if (correct) {
             resultsContainer.innerHTML = 'Correct';
             resultsContainer.style.backgroundColor = '0EB70E';
+            score++;
         } else {
             resultsContainer.innerHTML = 'Incorrect';
             resultsContainer.style.backgroundColor = '8b0000';
         }
-
-        score += numCorrect;
         nextButton.style.display = "block";
         submitButton.style.display = "none";
 
     }
 
     function displayResults(questionContainer, answerContainer, resultsContainer) {
+        let control_container = document.getElementById("control-container");
+        submitButton.style.display = "none";
+        nextButton.style.display = "none";
         questionContainer.innerHTML = '<div class="success"> You did it </div>';
         answerContainer.innerHTML = '';
-        resultsContainer.innerHTML = "<h4> You got " + score + "/" + myQuestions.length + "</h4>";
+        control_container.innerHTML = '<button id="restart" class="btn btn-secondary control">Restart</button>';
+        resultsContainer.innerHTML = "<h4> You got " + score + "/" + quiz_length + "</h4>";
     }
 
     // show questions right away
     let question_and_used = showQuestion(questionContainer, resultsContainer);
     if (!(question_and_used)) {
-        submitButton.style.display = "none";
-        nextButton.style.display = "none";
         displayResults(questionContainer, answerContainer, resultsContainer)
     }
 
@@ -198,6 +189,7 @@ function generateQuiz(questions, questionContainer, resultsContainer, submitButt
     //on restart, regenerate Quiz
     restartButton.onclick = function() {
         score = 0;
+        num_of_question_done = 0;
         for (let i = 0; i < myQuestions.length; ++i) questionUsed[i] = 0;
         generateQuiz(myQuestions, questionContainer, resultsContainer, submitButton, answerContainer);
     }

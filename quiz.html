@@ -1,7 +1,7 @@
 <head>
     <!-- This is a comment -->
     <meta charset="UTF-8">
-    <meta name="description" content="This the Extention Quiz Page for Cell Education, a website that is designed to help you learn about the cells in your body with Quizzes and Visual aids">
+    <meta name="description" content="This the Quiz Page for Cell Education, a website that is designed to help you learn about the cells in your body with Quizzes and Visual aids">
 
     <title>LIVE Cell Quiz</title>
     <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
@@ -24,10 +24,14 @@
         <div class="row justify-content-center">
             <div class="btn-group justify-content-center" id="answers" data-toggle="button"></div>
         </div>
-        <div class="row">
-            <button id="submit" class="btn btn-primary">Check</button>
-            <button id="next" class="btn btn-primary">Next</button>
-            <button id="restart" class="btn btn-secondary">Restart</button>
+        <div class="row" id="control-container">
+            <div class="col">
+                <button id="submit" class="btn btn-primary control">Check</button>
+                <button id="next" class="btn btn-primary control">Next</button>
+            </div>
+            <div class="col">
+                <button id="restart" class="btn btn-secondary control">Restart</button>
+            </div>
         </div>
         <div class="row">
         </div>
