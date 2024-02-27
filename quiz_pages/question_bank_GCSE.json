@@ -107,5 +107,16 @@
         "correctAnswer": "c",
         "tag": "Comprehension",
         "image": "unlabelled_cell_diagram.png"
+    },
+    {
+        "question": "Which of these units is most suitable for measuring the length of a cell?",
+        "answers": {
+            "a": "Millimetres",
+            "b": "Micrometres",
+            "c": "Terametre",
+            "d": "Femtometre"
+        },
+        "correctAnswer": "b",
+        "tag": "Remembering"
     }
 ]

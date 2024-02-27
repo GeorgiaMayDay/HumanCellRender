@@ -72,6 +72,23 @@ function generateQuiz(questions, questionContainer, resultsContainer, submitButt
     submitButton.style.display = "block";
     nextButton.style.display = "none";
 
+    // on submit, show results
+    submitButton.onclick = function() {
+        showResults(question_and_used[0], answerContainer, resultsContainer);
+    }
+
+    //on restart, reload and regenerate Quiz
+    restartButton.onclick = function() {
+        location.reload();
+    }
+
+
+    // on next, move to new question
+    nextButton.onclick = function() {
+        generateQuiz(myQuestions, questionContainer, resultsContainer, submitButton, answerContainer);
+    }
+
+
     function showQuestion(quizContainer, resultsContainer) {
         let output = [];
         let answers;
@@ -166,13 +183,10 @@ function generateQuiz(questions, questionContainer, resultsContainer, submitButt
     }
 
     function displayResults(questionContainer, answerContainer, resultsContainer) {
-        let control_container = document.getElementById("control-container");
-        submitButton.style.display = "none";
-        nextButton.style.display = "none";
+        let control_container = document.getElementById("control-col");
+        control_container.style.display = "none";
         questionContainer.innerHTML = '<div class="success"> You did it </div>';
         answerContainer.innerHTML = '';
-        control_container.innerHTML = '<button id="restart" class="btn btn-secondary control">Restart</button>';
-        restartButton = document.getElementById('restart');
         resultsContainer.innerHTML = "<h4> You got " + score + "/" + quiz_length + "</h4>";
         if ((score / quiz_length) >= 0.7) {
             resultsContainer.style.backgroundColor = '#0EB70E';
@@ -191,24 +205,4 @@ function generateQuiz(questions, questionContainer, resultsContainer, submitButt
     if (!(question_and_used)) {
         displayResults(questionContainer, answerContainer, resultsContainer)
     }
-
-    // on submit, show results
-    submitButton.onclick = function() {
-        showResults(question_and_used[0], answerContainer, resultsContainer);
-    }
-
-    //on restart, regenerate Quiz
-    restartButton.onclick = function() {
-        score = 0;
-        num_of_question_done = 0;
-        for (let i = 0; i < myQuestions.length; ++i) questionUsed[i] = 0;
-        generateQuiz(myQuestions, questionContainer, resultsContainer, submitButton, answerContainer);
-    }
-
-
-    // on next, move to new question
-    nextButton.onclick = function() {
-        generateQuiz(myQuestions, questionContainer, resultsContainer, submitButton, answerContainer);
-    }
-
 }
