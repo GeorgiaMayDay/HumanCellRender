@@ -6,17 +6,29 @@
             "c": "Cell membrane",
             "d": "Cell wall"
         },
-        "correctAnswer": "d"
+        "correctAnswer": "d",
+        "tag": "Analysis"
     },
     {
         "question": "Cells with more mitochondria have more...?",
         "answers": {
             "a": "Energy",
-            "b": "Protien",
+            "b": "Protein",
             "c": "Ribosomes",
             "d": "Health"
         },
-        "correctAnswer": "a"
+        "correctAnswer": "a",
+        "tag": "Remembering"
+    }, {
+        "question": "One of the follow is NOT a function of the cell wall?",
+        "answers": {
+            "a": "Providing structure for the cell",
+            "b": "Facilitating Active Transport",
+            "c": "Protien Synthesis",
+            "d": "Facilitating Diffusion"
+        },
+        "correctAnswer": "c",
+        "tag": "Remembering"
     }, {
         "question": "The endoplasmic recticulum has two sections. What are these two sections called?",
         "answers": {
@@ -25,7 +37,86 @@
             "c": "Smooth and Rough",
             "d": "Protien and Lipid"
         },
-        "correctAnswer": "c"
+        "correctAnswer": "c",
+        "tag": "Remembering"
+    },
+    {
+        "question": "What is the difference between active transport and diffusion?",
+        "answers": {
+            "a": "Diffusion is passive movement of particles from a higher concentration and lower concentration, active transport is diffusion of water across a membrane ",
+            "b": "Diffusion passively moves substances against the concentration gradient, Active transport uses energy to move substances with the concentration gradient.",
+            "c": "Diffusion is when energy is used to move substances against the concentration gradient, Active transport uses energy to move substances with the concentration gradient.",
+            "d": "Diffusion passively moves substances with the concentration, Active transport uses energy to move substances against the concentration gradient"
+        },
+        "correctAnswer": "d",
+        "tag": "Remembering"
+    },
+    {
+        "question": "Would a sperm cell, a cell that requires a lot of energy, have a lot of mitochondria?",
+        "answers": {
+            "a": "Yes, a sperm cell would need a lot of mitochondria",
+            "b": "No, a sperm would only need a few mitochondria"
+        },
+        "correctAnswer": "a",
+        "tag": "Analysis"
+    },
+    {
+        "question": "What is the organelle labelled 2 on the diagram?",
+        "answers": {
+            "a": "Mitochondria",
+            "b": "Nucleus",
+            "c": "Lysosome",
+            "d": "Nucleolus"
+        },
+        "correctAnswer": "b",
+        "tag": "Comprehension",
+        "image": "unlabelled_cell_diagram.png"
+    },
+    {
+        "question": "What is the organelle labelled 3 on the diagram?",
+        "answers": {
+            "a": "Golgi Apparutas",
+            "b": "Cell Membrane",
+            "c": "Nuclear Envelope",
+            "d": "Cell Wall"
+        },
+        "correctAnswer": "b",
+        "tag": "Comprehension",
+        "image": "unlabelled_cell_diagram.png"
+    },
+    {
+        "question": "What is the substance labelled 1 on the diagram?",
+        "answers": {
+            "a": "Cytoplasm",
+            "b": "Cell Liquid",
+            "c": "Nuclear Acid",
+            "d": "Chromosonal Fluid"
+        },
+        "correctAnswer": "a",
+        "tag": "Comprehension",
+        "image": "unlabelled_cell_diagram.png"
+    },
+    {
+        "question": "What is the organelle labelled 4 on the diagram?",
+        "answers": {
+            "a": "Golgi Apparutas",
+            "b": "Nucleus",
+            "c": "Mitochondria",
+            "d": "Chloroplasts"
+        },
+        "correctAnswer": "c",
+        "tag": "Comprehension",
+        "image": "unlabelled_cell_diagram.png"
+    },
+    {
+        "question": "Which of these units is most suitable for measuring the length of a cell?",
+        "answers": {
+            "a": "Millimetres",
+            "b": "Micrometres",
+            "c": "Terametre",
+            "d": "Femtometre"
+        },
+        "correctAnswer": "b",
+        "tag": "Remembering"
     }
-
 ]
