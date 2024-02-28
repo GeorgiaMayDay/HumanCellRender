@@ -19,16 +19,21 @@ function checkIfSectionDone(question_used) {
 
 }
 
-function getRndUniqueQuestion(used_list) {
-    used = true
-    while (used) {
-        question_number = getRndQuestionNumber(used_list.length)
-        if (!(used_list[question_number] == 1)) {
-            used = false;
-            used_list[question_number] = 1;
-            return [used_list, question_number];
-        }
+function getRndUniqueQuestion() {
+    let questionPool;
+    if (num_of_question_done <= 3) {
+        questionPool = rememberQuestions;
+    } else if (num_of_question_done <= 5) {
+        questionPool = comprehensionQuestions;
+    } else {
+        questionPool = analysisQuestions;
     }
+    question_number = getRndQuestionNumber(questionPool.length)
+    question = questionPool[question_number];
+    questionPool.splice(question_number, 1);
+    console.log(questionPool);
+    console.log(question);
+    return question;
 }
 
 
@@ -42,17 +47,37 @@ let score = 0
 let quiz_length = 6;
 let num_of_question_done = 0;
 let myQuestions;
+let rememberQuestions = [];
+let comprehensionQuestions = [];
+let analysisQuestions = [];
 let questionUsed;
 
 function getRndQuestionNumber(total_num_of_question) {
     return Math.floor(Math.random() * ((total_num_of_question) - 0) + 0);
 }
 
+function sortQuestions(all_questions) {
+    console.log(all_questions);
+    for (let question of all_questions) {
+        if (question["tag"] == "Remembering") {
+            rememberQuestions.push(question);
+        } else if (question["tag"] == "Comprehension") {
+            comprehensionQuestions.push(question);
+        } else if (question["tag"] == "Analysis") {
+            analysisQuestions.push(question);
+        } else {
+            console.log(question);
+            throw new Error("The tag for this question is not correct");
+        }
+    }
+}
+
 access_question_bank().then(questions => {
-    myQuestions = questions
+    myQuestions = questions;
+    sortQuestions(myQuestions);
     questionUsed = new Array(myQuestions.length);
     for (let i = 0; i < myQuestions.length; ++i) questionUsed[i] = 0;
-    generateQuiz(myQuestions, questionContainer, resultsContainer, submitButton, answerContainer);
+    generateQuiz();
 }).catch(err => {
     console.log(err)
     myQuestions = "Help"
@@ -60,7 +85,7 @@ access_question_bank().then(questions => {
 
 function add_diagram(image_link) {
     let diagramContainer = document.getElementById('diagrams');
-    diagramContainer.innerHTML = "<img src='../images/" + image_link + "' id='diagram'>";
+    diagramContainer.innerHTML = "<img src='images/" + image_link + "' id='diagram'>";
 }
 
 function clear_diagram() {
@@ -68,13 +93,13 @@ function clear_diagram() {
     diagramContainer.innerHTML = "";
 }
 
-function generateQuiz(questions, questionContainer, resultsContainer, submitButton, answerContainer) {
+function generateQuiz() {
     submitButton.style.display = "block";
     nextButton.style.display = "none";
 
     // on submit, show results
     submitButton.onclick = function() {
-        showResults(question_and_used[0], answerContainer, resultsContainer);
+        showResults(question);
     }
 
     //on restart, reload and regenerate Quiz
@@ -82,14 +107,12 @@ function generateQuiz(questions, questionContainer, resultsContainer, submitButt
         location.reload();
     }
 
-
     // on next, move to new question
     nextButton.onclick = function() {
-        generateQuiz(myQuestions, questionContainer, resultsContainer, submitButton, answerContainer);
+        generateQuiz();
     }
 
-
-    function showQuestion(quizContainer, resultsContainer) {
+    function showQuestion() {
         let output = [];
         let answers;
 
@@ -101,9 +124,7 @@ function generateQuiz(questions, questionContainer, resultsContainer, submitButt
         if (done) {
             return false
         }
-        question_and_used_list = getRndUniqueQuestion(questionUsed);
-        let question = myQuestions[question_and_used_list[1]];
-        questionUsed = question_and_used_list[0];
+        let question = getRndUniqueQuestion();
         let columns = Object.keys(question['answers']).length;
         let column_divide = Math.ceil(columns / 2);
         count_answer = 0;
@@ -144,11 +165,11 @@ function generateQuiz(questions, questionContainer, resultsContainer, submitButt
         // finally combine our output list into one string of html and put it on the page
         answerContainer.innerHTML = output.join('');
 
-        return [question, questionUsed]
+        return question
     }
 
 
-    function showResults(question, answerContainer, resultsContainer) {
+    function showResults(question) {
 
         let userAnswer = '';
         let correct = false;
@@ -182,7 +203,7 @@ function generateQuiz(questions, questionContainer, resultsContainer, submitButt
 
     }
 
-    function displayResults(questionContainer, answerContainer, resultsContainer) {
+    function displayResults() {
         let control_container = document.getElementById("control-col");
         control_container.style.display = "none";
         questionContainer.innerHTML = '<div class="success"> You did it </div>';
@@ -200,9 +221,9 @@ function generateQuiz(questions, questionContainer, resultsContainer, submitButt
         }
     }
 
-    // show questions right away
-    let question_and_used = showQuestion(questionContainer, resultsContainer);
-    if (!(question_and_used)) {
-        displayResults(questionContainer, answerContainer, resultsContainer)
+    // core loop
+    showQuestion();
+    if (quiz_length == num_of_question_done) {
+        displayResults()
     }
 }
