@@ -266,9 +266,11 @@ function tour_switch() {
     let tour_mode = document.getElementById('tour_button').checked;
 
     if (tour_mode) {
+        appear_button("quiz");
         destory_tour_sprites();
         default_annotation();
         points_visible(true);
+
     } else {
         set_up_tour();
     }
