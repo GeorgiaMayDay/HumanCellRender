@@ -184,6 +184,7 @@ function onClick() {
 function onDocumentMouseMove(event) {
     let headerHeight = document.getElementById('header').offsetHeight;
     let renderHeight = window.innerHeight + headerHeight;
+    let tour_mode = document.getElementById('tour_button').checked;
 
     mouse.x = (event.clientX / window.innerWidth) * 2 - 1;
     mouse.y = -(event.clientY / renderHeight) * 2 + 1;
@@ -191,7 +192,7 @@ function onDocumentMouseMove(event) {
     let raycaster = new three.Raycaster();
     raycaster.setFromCamera(mouse, camera);
     let intersects = raycaster.intersectObjects(Sprite_List, true);
-    if (intersects.length != 0) {
+    if (intersects.length != 0 && !tour_mode) {
         for (let p of Annotation_List) {
             if (compareClickWithPoint(intersects[0].point, p.getPosition())) {
                 for (let p of Annotation_List) {
@@ -413,6 +414,7 @@ function toViewPosition(annotation) {
         },
         onComplete: function() {
             points_visible(false);
+            annotation.highlight_visible(false);
         }
     }).to(camera.position, {
         duration: 10,
@@ -443,9 +445,11 @@ function toDefault() {
     });
     camera_focus = cell_position;
     let quiz_mode = document.getElementById('quiz_button').checked;
-    let tour_mode = document.getElementById('tour_button').checked;
     if (quiz_mode) {
         update_annotation();
+    }
+    for (let p of Annotation_List) {
+        p.highlight_visible(true);
     }
 }
 

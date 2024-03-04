@@ -66,6 +66,15 @@ export class Annotation_point {
         this.highlighted = true;
         return this.highlight_sprite;
     }
+
+    highlight_visible(isVisible = true) {
+        if (isVisible == true) {
+            this.highlight_sprite.material.opacity = 1;
+        } else {
+            this.highlight_sprite.material.opacity = 0;
+        }
+    }
+
 }
 
 export class Annotation_Information {
