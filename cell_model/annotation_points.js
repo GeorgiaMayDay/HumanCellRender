@@ -19,6 +19,14 @@ export class Annotation_point {
         this.information = new Annotation_Information(name, description, advanced_description);
         this.in_tour = in_tour;
         this.pan_position = pan_position;
+        this.highlighted = false;
+
+        const highlight_map = new THREE.TextureLoader().load('./images/annotation_point_highlighted.png');
+        const highlight_annotation_material = new THREE.SpriteMaterial({ map: highlight_map, color: 0xA2CE72 });
+        let highlight_sprite = new THREE.Sprite(highlight_annotation_material);
+        highlight_sprite.scale.set(15, 15, 1);
+        highlight_sprite.position.set(position[0], position[1], position[2]);
+        this.highlight_sprite = highlight_sprite;
 
         sprite = new THREE.Sprite(annotation_material);
         sprite.scale.set(15, 15, 1);
@@ -52,6 +60,11 @@ export class Annotation_point {
 
     setBasicTourDescriptionForPoint(des) {
         this.information.setBasicTourDescription(des);
+    }
+
+    getHighlightSprite() {
+        this.highlighted = true;
+        return this.highlight_sprite;
     }
 }
 

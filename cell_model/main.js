@@ -96,8 +96,6 @@ loader.load('3D_models/3D_cell_model_ribosomes.glb', function(full_cell_model) {
 
 });
 
-const raycaster = new three.Raycaster();
-
 //Annotations
 
 let Annotation_List = []
@@ -149,14 +147,15 @@ annotation_set_up(sprite_nuclear_envelope)
 // Decides what happens when you're clicking
 function onClick() {
     event.preventDefault();
-    let headerHeight = document.getElementById('header').offsetHeight
-    let renderHeight = window.innerHeight + headerHeight
+    let headerHeight = document.getElementById('header').offsetHeight;
+    let renderHeight = window.innerHeight + headerHeight;
     let quiz_mode = document.getElementById('quiz_button').checked;
     let tour_mode = document.getElementById('tour_button').checked;
 
     mouse.x = (event.clientX / window.innerWidth) * 2 - 1;
     mouse.y = -(event.clientY / renderHeight) * 2 + 1;
 
+    let raycaster = new three.Raycaster();
     raycaster.setFromCamera(mouse, camera);
 
     let intersects = raycaster.intersectObjects(Sprite_List, true);
@@ -177,6 +176,42 @@ function onClick() {
                     checkAnswer(p.getName());
                     break;
                 }
+            }
+        }
+    }
+}
+
+function onDocumentMouseMove(event) {
+    let headerHeight = document.getElementById('header').offsetHeight;
+    let renderHeight = window.innerHeight + headerHeight;
+
+    mouse.x = (event.clientX / window.innerWidth) * 2 - 1;
+    mouse.y = -(event.clientY / renderHeight) * 2 + 1;
+
+    let raycaster = new three.Raycaster();
+    raycaster.setFromCamera(mouse, camera);
+    let intersects = raycaster.intersectObjects(Sprite_List, true);
+    if (intersects.length != 0) {
+        for (let p of Annotation_List) {
+            if (compareClickWithPoint(intersects[0].point, p.getPosition())) {
+                for (let p of Annotation_List) {
+                    if (compareClickWithPoint(intersects[0].point, p.getPosition())) {
+                        let highlight_sprite = p.getHighlightSprite();
+                        scene.add(highlight_sprite);
+                        scene.remove(p.getPoint());
+                    }
+                }
+                $('html,body').css('cursor', 'zoom-in');
+            }
+        }
+    } else {
+        $('html,body').css('cursor', 'default');
+        for (let p of Annotation_List) {
+            if (p.highlighted == true) {
+                let highlight_sprite = p.getHighlightSprite();
+                scene.remove(highlight_sprite);
+                scene.add(p.getPoint());
+                p.highlighted = false;
             }
         }
     }
@@ -274,7 +309,7 @@ function tour_switch() {
 
     if (tour_mode) {
         appear_button("quiz");
-        destory_tour_sprites();
+        destroy_tour_sprites();
         default_annotation();
         points_visible(true);
 
@@ -283,7 +318,7 @@ function tour_switch() {
     }
 }
 
-function destory_tour_sprites() {
+function destroy_tour_sprites() {
     for (let p of tour.get_sprite_list()) {
         scene.remove(p);
     }
@@ -415,6 +450,7 @@ function toDefault() {
 }
 
 renderer.domElement.addEventListener('click', onClick, false);
+renderer.domElement.addEventListener('pointermove', onDocumentMouseMove);
 
 document.querySelector("#camOverview").onclick = function() {
     toDefault()
@@ -423,6 +459,7 @@ document.querySelector("#camOverview").onclick = function() {
 window.addEventListener("resize", onWindowResize, false);
 
 window.addEventListener("load", onWindowResize);
+
 
 
 function onWindowResize() {
