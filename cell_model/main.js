@@ -107,7 +107,7 @@ function annotation_set_up(sprite_class) {
     Sprite_List.push(sprite_class.getPoint())
 }
 
-const sprite_nucleolus = new Annotation_point([-10, 21, -28], "Nucleolus",
+const sprite_nucleolus = new Annotation_point([-15, 21, -28], "Nucleolus",
     nucleolus_basic, nucleolus_adv, 0, false, [20, 40]);
 annotation_set_up(sprite_nucleolus)
 
@@ -132,7 +132,7 @@ annotation_set_up(sprite_lysosome)
 const sprite_membrane = new Annotation_point([-140, 4, -60], "Membrane", cell_membrane_basic, cell_membrane_adv, 0, true, [10, 10]);
 annotation_set_up(sprite_membrane);
 
-const sprite_nucleus = new Annotation_point([10, 30, -35], "Nucleus", nucleus_basic, nucleus_adv, 0, true, [30, 10]);
+const sprite_nucleus = new Annotation_point([15, 30, -35], "Nucleus", nucleus_basic, nucleus_adv, 0, true, [30, 10]);
 annotation_set_up(sprite_nucleus);
 
 const sprite_ribosome = new Annotation_point([-90, 1, 70], "Ribosome", ribosome_basic, ribosome_adv, 0, true, [10, 10]);
