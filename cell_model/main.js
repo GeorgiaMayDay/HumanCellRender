@@ -152,6 +152,7 @@ function onClick() {
     let headerHeight = document.getElementById('header').offsetHeight
     let renderHeight = window.innerHeight + headerHeight
     let quiz_mode = document.getElementById('quiz_button').checked;
+    let tour_mode = document.getElementById('tour_button').checked;
 
     mouse.x = (event.clientX / window.innerWidth) * 2 - 1;
     mouse.y = -(event.clientY / renderHeight) * 2 + 1;
@@ -162,11 +163,17 @@ function onClick() {
     if (intersects.length != 0) {
         for (let p of Annotation_List) {
             if (compareClickWithPoint(intersects[0].point, p.getPosition())) {
-                if (quiz_mode) {
+                if (quiz_mode && !tour_mode) {
                     update_annotation(p)
                     toViewPosition(p);
                     break;
-                } else {
+                } else if (tour_mode) {
+                    if (p.in_tour) {
+                        update_annotation(p)
+                        toViewPosition(p);
+                    }
+                    break;
+                } else if (!quiz_mode) {
                     checkAnswer(p.getName());
                     break;
                 }
