@@ -220,12 +220,21 @@ function onDocumentMouseMove(event) {
 
 function toggle_mascot(mood) {
     let mascot = document.querySelector('#Mascot');
-    if (mood = "happy") {
+    if (mood == "happy") {
         mascot.src = "images/ribecca_happy.png";
         mascot.style.width = "200px";
         mascot.style.height = "240px";
+        mascot.style.marginLeft = "-20px";
+    } else if (mood == "sad") {
+        mascot.src = "images/ribecca_sad.png";
+        mascot.style.width = "160px";
+        mascot.style.height = "200px";
+        mascot.style.marginLeft = "0";
     } else {
         mascot.src = "images/ribecca_neutral_right.png";
+        mascot.style.width = "160px";
+        mascot.style.height = "200px";
+        mascot.style.marginLeft = "-20px";
     }
 }
 
@@ -243,12 +252,15 @@ function default_annotation() {
     const title = document.querySelector('#title');
     const details = document.querySelector('#details');
     let tour_mode = document.getElementById('tour_button').checked;
+    let result = document.getElementById('result');
 
     if (!tour_mode) {
         points_visible(true);
         appear_button("quiz");
     }
     appear_button("tour");
+    toggle_mascot();
+    result.style.display = "none";
     title.innerHTML = "<strong>" + "Animal Cell Model" + "</strong>";
     details.innerHTML = "This is a cell model for you to play around with. Feel free to click on any of the points to learn more about them." +
         "<br> You can answer some questions in Quiz mode by switching over the learning toggle";
@@ -353,21 +365,30 @@ quiz_button.addEventListener('click', quiz_switch);
 function checkAnswer(answer) {
     let title = document.querySelector('#title');
     let details = document.querySelector('#details');
-    // if (current_quiz.checkAnswer(answer)) {
-    //     toggle_mascot("happy");
-    // }
+    let result = document.querySelector('#result');
+    result.style.display = "inline-block";
+    if (current_quiz.checkAnswer(answer)) {
+        toggle_mascot("happy");
+        result.innerHTML = "<h6>Correct</h6>";
+        result.style.backgroundColor = "green";
+    } else {
+        toggle_mascot("sad");
+        result.innerHTML = "<h6>Incorrect</h6>";
+        result.style.backgroundColor = "red";
+    }
     let results_blurb = current_quiz.checkAnswerAndIncreaseScore(answer);
     details.innerHTML = results_blurb;
     if (current_quiz.checkIfQuizOver()) {
         set_up_question();
     } else {
+        toggle_mascot();
         title.innerHTML = "<strong> Animal Cell model <strong>"
         details.innerHTML = "Well done!" +
             " You've finished the quiz with a score of: <br> <h3>" +
             current_quiz.getScore() + "/5 </h3> <br>" +
             "If you want to try the quiz again, then flip the toggle back to Quiz mode." +
             "If you want to try a more detailed quiz click the button below" +
-            "<a class='quiz_link' href='quiz_menu.html'> Quiz  .</a>"
+            "<button class='quiz_link_button'> <a class='quiz_link' href='quiz_menu.html'> Quiz</a> </button>"
         $("#quiz_button").bootstrapToggle('on');
     }
 }
@@ -385,6 +406,7 @@ function set_up_question() {
 function quiz_switch() {
 
     let quiz_mode = document.getElementById('quiz_button').checked;
+    let result = document.getElementById('result');
 
     if (quiz_mode) {
         current_quiz = new Quiz();

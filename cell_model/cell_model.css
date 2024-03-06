@@ -21,9 +21,13 @@
  }
  
  .quiz_link {
-     margin-left: 30px;
-     background-color: var(--tropical-indigo);
      border-radius: 20%;
+ }
+ 
+ .quiz_link_button {
+     width: fit-content;
+     background-color: var(--celadon);
+     margin-left: 50px;
  }
  
  #Mascot {
@@ -40,7 +44,6 @@
      border-left: 15px solid transparent;
      border-right: 15px solid transparent;
      border-top: 15px solid var(--mascot);
-     ;
      margin-left: 50px;
  }
  
@@ -73,34 +76,6 @@
      cursor: pointer;
  }
  
- #camNucelous {
-     background-color: #0000ff;
- }
- 
- #camMoveThree {
-     background-color: #009900;
- }
- 
- #camMoveFour {
-     background-color: #e67300;
- }
- 
- #camMoveFive {
-     background-color: #9900cc;
- }
- 
- #camMoveSix {
-     background-color: #ffcc00;
- }
- 
- #camMoveSev {
-     background-color: #99ccff;
- }
- 
- #camMoveEig {
-     background-color: #00ef2d;
- }
- 
  .annotation {
      position: absolute;
      display: flex;
@@ -120,6 +95,29 @@
      font-size: 14px;
      line-height: 1.2;
      transition: opacity .2s;
+ }
+ 
+ .pill {
+     --bs-badge-padding-x: 0.65em;
+     --bs-badge-padding-y: 0.35em;
+     --bs-badge-font-size: 0.75em;
+     --bs-badge-font-weight: 700;
+     --bs-badge-color: #fff;
+     width: 50%;
+     height: 25px;
+     margin-left: 40px;
+     margin-top: 5px;
+     border-radius: 10%;
+     background-color: var(--yale-blue);
+     display: inline-block;
+     padding: var(--bs-badge-padding-y) var(--bs-badge-padding-x);
+     font-size: var(--bs-badge-font-size);
+     font-weight: var(--bs-badge-font-weight);
+     line-height: 1;
+     color: var(--bs-badge-color);
+     text-align: center;
+     white-space: nowrap;
+     display: none;
  }
  
  .toggle.ios,
