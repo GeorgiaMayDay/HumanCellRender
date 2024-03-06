@@ -1,120 +1,118 @@
 [{
-        "question": "Which of the following organelle is NOT part of an animal cell?",
+        "question": "Which answer gives the correct functions of both the cytoplasm AND the cell membrane?",
+        "answers": {
+            "a": "The Cytoplasm is the place where cell reactions take place. <br> The cell membrane controls what goes in and out of a cell",
+            "b": "The Cytoplasm controls cell division <br>  The cell membrane gives support to the cell",
+            "c": "The Cytoplasm gives support to the cell <br> The cell membrane place where cell reactions take place",
+            "d": "The Cytoplasm controls cell division <br>  The cell membrane controls what goes in and out of a cell"
+        },
+        "correctAnswer": "a",
+        "tag": "Comprehension"
+    },
+    {
+        "question": "Which of these cellular structures contain DNA?",
+        "answers": {
+            "a": "Rough Endoplasmic Reticulum",
+            "b": "Smooth Endoplasmic Reticulum",
+            "c": "Lysosome",
+            "d": "Mitochondria"
+        },
+        "correctAnswer": "d",
+        "tag": "Comprehension"
+    },
+    {
+        "question": "If the cell has a protien which it wants to leave the cell what organelles MUST it go though ?",
         "answers": {
             "a": "Nucleus",
-            "b": "Cytoplasm",
-            "c": "Cell membrane",
-            "d": "Cell wall"
+            "b": "Golgi Body",
+            "c": "Centrosomes",
+            "d": "Nuclear Pores"
         },
-        "correctAnswer": "d",
+        "correctAnswer": "b",
         "tag": "Analysis"
     },
     {
-        "question": "Cells with more mitochondria have more...?",
+        "question": "If the cell has a protien which it wants to leave the cell what organelles MUST it go though ?",
         "answers": {
-            "a": "Energy",
-            "b": "Protein",
-            "c": "Ribosomes",
-            "d": "Health"
+            "a": "Nucleus",
+            "b": "Golgi Body",
+            "c": "Centrosomes",
+            "d": "Nuclear Pores"
         },
-        "correctAnswer": "a",
-        "tag": "Remembering"
-    }, {
-        "question": "One of the follow is NOT a function of the cell wall?",
-        "answers": {
-            "a": "Providing structure for the cell",
-            "b": "Facilitating Active Transport",
-            "c": "Protien Synthesis",
-            "d": "Facilitating Diffusion"
-        },
-        "correctAnswer": "c",
-        "tag": "Remembering"
-    }, {
-        "question": "The endoplasmic recticulum has two sections. What are these two sections called?",
-        "answers": {
-            "a": "Inner and Outer",
-            "b": "Double and Single",
-            "c": "Smooth and Rough",
-            "d": "Protien and Lipid"
-        },
-        "correctAnswer": "c",
-        "tag": "Remembering"
-    },
-    {
-        "question": "What is the difference between active transport and diffusion?",
-        "answers": {
-            "a": "Diffusion is passive movement of particles from a higher concentration and lower concentration, active transport is diffusion of water across a membrane ",
-            "b": "Diffusion passively moves substances against the concentration gradient, Active transport uses energy to move substances with the concentration gradient.",
-            "c": "Diffusion is when energy is used to move substances against the concentration gradient, Active transport uses energy to move substances with the concentration gradient.",
-            "d": "Diffusion passively moves substances with the concentration, Active transport uses energy to move substances against the concentration gradient"
-        },
-        "correctAnswer": "d",
-        "tag": "Remembering"
-    },
-    {
-        "question": "Would a sperm cell, a cell that requires a lot of energy, have a lot of mitochondria?",
-        "answers": {
-            "a": "Yes, a sperm cell would need a lot of mitochondria",
-            "b": "No, a sperm would only need a few mitochondria"
-        },
-        "correctAnswer": "a",
+        "correctAnswer": "b",
         "tag": "Analysis"
     },
     {
-        "question": "What is the organelle labelled 2 on the diagram?",
+        "question": "All of the following organelle interact with ribosomes except... ",
+        "answers": {
+            "a": "Rough Endoplasmic Reticulum",
+            "b": "Smooth Endoplasmic Reticulum",
+            "c": "Mitochondria",
+            "d": "Golgi Body"
+        },
+        "correctAnswer": "c",
+        "tag": "Comprehension"
+    },
+    {
+        "question": "What are ribosomes made up of?",
+        "answers": {
+            "a": "RNA",
+            "b": "DNA",
+            "c": "DNA, and proteins",
+            "d": "RNA and proteins"
+        },
+        "correctAnswer": "a",
+        "tag": "Remembering"
+    },
+    {
+        "question": "Which of the following statements are true?",
+        "answers": {
+            "a": "Ribosomes are self-replicating organelle",
+            "b": "Ribosomes have a double membrane",
+            "c": "Ribsomes are coded by DNA",
+            "d": "Ribosomes are coded by RNA"
+        },
+        "correctAnswer": "c",
+        "tag": "Remembering"
+    },
+    {
+        "question": "Is the Golgi stack the same as the Golgi cisternae?",
+        "answers": {
+            "a": "True",
+            "b": "False"
+        },
+        "correctAnswer": "b",
+        "tag": "Comprehension"
+    },
+    {
+        "question": "Which organelle handles shipping and distributing of protiens and chemicals produced by the cell?",
         "answers": {
             "a": "Mitochondria",
-            "b": "Nucleus",
+            "b": "Smooth Endoplasmic Reticulum",
             "c": "Lysosome",
-            "d": "Nucleolus"
+            "d": "Golgi Body"
+        },
+        "correctAnswer": "d",
+        "tag": "Remembering"
+    },
+    {
+        "question": "The region around the Golgi apparatus where other organelles are absent is called?",
+        "answers": {
+            "a": "Zone of inhibition",
+            "b": "Zone of exclusion",
+            "c": "Zone of abscene",
+            "d": "All of the above"
         },
         "correctAnswer": "b",
-        "tag": "Comprehension",
-        "image": "unlabelled_cell_diagram.png"
+        "tag": "Remembering"
     },
     {
-        "question": "What is the organelle labelled 3 on the diagram?",
+        "question": "Pick the correctly matched pair?",
         "answers": {
-            "a": "Golgi Apparutas",
-            "b": "Cell Membrane",
-            "c": "Nuclear Envelope",
-            "d": "Cell Wall"
-        },
-        "correctAnswer": "b",
-        "tag": "Comprehension",
-        "image": "unlabelled_cell_diagram.png"
-    },
-    {
-        "question": "What is the substance labelled 1 on the diagram?",
-        "answers": {
-            "a": "Cytoplasm",
-            "b": "Cell Liquid",
-            "c": "Nuclear Acid",
-            "d": "Chromosonal Fluid"
-        },
-        "correctAnswer": "a",
-        "tag": "Comprehension",
-        "image": "unlabelled_cell_diagram.png"
-    },
-    {
-        "question": "What is the organelle labelled 4 on the diagram?",
-        "answers": {
-            "a": "Golgi Apparutas",
-            "b": "Nucleus",
-            "c": "Mitochondria",
-            "d": "Chloroplasts"
-        },
-        "correctAnswer": "c",
-        "tag": "Comprehension",
-        "image": "unlabelled_cell_diagram.png"
-    },
-    {
-        "question": "Which of these units is most suitable for measuring the length of a cell?",
-        "answers": {
-            "a": "Millimetres",
-            "b": "Micrometres",
-            "c": "Terametre",
-            "d": "Femtometre"
+            "a": "Lysosomes - involved in synthesizing amino acids",
+            "b": "Endoplasmic reticulum - plays a role in synthesising protiens and lipids ",
+            "c": "Centrosomes - Provides enzymes for digestion",
+            "d": "All of the above"
         },
         "correctAnswer": "b",
         "tag": "Remembering"
