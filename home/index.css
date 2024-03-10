@@ -15,10 +15,6 @@
      background-color: var(--main-background);
  }
  
- a:hover {
-     border-style: solid;
- }
- 
  .logo {
      width: 20px;
  }
@@ -46,6 +42,29 @@
  }
  
  .row {
+     text-align: center;
+ }
+ 
+ .row .col {
+     border-radius: 30%;
+     border-radius: 10px;
+     height: 100px;
+     padding-top: 25px;
+ }
+ 
+ .row .col:hover {
+     border-style: solid;
+ }
+ 
+ #model {
+     background-color: var(--fern-green);
+     border-color: #87ab5f;
+     text-align: center;
+ }
+ 
+ #quiz {
+     background-color: var(--yale-blue);
+     border-color: rgb(7, 38, 68);
      text-align: center;
  }
  
