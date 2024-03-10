@@ -52,7 +52,7 @@
      padding-top: 25px;
  }
  
- .row .col:hover {
+ #navi-buttons .col:hover {
      border-style: solid;
  }
  
