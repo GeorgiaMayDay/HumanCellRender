@@ -17,17 +17,21 @@
     height: 80%;
 }
 
+.col .btn:hover {
+    border-style: solid;
+    border-color: black;
+    border-width: 2px;
+    border-radius: 5px;
+}
+
 #GCSE {
     background-color: #A2CE72;
-    border-color: #87ab5f;
 }
 
 #Extension {
     background-color: #319d87;
-    border-color: #87ab5f;
 }
 
 #Advanced {
     background-color: #0d3b66ff;
-    border-color: #87ab5f;
 }
