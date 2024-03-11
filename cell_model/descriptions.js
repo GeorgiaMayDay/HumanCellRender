@@ -1,19 +1,16 @@
-export const mitochondria_basic = "<p>Rod-shaped structures that perform aerobic (with oxygen) cellular respiration." +
-    " Aerobic respiration means the mitochondria consume glucose and produce ATP - an energy source needed for a lot of cell activity </p>" +
-    " These cells are found in Animal cells, Plants cells and even fungal cells" + " They have their own double membrane - quite rare for an organelle";
+export const mitochondria_basic = "<p> The source of energy for the cell.  Animal, plant and even some fungal cells have Mitochondria They produce most of the chemical energy needed by the cell by adding oxygen to glucose and turning it into ATP, the fuel of the cell. This process is known as ‘aerobic respiration’. Mitochondria are enclosed in a double membrane which is quite unusual for a cell organelle. </p> " +
+    "<p> Different cells have different amounts of mitochondria depending on how much energy they need.  For example, your muscles, brain, and liver have lots of mitochondria, since they need lots of energy.</p> ";
 
-export const mitochondria_adv = "<p> Mitochondria are membrane-bound cell organelles (mitochondrion, singular) that generate most of the chemical energy needed to power the cell's biochemical reactions. </p><p> This chemical energy produced by the mitochondria is stored in a small molecule called adenosine triphosphate (ATP). Mitochondria contain their own small chromosomes. Mitochondria, and therefore mitochondrial DNA, are inherited from the mother </p><p>" +
-    " Mitochondria are membrane-bound with two different membranes. " +
-    "These membranes are essential to produce energy (ATP). " + "Oxygen is used to create an electrochemical gradient across the membranes. </p>" +
-    "<p> That gradient means when ADP moves through the membranes, it has enough energy to become ATP. " +
-    "ATP is an energy source, because the phosphate (that the P in ATP) is a high-energy bond and if broken, releases energy that can be used for other reactions within the cell. </p>" +
-    " <p> Some different cells have different amounts of mitochondria because they need more energy. So for example, the muscle has a lot of mitochondria, the liver does too, the kidney as well, and to a certain extent, the brain, which lives off of the energy those mitochondria produce. </p><p> So if you have a defect in the pathways that the mitochondria usually functions with, you're going to have symptoms in the muscle, in the brain, sometimes in the kidneys as well; many different types of symptoms. And we probably don't know all of the different diseases that mitochondrial dysfunction causes.</p>";
+export const mitochondria_adv = "<p> Mitochondria (singular, a mitochondrion) generate most of the chemical energy needed to power the cell's biochemical reactions. Mitochondria use their double cell membrane to generate oxygen-powered electrochemical gradient in the space between them. This electrochemical gradient is used to lift lower-energy ADP (adenosine diphosphate) to higher-energy ATP (adenosine triphosphate). ATP can then be used to power other cell process. Cells such as muscle, brain and liver cells that use a lot of energy have more mitochondria than the average human cell. </p>" +
+    " <p> Mitochondria have their own DNA, separate from the cell’s main DNA , this is thought to be because they were originally separate cells on their own. As a result, mitochondrial DNA is inherited from the mother alone, which has been very useful in studies of inheritance. </p>";
 
-export const cell_membrane_basic = "Selectively permeable double layer of lipid (lipid bilayer) with protein molcules dotted within it.  It acts as a border for the cell and the outside world and like a border guard controls what substance can enter and leave the cell. It is present in all cells.";
+export const cell_membrane_basic = "<p> The cell membrane is made up of a double layer of fats, known as a lipid bilayer, with protein molecules dotted within it.  It acts as a border for the cell and the outside world and, controls what substance can enter and leave the cell. Since it only allows certain molecules in and out, it is known as selectively permeable. It does this through diffusion, active transport, and osmosis.  </p>" +
+    "<p>  It is present in all types of cells. </p>";
 
-export const cell_membrane_adv = "<p> The cell membrane (or plasma membrane) is found in all cells and separates the interior of the cell from the outside. This membrane is made up of a semi-permeable lipid bilayer. It regulates what materials enter and leave the cell </p>" +
-    "<p> It also manages how cells communciate with other cells, through what chemicals it realises and through certain proteins are studded through out. </p>" +
-    "<p> Chemicals move through across the membrane with through diffusion, the movement of molecules from an area of high concentration to an area of low concentration, or through transport proteins which move bigger molecules in and out. </p>";
+export const cell_membrane_adv = "<p> The cell membrane (or plasma membrane) is made up of a semi-permeable lipid bilayer that regulates what materials enter and leave the cell. This regulates how the cell communicates with other cells through what chemicals it releases and takes in and by placing specific proteins in its structure facing outwards.</p>" +
+    "<p> Chemicals can selectively move across the membrane with diffusion, the passive movement of molecules from an area of high concentration to an area of low concentration, or through transport proteins. Transport proteins are proteins studded into the lipid bilayer that allow bigger molecules in and out of the cell.  </p>";
+
+//Up to here on revision adding
 
 export const nucleolus_basic = "Part of the nucleus, the nucleolus constructs the subunits that will make up ribosomes. Ribsomal sub-units are built out of ribosomal RNA, a nucleric acid like DNA, and proteins . </p> " +
     " <p> These subunits are then moved into the larger nucleus where they are fused into ribsomes, before being released into the cytoplasm. </p>";
@@ -22,9 +19,6 @@ export const nucleolus_adv = "<p> Part of the nucleus, the nucleolus is the larg
     "<p> Ribosomal subunits combine in pairs to create ribosomes, though that process occurs outside the nucleolus. These ribosomal subunits are contructed of ribosomal RNA (rRNA) and proteins</p>" +
     "<p> The Nucleolus contributes to other jobs like cell growth management</p>";
 
-// "<p> Part of the nucleus, the nucleolus is the largest structure in the nucleous and form around specific chomosomal regions (organising regions). The Nucleolus is made of proteins, DNA and RNA. </p>" +
-// " <p>RNA is a nucleric acid like DNA, but smaller. Importantly unlike DNA, is able to leave the nucleus. This means that it can carry messages from the nucleous to other organelles </p>" +
-// "<p> RNA is created by proteins that copying DNA into RNA, a process known as transcription. This forms m-RNA which is then further processed within the nucleous before moving into the cytoplasm and entering a ribosome. The ribosome then creates the protein encoded onto the RNA, in a process known as protein synthesis </p>";
 
 export const lysosome_basic = "<p> Lysosomes act the digestive and disposal system of the cell. There are normally multiple in a cell. </p> <p> They contains a variety of enzymes that each breakdown the different waste materials and cellular debris. </p><p> They are a type of vesicle - which are membrane bound structures </p>";
 
