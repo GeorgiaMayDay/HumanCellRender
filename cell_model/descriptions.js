@@ -1,7 +1,10 @@
-export const mitochondria_basic = "<p> The source of energy for the cell.  Animal, plant and even some fungal cells have Mitochondria They produce most of the chemical energy needed by the cell by adding oxygen to glucose and turning it into ATP, the fuel of the cell. This process is known as ‘aerobic respiration’. Mitochondria are enclosed in a double membrane which is quite unusual for a cell organelle. </p> " +
+export const mitochondria_basic = "<p> The source of energy for the cell.  Animal, plant and even some fungal cells have Mitochondria. They produce most of the chemical energy needed by the cell by adding oxygen to glucose and turning it into ATP, the fuel of the cell. </p> " +
+    "<p>This process is known as ‘aerobic respiration’. Mitochondria are enclosed in a double membrane which is quite unusual for a cell organelle. </p> " +
     "<p> Different cells have different amounts of mitochondria depending on how much energy they need.  For example, your muscles, brain, and liver have lots of mitochondria, since they need lots of energy.</p> ";
 
-export const mitochondria_adv = "<p> Mitochondria (singular, a mitochondrion) generate most of the chemical energy needed to power the cell's biochemical reactions. Mitochondria use their double cell membrane to generate oxygen-powered electrochemical gradient in the space between them. This electrochemical gradient is used to lift lower-energy ADP (adenosine diphosphate) to higher-energy ATP (adenosine triphosphate). ATP can then be used to power other cell process. Cells such as muscle, brain and liver cells that use a lot of energy have more mitochondria than the average human cell. </p>" +
+export const mitochondria_adv = "<p> Mitochondria (singular, a mitochondrion) generate most of the chemical energy needed to power the cell's biochemical reactions." +
+    "<p> Mitochondria use their double cell membrane to generate oxygen-powered electrochemical gradient in the space between them. This electrochemical gradient is used to lift lower-energy ADP (adenosine diphosphate) to higher-energy ATP (adenosine triphosphate). </p>" +
+    "<p>ATP can then be used to power other cell process. Cells such as muscle, brain and liver cells that use a lot of energy have more mitochondria than the average human cell. </p>" +
     " <p> Mitochondria have their own DNA, separate from the cell’s main DNA , this is thought to be because they were originally separate cells on their own. As a result, mitochondrial DNA is inherited from the mother alone, which has been very useful in studies of inheritance. </p>";
 
 export const cell_membrane_basic = "<p> The cell membrane is made up of a double layer of fats, known as a lipid bilayer, with protein molecules dotted within it.  It acts as a border for the cell and the outside world and, controls what substance can enter and leave the cell. Since it only allows certain molecules in and out, it is known as selectively permeable. It does this through diffusion, active transport, and osmosis.  </p>" +
@@ -18,7 +21,7 @@ export const nucleolus_adv = "<p> The container and organiser of chromatin, the 
     "<p> Once the mRNA leaves the cell, it finds a ribosome. This uses this information encoded in the mRNA to create proteins, in a process called translation. The nucleus is contained by the nuclear envelope, which protects it, regulates the flow of materials, and provides structure for the nucleus. </p>";
 
 export const lysosome_basic = "<p> Lysosomes act as the digestive and waste-disposal system of the cell. There are normally several in a cell, with different shapes and sizes.  </p>" +
-    "<p>They contain specialist enzymes that each break down the different waste materials. They are a type of vesicle - which is any membrane-bound structure. </p>.";
+    "<p>They contain specialist enzymes that each break down the different waste materials. They are a type of vesicle - which is any membrane-bound structure. </p>";
 
 export const lysosome_adv = "<p>  Lysosomes are membrane-enclosed organelles that act the digestive system of the cell. They breakdown proteins, nucleic acids (DNA and RNA), carbohydrates, and lipids.  </p>" +
     " <p>Although portrayed as a sphere here, they actually come in a variety of shapes, types and sizes. But all lysosomes are membrane-bound structure filled with digestive enzymes.</p>";
@@ -68,15 +71,15 @@ export const nuclear_envelope_adv = "<p>  The nuclear envelope is a multi-layer 
     "<p> These two membranes are fused at the nuclear pore complexes, holes ringed by proteins in the membrane. This allows the nuclear pores to penetrate entirely through the nuclear envelope.</p>" +
     "<p> RNA and larger molecules can only pass through the nuclear pore complexes, so nuclear pores how the nuclear envelope controls what comes out the cell</p>";
 
-export const cytsol_basic = "<p>Cytosol is the liquid in the cell.  It is not the same as the Cytoplasm which is everything between the nucleus and the cell membrane.</p>" +
+export const cytsol_adv = "<p>Cytosol is the liquid in the cell.  It is not the same as the Cytoplasm which is everything between the nucleus and the cell membrane.</p>" +
     "<p>This fluid maintains the shape of the cell and fills the void between organelles. Ribosomes, organelle, protein, all float within it. Millions of chemical reactions happen within it, as it helps ferry molecules, proteins, and enzymes around. </p>";
-
-export const cytsol_adv = "<p> Cytosol is the liquid in cell, separated from organelle and contained by membranes. </p>" +
-    "<p> It is not the same as the Cytoplasm which is everything between the nucleus and the cell membrane - so includes organelles like the mitochondria. </p>"
-"<p>  Though primarily water, a large mixture of ions and macromolecules (proteins), are dissolved within. </p>" + "<p> The concentration and diffusion of these substance, much like the concentrations of vitamin in the large organism, has a large impact on cell function.</p>";
 
 export const nucleus_basic = "<p>A large complex structure, the nucleus contains the cell's genetic material, stored as chromosomes. It controls what is produced within the cell by sending out messenger RNA (mRNA).</p>" +
     "<p> mRNA is a nucleic acid, like DNA, which is created by copying genes from the DNA. Since mRNA chunks are smaller the DNA, they are able to leave the cell through the nuclear membrane.</p>";
+
+export const cytsol_basic = "<p> Cytosol is the liquid in cell, separated from organelle and contained by membranes. </p>" +
+    "<p> It is not the same as the Cytoplasm which is everything between the nucleus and the cell membrane - so includes organelles like the mitochondria. </p>"
+"<p>  Though primarily water, a large mixture of ions and macromolecules (proteins), are dissolved within. </p>" + "<p> The concentration and diffusion of these substance, much like the concentrations of vitamin in the large organism, has a large impact on cell function.</p>";
 
 export const nucleus_adv = "<p>The container and organiser of chromatin, the mix of protein and DNA, the nucleus is the most important organelle in human cells.</p>" +
     "<p> The nucleus performs many roles. such as DNA replication or the production of ribosomes, the most important of which is the transcription, the process where messenger RNA is created(mRNA). </p>" +
