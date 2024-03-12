@@ -7,7 +7,7 @@
             "d": "Cell wall"
         },
         "correctAnswer": "d",
-        "tag": "Analysis"
+        "tag": "Remembering"
     },
     {
         "question": "Cells with more mitochondria have more...?",
@@ -41,6 +41,28 @@
         "tag": "Remembering"
     },
     {
+        "question": "Ribosomes make...",
+        "answers": {
+            "a": "Energy",
+            "b": "Proteins",
+            "c": "Lipids",
+            "d": "RNA"
+        },
+        "correctAnswer": "b",
+        "tag": "Remembering"
+    },
+    {
+        "question": "What is the word use to describe the process that occurs in the mitochondria to generate energy?",
+        "answers": {
+            "a": "Active Transport",
+            "b": "Aerobic Respiration",
+            "c": "Active Respiration",
+            "d": "Aerobic Transport"
+        },
+        "correctAnswer": "b",
+        "tag": "Remembering"
+    },
+    {
         "question": "What is the difference between active transport and diffusion?",
         "answers": {
             "a": "Diffusion is passive movement of particles from a higher concentration and lower concentration, active transport is diffusion of water across a membrane ",
@@ -58,7 +80,18 @@
             "b": "No, a sperm would only need a few mitochondria"
         },
         "correctAnswer": "a",
-        "tag": "Analysis"
+        "tag": "Comprehension"
+    },
+    {
+        "question": "What is the cell membrane primarily made out of? ",
+        "answers": {
+            "a": "Proteins",
+            "b": "Cellulose",
+            "c": "Lipids",
+            "d": "Water Molecules"
+        },
+        "correctAnswer": "c",
+        "tag": "Remembering"
     },
     {
         "question": "What is the organelle labelled 2 on the diagram?",
