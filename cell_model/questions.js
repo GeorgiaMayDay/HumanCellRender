@@ -52,7 +52,7 @@ const question_list = [
     new Question("Click on the organelle that produces energy for the cell", "Mitochondria", "Click", "No, this is a {}", "Correct! This is the {}."),
     new Question("Click on an organelle that has a membrane or functions as a membrane", ["Mitochondria", "Golgi Body", "Nucleus", "Nucleolus", "Nuclear Envelope", "Smooth Endoplasmic Recticulum", "Rough Endoplasmic Recticulum", "Lysosome"], "Click", "No, this is a {}, which has no membrane", "Correct! This is the {}, which has a membrane."),
     new Question("Click on an organelle that handles proteins or is involves in protein synthesis", ["Golgi Body", "Rough Endoplasmic Recticulum", "Smooth Endoplasmic Recticulum", "Nucleus", "Ribosome"], "Click", "No, the {} aren't involved in protein synthesis", "Correct! {} is part of protein synthesis."),
-    new Question("Click on the biggest organelle in the cell", ["Rough Endoplasmic Recticulum", "Smooth Endoplasmic Recticulum"], "Click", "No", "Correct! The Endoplasmic Reticulum is the largest organelle in the cell.")
+    new Question("Click on the biggest organelle in the cell", ["Nucleus"], "Click", "No", "Correct! The Endoplasmic Reticulum is the largest organelle in the cell.")
 ];
 
 for (let p of sprite) {
