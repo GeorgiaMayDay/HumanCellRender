@@ -21,7 +21,7 @@
         "tag": "Comprehension"
     },
     {
-        "question": "If the cell has a protien which it wants to leave the cell what organelles MUST it go though ?",
+        "question": "If the cell has a protien which it wants to leave the cell, what organelles MUST it go though ?",
         "answers": {
             "a": "Nucleus",
             "b": "Golgi Body",
@@ -29,7 +29,18 @@
             "d": "Nuclear Pores"
         },
         "correctAnswer": "b",
-        "tag": "Analysis"
+        "tag": "Comprehension"
+    },
+    {
+        "question": "What is the benefit of Endoplasmic Recticulum being positioned how it is relative to the nucleus?",
+        "answers": {
+            "a": "Being close to the nucleus helps the Endoplasmic Recticulum keep it's shape ",
+            "b": "Being far from the nucleus means it's easier for molecule to enter both organelle ",
+            "c": "Being close to the nucleus means the the Endoplasmic Recticulum is better at synthesising protiens",
+            "d": "Being far to the nucleus means the the Endoplasmic Recticulum is better at synthesising lipids"
+        },
+        "correctAnswer": "c",
+        "tag": "Comprehension"
     },
     {
         "question": "If the cell has a protien which it wants to leave the cell what organelles MUST it go though ?",
@@ -40,7 +51,7 @@
             "d": "Nuclear Pores"
         },
         "correctAnswer": "b",
-        "tag": "Analysis"
+        "tag": "Comprehension"
     },
     {
         "question": "All of the following organelle interact with ribosomes except... ",
@@ -96,6 +107,39 @@
         "tag": "Remembering"
     },
     {
+        "question": "What is the lysosomes role with in the cell?",
+        "answers": {
+            "a": "Waste-Disposal",
+            "b": "Defense",
+            "c": "Respiration",
+            "d": "Transciption"
+        },
+        "correctAnswer": "a",
+        "tag": "Remembering"
+    },
+    {
+        "question": "What is the name of the structure that makes up the cell membrane? Made up of lipids and protein channels. ",
+        "answers": {
+            "a": "",
+            "b": "Cellulose",
+            "c": "Lipids",
+            "d": "Water Molecules"
+        },
+        "correctAnswer": "c",
+        "tag": "Remembering"
+    },
+    {
+        "question": "Which of the following organelle is NOT part of an animal cell?",
+        "answers": {
+            "a": "Lipid Layer",
+            "b": "Protien-Lipid Bilayer",
+            "c": "Lipid Bilayer",
+            "d": "Protien Layer"
+        },
+        "correctAnswer": "d",
+        "tag": "Remembering"
+    },
+    {
         "question": "The region around the Golgi apparatus where other organelles are absent is called?",
         "answers": {
             "a": "Zone of inhibition",
@@ -117,4 +161,6 @@
         "correctAnswer": "b",
         "tag": "Remembering"
     }
+
+
 ]

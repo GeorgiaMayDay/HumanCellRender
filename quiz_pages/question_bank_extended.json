@@ -43,7 +43,7 @@
         "tag": "Comprehension"
     },
     {
-        "question": "If the cell has a protien which it wants to leave the cell what organelles MUST it go though ?",
+        "question": "If the cell has a protein which it wants to leave the cell what organelles MUST it go though ?",
         "answers": {
             "a": "Nucleus",
             "b": "Golgi Body",
@@ -51,7 +51,7 @@
             "d": "Nuclear Pores"
         },
         "correctAnswer": "b",
-        "tag": "Analysis"
+        "tag": "Comprehension"
     },
     {
         "question": "All of the following organelle interact with ribosomes except... ",
