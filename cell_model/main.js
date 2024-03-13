@@ -76,7 +76,7 @@ function light_update() {
 // Objects in space
 const loader = new GLTFLoader();
 
-loader.load('3D_models/3D_cell_model_ribosomes.glb', function(full_cell_model) {
+loader.load('3D_models/3D_cell_model.glb', function(full_cell_model) {
 
     const cell_model = full_cell_model.scene
 
