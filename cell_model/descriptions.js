@@ -25,7 +25,7 @@ export const lysosome_basic = "<p> Lysosomes act as the digestive and waste-disp
 
 export const lysosome_adv = "<p>  Lysosomes are membrane-enclosed organelles that act as the digestive system of the cell. They breakdown proteins, nucleic acids (DNA and RNA), carbohydrates, and lipids.  </p>" +
     " <p>Although portrayed as a sphere here, they actually come in a variety of shapes, types and sizes. But all lysosomes are membrane-bound structures filled with digestive enzymes.</p>";
-s
+
 export const golgi_body_basic = "<p> The Golgi body, also known as the Golgi Apparatus, is an organelle made of folded membrane sacs. It is involved in protein processing. </p>" +
     "<p> Protiens and other molecules, leave the Endoplasmic Recticulum and the Golgi Body absorbs them. The Golgi Body adds any more molecules, if needed, and wraps them in a membrane sac (known as vesicles). </p>" +
     "<p>The proteins in their vesciles can then can be moved to their final destination </p>";
