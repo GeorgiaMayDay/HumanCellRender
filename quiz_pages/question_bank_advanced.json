@@ -120,7 +120,7 @@
     {
         "question": "What is the name of the structure that makes up the cell membrane? Made up of lipids and protein channels. ",
         "answers": {
-            "a": "",
+            "a": "Proteins",
             "b": "Cellulose",
             "c": "Lipids",
             "d": "Water Molecules"
@@ -129,7 +129,7 @@
         "tag": "Remembering"
     },
     {
-        "question": "Which of the following organelle is NOT part of an animal cell?",
+        "question": "What is the name of the structure of the cell membrane?",
         "answers": {
             "a": "Lipid Layer",
             "b": "Protien-Lipid Bilayer",
