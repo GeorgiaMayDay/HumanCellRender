@@ -40,7 +40,7 @@
             "d": "Being far to the nucleus means the the Endoplasmic Recticulum is better at synthesising lipids"
         },
         "correctAnswer": "c",
-        "tag": "Comprehension"
+        "tag": "Application"
     },
     {
         "question": "If the cell has a protien which it wants to leave the cell what organelles MUST it go though ?",
@@ -118,7 +118,18 @@
         "tag": "Remembering"
     },
     {
-        "question": "What is the name of the structure that makes up the cell membrane? Made up of lipids and protein channels. ",
+        "question": "Scientists found a poison which can inhibit protein synthesis in living cells. It can be hypothesized that the site of poison activity is in the...",
+        "answers": {
+            "a": "Cytoplasm",
+            "b": "Mitochondria",
+            "c": "Centrosome",
+            "d": "Ribosome"
+        },
+        "correctAnswer": "d",
+        "tag": "Application"
+    },
+    {
+        "question": "What is the cell membrane primarily made up of?",
         "answers": {
             "a": "Proteins",
             "b": "Cellulose",
@@ -129,14 +140,14 @@
         "tag": "Remembering"
     },
     {
-        "question": "What is the name of the structure of the cell membrane?",
+        "question": "What is the name of the structure that makes up the cell membrane? Made up of lipids and protein channels. ",
         "answers": {
             "a": "Lipid Layer",
             "b": "Protien-Lipid Bilayer",
             "c": "Lipid Bilayer",
             "d": "Protien Layer"
         },
-        "correctAnswer": "d",
+        "correctAnswer": "c",
         "tag": "Remembering"
     },
     {
@@ -161,6 +172,5 @@
         "correctAnswer": "b",
         "tag": "Remembering"
     }
-
 
 ]

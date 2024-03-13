@@ -23,8 +23,10 @@ function getRndUniqueQuestion() {
     let questionPool;
     if (num_of_question_done <= 3) {
         questionPool = rememberQuestions;
-    } else if (num_of_question_done <= 6) {
+    } else if (num_of_question_done <= 4) {
         questionPool = comprehensionQuestions;
+    } else if (num_of_question_done <= 5) {
+        questionPool = applicationQuestions;
     }
     question_number = getRndQuestionNumber(questionPool.length)
     question = questionPool[question_number];
@@ -47,6 +49,7 @@ let num_of_question_done = 0;
 let myQuestions;
 let rememberQuestions = [];
 let comprehensionQuestions = [];
+let applicationQuestions = [];
 let questionUsed;
 
 function getRndQuestionNumber(total_num_of_question) {
@@ -60,6 +63,8 @@ function sortQuestions(all_questions) {
             rememberQuestions.push(question);
         } else if (question["tag"] == "Comprehension") {
             comprehensionQuestions.push(question);
+        } else if (question["tag"] == "Application") {
+            applicationQuestions.push(question);
         } else {
             console.log(question);
             throw new Error("The tag for this question is not correct");

@@ -80,6 +80,17 @@
             "b": "No, a sperm would only need a few mitochondria"
         },
         "correctAnswer": "a",
+        "tag": "Application"
+    },
+    {
+        "question": "Which of the following structures is responsible for controlling the cells inner ion concentration in relation to their outer environment?",
+        "answers": {
+            "a": "Cell Membrane",
+            "b": "Golgi Body",
+            "c": "Cell Wall",
+            "d": "Centrosome"
+        },
+        "correctAnswer": "a",
         "tag": "Comprehension"
     },
     {
