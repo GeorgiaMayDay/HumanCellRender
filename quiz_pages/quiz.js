@@ -145,7 +145,7 @@ function generateQuiz() {
             // add an answer
             answers.push(
                 '<input type="radio" class="ansbutton" name="options" value="' + letter + '" id="' + letter + '">' +
-                '<label class="btn btn-primary btn-xl" for="' + letter + '">' +
+                '<label class="btn btn-primary btn-xl" for="' + letter + '" id="label-' + letter + '">' +
                 letter + ': ' +
                 question['answers'][letter] + "</label>"
             );
@@ -178,6 +178,7 @@ function generateQuiz() {
         // find selected answer
         userAnswer = (answerContainer.querySelector('input[name=options]:checked') || {}).value;
         btns = answerContainer.querySelectorAll('input[name=options]')
+        let correctAnswerBtn = document.getElementById(question['correctAnswer']);
 
         //Disable the buttons
         btns.forEach((answer_btns) => {
@@ -186,10 +187,9 @@ function generateQuiz() {
         });
         if (userAnswer === question['correctAnswer']) {
             correct = true;
-
         }
 
-        // show number of correct answers out of total and reveal next button
+        // if correct, and colour correct button and reveal next button
         if (correct) {
             resultsContainer.innerHTML = 'Correct';
             resultsContainer.style.backgroundColor = '0EB70E';
@@ -197,6 +197,8 @@ function generateQuiz() {
         } else {
             resultsContainer.innerHTML = 'Incorrect';
             resultsContainer.style.backgroundColor = '8b0000';
+            correctAnswerBtn.id = "correct";
+            console.log(correctAnswerBtn);
         }
         nextButton.style.display = "block";
         submitButton.style.display = "none";

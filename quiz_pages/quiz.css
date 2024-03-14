@@ -64,6 +64,11 @@
     color: black;
 }
 
+#correct+label {
+    background: var(--fern-green) !important;
+    border-color: green !important;
+}
+
 #success {
     justify-content: center;
 }
