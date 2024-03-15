@@ -261,9 +261,10 @@ function default_annotation() {
     appear_button("tour");
     toggle_mascot();
     result.style.display = "none";
-    title.innerHTML = "<strong>" + "Animal Cell Model" + "</strong>";
-    details.innerHTML = "This is a cell model for you to play around with. Feel free to click on any of the points to learn more about them." +
-        "<br> You can answer some questions in Quiz mode by switching over the learning toggle";
+    title.innerHTML = "<strong>" + "Cell Model" + "</strong>";
+    details.innerHTML = "Feel free to click on any of the points to learn more about them." +
+        "<br> Answer some questions by switching from Learning to Quiz mode" +
+        "<br> For a guided experience, switch from Explore to Tour mode!";
 }
 
 function update_annotation(sprite, quickclick = false) {
@@ -398,7 +399,6 @@ function set_up_question() {
     let details = document.querySelector('#details');
     let question = current_quiz.generateNewQuestion();
     hide_button("tour");
-
     title.innerHTML = "<strong>" + question.getQuestion() + "<strong>";
     details.innerHTML = details.innerHTML + " <br> <h3> Score <br>" + current_quiz.getScore() + "/5 <h3>"
 }
