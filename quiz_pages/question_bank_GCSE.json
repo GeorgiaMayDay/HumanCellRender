@@ -24,7 +24,7 @@
         "answers": {
             "a": "Providing structure for the cell",
             "b": "Facilitating Active Transport",
-            "c": "Protien Synthesis",
+            "c": "protein Synthesis",
             "d": "Facilitating Diffusion"
         },
         "correctAnswer": "c",
@@ -35,7 +35,7 @@
             "a": "Inner and Outer",
             "b": "Double and Single",
             "c": "Smooth and Rough",
-            "d": "Protien and Lipid"
+            "d": "Protein and Lipid"
         },
         "correctAnswer": "c",
         "tag": "Remembering"

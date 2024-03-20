@@ -21,7 +21,7 @@
         "tag": "Comprehension"
     },
     {
-        "question": "If the cell has a protien which it wants to leave the cell, what organelles MUST it go though ?",
+        "question": "If the cell has a protein which it wants to leave the cell, what organelles MUST it go though ?",
         "answers": {
             "a": "Nucleus",
             "b": "Golgi Body",
@@ -36,14 +36,14 @@
         "answers": {
             "a": "Being close to the nucleus helps the Endoplasmic Recticulum keep it's shape ",
             "b": "Being far from the nucleus means it's easier for molecule to enter both organelle ",
-            "c": "Being close to the nucleus means the the Endoplasmic Recticulum is better at synthesising protiens",
+            "c": "Being close to the nucleus means the the Endoplasmic Recticulum is better at synthesising proteins",
             "d": "Being far to the nucleus means the the Endoplasmic Recticulum is better at synthesising lipids"
         },
         "correctAnswer": "c",
         "tag": "Application"
     },
     {
-        "question": "If the cell has a protien which it wants to leave the cell what organelles MUST it go though ?",
+        "question": "If the cell has a protein which it wants to leave the cell what organelles MUST it go though ?",
         "answers": {
             "a": "Nucleus",
             "b": "Golgi Body",
@@ -96,7 +96,7 @@
         "tag": "Comprehension"
     },
     {
-        "question": "Which organelle handles shipping and distributing of protiens and chemicals produced by the cell?",
+        "question": "Which organelle handles shipping and distributing of proteins and chemicals produced by the cell?",
         "answers": {
             "a": "Mitochondria",
             "b": "Smooth Endoplasmic Reticulum",
@@ -143,9 +143,9 @@
         "question": "What is the name of the structure of the cell membrane?",
         "answers": {
             "a": "Lipid Layer",
-            "b": "Protien-Lipid Bilayer",
+            "b": "Protein-Lipid Bilayer",
             "c": "Lipid Bilayer",
-            "d": "Protien Layer"
+            "d": "Protein Layer"
         },
         "correctAnswer": "c",
         "tag": "Remembering"
@@ -165,7 +165,7 @@
         "question": "Pick the correctly matched pair?",
         "answers": {
             "a": "Lysosomes - involved in synthesizing amino acids",
-            "b": "Endoplasmic reticulum - plays a role in synthesising protiens and lipids ",
+            "b": "Endoplasmic reticulum - plays a role in synthesising proteins and lipids ",
             "c": "Centrosomes - Provides enzymes for digestion",
             "d": "All of the above"
         },

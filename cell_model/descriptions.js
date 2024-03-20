@@ -27,7 +27,7 @@ export const lysosome_adv = "<p>  Lysosomes are membrane-enclosed organelles tha
     " <p>Although portrayed as a sphere here, they actually come in a variety of shapes, types and sizes. But all lysosomes are membrane-bound structures filled with digestive enzymes.</p>";
 
 export const golgi_body_basic = "<p> The Golgi body, also known as the Golgi Apparatus, is an organelle made of folded membrane sacs. It is involved in protein processing. </p>" +
-    "<p> Protiens and other molecules, leave the Endoplasmic Recticulum and the Golgi Body absorbs them. The Golgi Body adds any more molecules, if needed, and wraps them in a membrane sac (known as vesicles). </p>" +
+    "<p> Proteins and other molecules, leave the Endoplasmic Recticulum and the Golgi Body absorbs them. The Golgi Body adds any more molecules, if needed, and wraps them in a membrane sac (known as vesicles). </p>" +
     "<p>The proteins in their vesciles can then can be moved to their final destination </p>";
 
 export const golgi_body_adv = "<p> The Golgi Body, or Golgi Apparatus, is made up of a series of stacked, folded membranes. These flattened sacs are known as cisternae. It is located next to the nucleus, in what's known as the perinuclear position. </p>" +
