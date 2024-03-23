@@ -206,8 +206,10 @@ function generateQuiz() {
     }
 
     function displayResults() {
-        let control_container = document.getElementById("control-col");
-        control_container.style.display = "none";
+        nextButton.style.display = "none";
+        submitButton.style.display = "none";
+        let redirect_button = document.getElementById('cell-model')
+        redirect_button.style.display = "block";
         questionContainer.innerHTML = '<div class="success"> You did it </div>';
         answerContainer.innerHTML = '';
         resultsContainer.innerHTML = "<h4> You got " + score + "/" + quiz_length + "</h4>";

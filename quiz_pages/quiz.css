@@ -12,6 +12,10 @@
     width: 30%;
 }
 
+#cell-model {
+    display: none;
+}
+
 .btn-xl {
     padding: 10px 20px;
     font-size: 20px;
