@@ -43,6 +43,7 @@ let submitButton = document.getElementById('submit');
 let resultsContainer = document.getElementById('reveal');
 let nextButton = document.getElementById('next');
 let restartButton = document.getElementById('restart');
+let redirectButton = document.getElementById('cell-model')
 let score = 0
 let quiz_length = 6;
 let num_of_question_done = 0;
@@ -110,6 +111,11 @@ function generateQuiz() {
     // on next, move to new question
     nextButton.onclick = function() {
         generateQuiz();
+    }
+
+    //redirect to the cell model
+    redirectButton.onclick = function() {
+        location.href = "https://georgiamayday.github.io/HumanCellRender/cell_model.html";
     }
 
     function showQuestion() {
@@ -208,8 +214,7 @@ function generateQuiz() {
     function displayResults() {
         nextButton.style.display = "none";
         submitButton.style.display = "none";
-        let redirect_button = document.getElementById('cell-model')
-        redirect_button.style.display = "block";
+        redirectButton.style.display = "block";
         questionContainer.innerHTML = '<div class="success"> You did it </div>';
         answerContainer.innerHTML = '';
         resultsContainer.innerHTML = "<h4> You got " + score + "/" + quiz_length + "</h4>";
