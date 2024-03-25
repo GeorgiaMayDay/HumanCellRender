@@ -21,6 +21,13 @@ export class Annotation_point {
         this.pan_position = pan_position;
         this.highlighted = false;
 
+        // const geometry = new THREE.BoxGeometry(10, 10, 10);
+        // const material = new THREE.MeshBasicMaterial({ color: 0x00ff00 });
+        // const cube = new THREE.Mesh(geometry, material);
+        // cube.position.set(position[0], position[1], position[2]);
+        // this.cube = cube;
+
+
         const highlight_map = new THREE.TextureLoader().load('./images/annotation_point_highlighted.png');
         const highlight_annotation_material = new THREE.SpriteMaterial({ map: highlight_map, color: 0xA2CE72 });
         let highlight_sprite = new THREE.Sprite(highlight_annotation_material);
