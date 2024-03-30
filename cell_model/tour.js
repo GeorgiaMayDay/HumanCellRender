@@ -28,7 +28,7 @@ export class BasicTour extends Tour {
         for (let i = 0; i < 5; i++) {
             let png_number = i + 1;
             let map = new THREE.TextureLoader().load('./images/numbered_annotation_points/' + png_number + '.png');
-            let tour_material = new THREE.SpriteMaterial({ map: map, color: 0xffffff });
+            let tour_material = new THREE.SpriteMaterial({ map: map, color: 0xffffff, depthTest: false });
             let set_up_tour_sprite = new THREE.Sprite(tour_material);
             set_up_tour_sprite.scale.set(15, 15, 1);
             tour_sprites_list[i] = set_up_tour_sprite;

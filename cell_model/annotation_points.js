@@ -1,7 +1,7 @@
 import * as THREE from 'https://unpkg.com/three/build/three.module.js';
 
 const map = new THREE.TextureLoader().load('./images/annotation_point.png');
-const annotation_material = new THREE.SpriteMaterial({ map: map, color: 0xffffff });
+const annotation_material = new THREE.SpriteMaterial({ map: map, color: 0xffffff, depthTest: false });
 
 export function points_visible(isVisible = true) {
     if (isVisible == true) {
@@ -29,7 +29,7 @@ export class Annotation_point {
 
 
         const highlight_map = new THREE.TextureLoader().load('./images/annotation_point_highlighted.png');
-        const highlight_annotation_material = new THREE.SpriteMaterial({ map: highlight_map, color: 0xA2CE72 });
+        const highlight_annotation_material = new THREE.SpriteMaterial({ map: highlight_map, color: 0xA2CE72, depthTest: false });
         let highlight_sprite = new THREE.Sprite(highlight_annotation_material);
         highlight_sprite.scale.set(15, 15, 1);
         highlight_sprite.position.set(position[0], position[1], position[2]);
