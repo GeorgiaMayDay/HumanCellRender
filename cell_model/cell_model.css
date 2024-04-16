@@ -27,7 +27,10 @@
  .quiz_link_button {
      width: fit-content;
      background-color: var(--celadon);
-     margin-left: 50px;
+     margin-left: 35px;
+     height: 50px;
+     width: 100px;
+     font-size: xx-large;
  }
  
  #Mascot {
