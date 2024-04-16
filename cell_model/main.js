@@ -342,8 +342,8 @@ function set_up_tour() {
     let title = document.querySelector('#title');
     let details = document.querySelector('#details');
     hide_button("quiz");
-    title.innerHTML = "<strong> Welcome to Tour Mode! Click on the organelle's in order <strong>";
-    details.innerHTML = "This is the GSCE tour, it'll goes through the key organelle needed for the exams and their functions";
+    title.innerHTML = "<strong> Welcome to the tour of Protien synthesis! Click on the organelle's in order <strong>";
+    details.innerHTML = "Appropriate for students at a GCSE level, it'll goes through the key organelle needed for the exams and their functions";
     points_visible(false);
     for (let p of Annotation_List) {
         if (p.inTour()) {
@@ -510,4 +510,5 @@ function animate() {
     renderer.render(scene, camera);
 }
 
+animate();
 animate();
