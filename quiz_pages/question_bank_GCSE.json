@@ -20,12 +20,12 @@
         "correctAnswer": "a",
         "tag": "Remembering"
     }, {
-        "question": "One of the follow is NOT a function of the cell wall?",
+        "question": "One of the follow is NOT a function of the cell membrane?",
         "answers": {
             "a": "Providing structure for the cell",
-            "b": "Facilitating Active Transport",
-            "c": "Protein Synthesis",
-            "d": "Facilitating Diffusion"
+            "b": "Facilitating active transport",
+            "c": "Waste product disposal",
+            "d": "Facilitating diffusion"
         },
         "correctAnswer": "c",
         "tag": "Remembering"
